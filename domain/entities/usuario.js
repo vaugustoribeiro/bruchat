@@ -1,18 +1,14 @@
-module.exports = function Usuario() {
-    var self = this;
-    self.login = '';
-    self.senha = '';
+module.exports = {
     
-    self.realizarLogin = function() {
-        if(self.login === 'vinicius' && self.senha === '123')
-        {
-            return 'usuário autenticado';
-        }
-        else
-        {
-            return 'erro'
+    Usuario: function() {
+        var self = this;
+        self.login = '';
+        self.senha = '';
+        self.realizarLogin = function() {
+            if(self.login.toLowerCase() !== 'vinicius' && self.senha !== '123')
+            {
+                throw new Error('O login ou a senha estão incorretos!');
+            }
         }
     }
-    
-    return self;
 }
