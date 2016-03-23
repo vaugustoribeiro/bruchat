@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
       res.render('index', { usuario: req.cookies.usuario });
   } 
   else {
-      res.render('login');
+      res.redirect('login');
   }
-  
+  next();
 });
 
 module.exports = router;

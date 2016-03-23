@@ -1,14 +1,17 @@
-module.exports = {
+module.exports.usuario = function(login, senha) {
     
-    Usuario: function() {
-        var self = this;
-        self.login = '';
-        self.senha = '';
-        self.realizarLogin = function() {
-            if(self.login.toLowerCase() !== 'vinicius' && self.senha !== '123')
-            {
-                throw new Error('O login ou a senha estão incorretos!');
-            }
+    var self = this;
+    
+    if(!login || !senha) {
+        throw new Error('O login ou a senha estão incorretos!');
+    }
+        
+    self.login = login;
+    self.senha = senha;
+    self.realizarLogin = function() {
+        if(self.login.toLowerCase() !== 'vinicius' || self.senha !== '123')
+        {
+            throw new Error('O login ou a senha estão incorretos!');
         }
     }
 }

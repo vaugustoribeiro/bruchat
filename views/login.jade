@@ -5,22 +5,21 @@ block content
         
         div.img-responsive.center-block.img-circle.logo(style='background-image: url("/images/logo.png")')
         
-        h1 login
+        h1(data-bind='text: titulo')
+        .pull-right.span.label.label-danger= status
         
-        if(status != '')
-            h4= status  
-    
         form(action='login', method='post')        
             .form-group
-                input.form-control(name='login', type='text', placeholder='Login', value=login, required)
+                input.form-control(data-bind='value: login, valueUpdate: "afterkeydown"', name='login', type='text', placeholder='Login')
             .form-group
-                input.form-control(name='senha', type='password', placeholder='Senha', value=senha, required)    
+                input.form-control(name='senha', type='password', placeholder='Senha')
             input.btn.btn-primary(type='submit', value='Autenticar')
-    
+            a.pull-right(href='cadastrar') Quero me cadastrar
+
     style(type='text/css'). 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             box-shadow: 0 0 10px #ff6666;
             background-position: 50% 50%;
             background-size: 126% 126%;
@@ -33,4 +32,4 @@ block content
             height: 100%; 
         }
     
-    script(src='/javascripts/LoginViewModel.js')
+    script(src='/javascripts/loginViewModel.js')

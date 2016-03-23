@@ -1,30 +1,37 @@
 var express = require('express');
 var router = express.Router();
-var entidade = require('../domain/entities/usuario.js');
+var application = require('../application/usuarioApplication.js');
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
   if(req.cookies.usuario) {
-      res.render('index');
+      res.redirect('/');
   }
   res.render('login', { login: '', senha: '', status:'' });
+  next();
 });
 
 /* POST */
 router.post('/', function(req, res, next) {
-    var usuario = new entidade.Usuario();
-    usuario.login = req.body.login;
-    usuario.senha = req.body.senha;
+    
+    var cookie = {
+        login: req.body.login, 
+        senha: req.body.senha,
+        status: ''
+    }
+    
+    var usuarioApplication = new application.usuarioApplication();
     
     try {
-        usuario.realizarLogin();
-        res.cookie('usuario', usuario, { maxAge: 60000 });
+        usuarioApplication.realizarLogin(req.body.login, req.body.senha)
+        res.cookie('usuario', cookie, { maxAge: 60000 });
+        res.redirect('/');
     }
-    catch(error) {
-        res.render('login', { login: req.body.login, senha: req.body.senha, status:  error.message});
+    catch(erro) {
+        cookie.status = erro.message;
+        res.render('login', cookie);
     }
-     
-    res.render('index');
+    next();
 });
 
 module.exports = router;
