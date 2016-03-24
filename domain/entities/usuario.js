@@ -5,13 +5,14 @@ module.exports.usuario = function(login, senha) {
     if(!login || !senha) {
         throw new Error('O login ou a senha estão incorretos!');
     }
-        
+    
+    self.identificador = 0;
     self.login = login;
     self.senha = senha;
     self.realizarLogin = function() {
         if(self.login.toLowerCase() !== 'vinicius' || self.senha !== '123')
         {
             throw new Error('O login ou a senha estão incorretos!');
-        }
+        } 
     }
 }

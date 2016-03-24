@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 /* POST */
 router.post('/', function(req, res, next) {
     
-    var cookie = {
+    var loginModel = {
         login: req.body.login, 
         senha: req.body.senha,
         status: ''
@@ -23,13 +23,13 @@ router.post('/', function(req, res, next) {
     var usuarioApplication = new application.usuarioApplication();
     
     try {
-        usuarioApplication.realizarLogin(req.body.login, req.body.senha)
-        res.cookie('usuario', cookie, { maxAge: 60000 });
+        usuarioApplication.realizarLogin(loginModel.login, loginModel.senha)
+        res.cookie('login', loginModel, { maxAge: 60000 });
         res.redirect('/');
     }
     catch(erro) {
-        cookie.status = erro.message;
-        res.render('login', cookie);
+        loginModel.status = erro.message;
+        res.render('login', loginModel);
     }
     next();
 });

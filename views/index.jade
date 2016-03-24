@@ -1,6 +1,18 @@
 extends layout
 
 block content
-  h1= 'Olá ' + usuario.login
-  p Bem vindo ao Witch
-  a(href="/sair") sair
+  .content-fluid
+    h1= 'Olá ' + usuario.login
+    p Bem vindo ao Witch
+    a(href="/sair") sair
+
+  script(type='text/javascript').
+    var socket = new io();
+    
+    socket.on('', function() {
+        
+    });
+    socket.emit('', function() {
+        
+    });
+    

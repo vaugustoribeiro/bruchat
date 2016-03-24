@@ -6,7 +6,7 @@ block content
         div.img-responsive.center-block.img-circle.logo(style='background-image: url("/images/logo.png")')
         
         h1(data-bind='text: titulo')
-        .pull-right.span.label.label-danger= status
+        h4= status
         
         form(action='login', method='post')        
             .form-group
@@ -31,5 +31,5 @@ block content
         body,html { 
             height: 100%; 
         }
-    
+    #result
     script(src='/javascripts/loginViewModel.js')

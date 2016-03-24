@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.clearCookie('usuario');
+  res.clearCookie('login');
   res.redirect('login');
   next();
 });
