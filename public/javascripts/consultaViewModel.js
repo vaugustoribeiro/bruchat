@@ -10,11 +10,19 @@ function entrarSalaViewModel() {
         return self.nome() ? self.nome() : "Identifique-se..."
     }, self);
     
-    self.sala = ko.observable();
+    self.idBruxo = ko.observable();
+    
+    self.quantidadeDeCartasSelecionada = ko.observable();
+    
+    self.quantidadesDeCartas = [3,7];
+    
+    self.cartasSelecionadas = ko.observableArray();
+    
+    self.observacaoFinal = ko.observable();
     
     self.nomeBruxo = ko.observable();
     
-    self.entrarNaSala = function () {
+    self.iniciarConsultaEspiritual = function () {
         
         socket.on('fs-nome-bruxo', function(nomeBruxo) {
             self.nomeBruxo(nomeBruxo);
@@ -22,11 +30,20 @@ function entrarSalaViewModel() {
             self.segundoPasso(true);
         }, self);
         
-        socket.emit('fc-iniciar-consulta', {paciente: self.nome(), sala: self.sala() });
+        socket.emit('fc-iniciar-consulta', { paciente: self.nome(), idBruxo: self.idBruxo(), quantidadeDeCartasSelecionada: self.quantidadeDeCartasSelecionada() });
         
+        socket.on('fs-exibir-carta', function(cartaSelecionada) {
+            self.cartasSelecionadas.push(cartaSelecionada);
+        });
+        
+        socket.on('fs-atualizar-observacao-final', function(novoValor) {
+           self.observacaoFinal(novoValor); 
+        });
     };
 };
 
 vm = new entrarSalaViewModel();
+
+
 
 ko.applyBindings(vm);

@@ -19,6 +19,8 @@ function criarSalaViewModel() {
         return self.nome() ? true : false;
     });
     
+    self.quantidadeDeCartas = ko.observable();
+    
     self.criarASala = function() {
         socket.emit('fc-criar-sessao-espiritual', self.nome());
         self.primeiroPasso(false);
@@ -26,7 +28,8 @@ function criarSalaViewModel() {
         socket.on('fs-iniciar-consulta', function(paciente) {
             self.segundoPasso(false);
             self.terceiroPasso(true);
-            self.falandoCom(paciente);
+            self.falandoCom(paciente.nome);
+            self.quantidadeDeCartas(paciente.quantidadeDeCartasSelecionada);
         });
     };
     
@@ -37,11 +40,23 @@ function criarSalaViewModel() {
     
     self.cartasSelecionadas = ko.observableArray();
     
+    self.observacaoFinal = ko.observable();
+    
+    self.observacaoFinal.subscribe(function(novoValor) {
+        socket.emit('fc-atualizar-observacao-final', novoValor); 
+    });
+        
     self.selecionarCarta = function(cartaSelecionada) {
-        self.cartas.push(cartaSelecionada);
-        //socket.emit('fc-exibir-carta', cartaSelecionada);
-        console.log(cartaSelecionada.nome);       
+        if(self.cartasSelecionadas().length < self.quantidadeDeCartas())
+        {
+            self.cartasSelecionadas.push(cartaSelecionada);
+            socket.emit('fc-exibir-carta', cartaSelecionada);
+        }   
     };
+    
+    self.removerCarta = function (cartaSelecionada) {
+        self.cartasSelecionadas.slice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
+    }
     
     self.cartas = [
         {

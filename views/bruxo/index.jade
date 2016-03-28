@@ -2,6 +2,22 @@ extends ../layout
 
 block content
 
+    .modal.fade.baralhoCigano(tabindex="-1" role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") x
+                    h4(class="modal-title") Baralho Cigano
+                    span Nº daCarta 
+                    input(type='text')
+                .modal-body(style="height: 600px; overflow: scroll")
+                    div#cartas(data-bind='foreach: cartas')
+                        div#carta(data-bind='click: $root.selecionarCarta')
+                            h4(align='center', data-bind='text: nome')
+                            img.center-block(data-bind='attr: { src: imagem }', width='120', height='200')
+                            div.descricao(data-bind='text: descricao')
+        
     div#primeiroPasso(data-bind='visible: primeiroPasso')
         .panel.panel-default.col-md-4.col-md-offset-4
             .panel-body
@@ -24,22 +40,33 @@ block content
             h3(align='center') Aguardando o paciente se conectar!
         
     div#terceiroPasso(data-bind='visible: terceiroPasso')
-        h1 Você está falando com 
-            span(data-bind='text: falandoCom')
-    
-    
-    div#cartas(data-bind='foreach: cartas')
-        div#carta(data-bind='click: $root.selecionarCarta', style='cursor: pointer; width: 250px; display: inline-block; background-color: #fff; border: 1px solid #999; border-radius: 5px; box-shadow: 0 0 5px #999; margin: 8px')
-            h4(align='center', data-bind='text: nome')
-            img.center-block(data-bind='attr: { src: imagem }', width='120', height='200', style='border-radius: 10px; border: 2px solid #000')
-            p(align='center', data-bind='text: descricao', style='padding: 3px')
+        div(style='width: 60%; float: left')
+            
+            h3 Você está falando com 
+                span(data-bind='text: falandoCom')
+            h4(style='color: #cc0000') Será uma jogada de  
+                span(data-bind='text: quantidadeDeCartas') 
+                span  cartas
+            
+            a(href="#", data-toggle='modal', data-target='.baralhoCigano') Selecionar Cartas
+            
+            div(style='height: 400px; overflow: auto; display: block')
+                table
+                    tr(data-bind='foreach: cartasSelecionadas')
+                        td
+                            div#carta
+                                h4(align='center', data-bind='text: nome')
+                                img.center-block(data-bind='attr: { src: imagem }', width='120', height='200')
+                                div.descricao(data-bind='text: descricao')
+                                a(href='#' data-bind='click: $root.removerCarta') remover
+                        
+            h3 Observação Final
+            textarea#observacaoFinal(data-bind='value: observacaoFinal, valueUpdate: "afterkeydown"')
         
         
-    script(src='/javascripts/bruxoViewModel.js')
-    
-    style(type='text/css').
-        #carta:hover {
-            box-shadow: 0 0 10px #000 !important;
-            background-color: #ededed !important;
-        }
-    
+        div(style='width: 20%; float: left')
+            h3 Chat
+            textarea()
+            input
+                        
+    script(src='/javascripts/bruxoViewModel.js')    

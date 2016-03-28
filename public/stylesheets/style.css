@@ -1,7 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+#carta:hover {
+            box-shadow: 0 0 10px #000 !important;
+            background-color: #ededed !important;
+        }
+        #carta .descricao {
+            font-size: 10px;
+            text-align: center;
+            padding: 3px;
+        }
+        #carta img {
+            border-radius: 10px; border: 2px solid #000;
+        }
+        #carta {
+            cursor: pointer; 
+            width: 150px; 
+            height: 330px;
+            display: inline-block; 
+            background-color: #fff; 
+            border: 1px solid #999; 
+            border-radius: 5px; 
+            box-shadow: 0 0 5px #999; 
+            margin: 8px;
+        }
+        #observacaoFinal {
+            width: 550px;
+            height: 150px;
+        }
 
 a {
   color: #00B7FF;

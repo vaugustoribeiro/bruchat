@@ -39,17 +39,25 @@ var sockets = [];
 var io = require('socket.io')(server);
 io.sockets.on('connection', function (socket) {
     
-    var clientId = socket.client.id;
+    var clientId = '/#' + socket.client.id;
+    
+    socket.on('fc-exibir-carta', function(cartaSelecionada) {
+       io.to(clientId).emit('fs-exibir-carta', cartaSelecionada); 
+    });
     
     socket.on('fc-criar-sessao-espiritual', function(nomeBruxo) {
        socket.nome = nomeBruxo; 
     });
     
+    socket.on('fc-atualizar-observacao-final', function(novoValor) {
+        io.to(clientId).emit('fs-atualizar-observacao-final', novoValor)
+    });
+    
     socket.on('fc-iniciar-consulta', function(data) {
-        var idSocketBruxo = '/#'+data.sala;
+        var idSocketBruxo = '/#'+data.idBruxo;
         socket.join(idSocketBruxo);
-        io.to(idSocketBruxo).emit('fs-iniciar-consulta', data.paciente);
-        io.to('/#'+clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
+        io.to(idSocketBruxo).emit('fs-iniciar-consulta', { nome: data.paciente, quantidadeDeCartasSelecionada: data.quantidadeDeCartasSelecionada });
+        io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
     });
     
     console.log('usuário ' + clientId + ' conectado');
