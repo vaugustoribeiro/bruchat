@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+/* GET */
 router.get('/', function(req, res, next) {
-  res.clearCookie('login');
-  res.redirect('login');
-  next();
+    res.render('consulta/index');
 });
 
 module.exports = router;
+
+

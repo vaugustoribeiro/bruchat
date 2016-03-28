@@ -1,15 +1,38 @@
 doctype html
 html
   head
-    title Witch 
+    title Bruchat 
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    
+    style(type='text/css'). 
+        .logo {
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 0 10px #dedede;
+            background-position: 50% 50%;
+            background-size: 126% 126%;
+        }
+        body { 
+            background: linear-gradient(#fff, #dedede);
+            background-repeat: no-repeat;
+        } 
+        body,html { 
+            height: 100%; 
+        }
   body
     script(src='/bower_components/jquery/dist/jquery.min.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='/bower_components/knockout/dist/knockout.js')
     script(src='/socket.io/socket.io.js')
+    
+    script.
+        socket = new io();
+        socket.on('disconnect', function(x) {
+           console.log(x);
+           return null; 
+        });
     
     block content
     

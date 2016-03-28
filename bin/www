@@ -34,19 +34,27 @@ server.on('listening', onListening);
  */
 var ko = require('knockout');
 
-var usuarios = [];
+var sockets = [];
 
 var io = require('socket.io')(server);
 io.sockets.on('connection', function (socket) {
     
-    usuarios.push(socket.client.id);
     var clientId = socket.client.id;
     
-    io.emit('novo-usuario-conectado', socket.client.id);
+    socket.on('fc-criar-sessao-espiritual', function(nomeBruxo) {
+       socket.nome = nomeBruxo; 
+    });
+    
+    socket.on('fc-iniciar-consulta', function(data) {
+        var idSocketBruxo = '/#'+data.sala;
+        socket.join(idSocketBruxo);
+        io.to(idSocketBruxo).emit('fs-iniciar-consulta', data.paciente);
+        io.to('/#'+clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
+    });
     
     console.log('usuário ' + clientId + ' conectado');
     
-    socket.on('disconnect', function(socket) {
+    socket.on('disconnect', function(status) {
        console.log('usuário ' + clientId + ' desconectado');
     });
 });

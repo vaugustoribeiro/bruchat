@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+
+    div#primeiroPasso(data-bind='visible: primeiroPasso')
+        .panel.panel-default.col-md-4.col-md-offset-4
+            .panel-body
+                
+                div.img-responsive.center-block.img-circle.logo(style='background-image: url("/images/logo2.png")')
+                
+                h1(data-bind='text: titulo')
+                
+                form#frm(action='criar', method='post')        
+                    .form-group
+                        input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
+                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='click: criarASala, enabled: habilitarBotaoCriar')
+    
+    div#segundoPasso(data-bind='visible: segundoPasso')
+        div(style='top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.1; position: absolute; z-index: 1')
+        div(style='position: absolute; z-index: 2; top: 50%; left: 50%; width: 400px; height: 200px; margin-top: -100px; margin-left: -200px')
+            div.img-responsive.center-block(style='background-image: url("/images/loader.gif"); width: 120px; height: 120px')
+            div(align='center') Seu id Bruxo: 
+                span.form-control(data-bind='text: identificador', style='display: inline; font-weight: bold')
+            h3(align='center') Aguardando o paciente se conectar!
+        
+    div#terceiroPasso(data-bind='visible: terceiroPasso')
+        h1 Você está falando com 
+            span(data-bind='text: falandoCom')
+    
+    
+    div#cartas(data-bind='foreach: cartas')
+        div#carta(data-bind='click: $root.selecionarCarta', style='cursor: pointer; width: 250px; display: inline-block; background-color: #fff; border: 1px solid #999; border-radius: 5px; box-shadow: 0 0 5px #999; margin: 8px')
+            h4(align='center', data-bind='text: nome')
+            img.center-block(data-bind='attr: { src: imagem }', width='120', height='200', style='border-radius: 10px; border: 2px solid #000')
+            p(align='center', data-bind='text: descricao', style='padding: 3px')
+        
+        
+    script(src='/javascripts/bruxoViewModel.js')
+    
+    style(type='text/css').
+        #carta:hover {
+            box-shadow: 0 0 10px #000 !important;
+            background-color: #ededed !important;
+        }
+    

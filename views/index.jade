@@ -1,18 +1,11 @@
 extends layout
 
 block content
-  .content-fluid
-    h1= 'Olá ' + usuario.login
-    p Bem vindo ao Witch
-    a(href="/sair") sair
+    .content-fluid
+  
+        table
+            tbody(data-bind='foreach: mensagens')
+                tr
+                    td(data-bind='text: $data')
 
-  script(type='text/javascript').
-    var socket = new io();
-    
-    socket.on('', function() {
-        
-    });
-    socket.emit('', function() {
-        
-    });
-    
+  
