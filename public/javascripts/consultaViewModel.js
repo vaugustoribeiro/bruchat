@@ -39,6 +39,11 @@ function entrarSalaViewModel() {
         socket.on('fs-atualizar-observacao-final', function(novoValor) {
            self.observacaoFinal(novoValor); 
         });
+        
+        socket.on('fs-remover-carta', function(cartaSelecionada) {
+            var _cartaSelecionada = $.grep(self.cartasSelecionadas(), function(e) { return e.numero === cartaSelecionada.numero; }); 
+            self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada[0]), 1);
+        });
     };
 };
 

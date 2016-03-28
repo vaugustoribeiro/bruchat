@@ -45,6 +45,10 @@ io.sockets.on('connection', function (socket) {
        io.to(clientId).emit('fs-exibir-carta', cartaSelecionada); 
     });
     
+    socket.on('fc-remover-carta', function(cartaSelecionada) {
+       io.to(clientId).emit('fs-remover-carta', cartaSelecionada);
+    });
+    
     socket.on('fc-criar-sessao-espiritual', function(nomeBruxo) {
        socket.nome = nomeBruxo; 
     });

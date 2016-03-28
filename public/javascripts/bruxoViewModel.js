@@ -55,7 +55,8 @@ function criarSalaViewModel() {
     };
     
     self.removerCarta = function (cartaSelecionada) {
-        self.cartasSelecionadas.slice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
+        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
+        socket.emit('fc-remover-carta', cartaSelecionada);
     }
     
     self.cartas = [
