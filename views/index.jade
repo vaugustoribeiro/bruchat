@@ -3,7 +3,7 @@ extends layout
 block content
 
     .row
-        .col-xs-12
+        .col-md-12
             
             img.img-responsive.center-block(src="/images/logo2.png" class="" alt="Responsive image")
             
@@ -11,7 +11,36 @@ block content
                     h1(align='center') Bem vindo ao BruChat
             
             
-            .col-xs-6.col-xs-offset-3
-            
+            .col-md-6.col-md-offset-3
+                            
                 a.btn.btn-primary.btn-lg.center-block(href="/bruxo", style='') Iniciar Sessão
+    <br>
+    
+    .col-md-3
+        .page-header
+            h3 O que é?
+        p O BruChat é uma ferramenta online para auxiliar o cartomante durante uma sessão de cartomancia.
             
+    .col-md-3
+        .page-header
+            h3 Como funciona?
+        p Lorem ipsum
+            
+    .col-md-3
+        .page-header
+            h3 Faça uma doação.
+        p A sobrevivência deste projeto, depende de você.
+        
+    .col-md-3
+        .page-header
+            h3 Na Rede.
+        p Acompanhe nosso Facebook e Twitter para ficar por dentro das novidades.
+    
+block script
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75743946-1', 'auto');
+        ga('send', 'pageview');

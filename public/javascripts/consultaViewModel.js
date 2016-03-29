@@ -45,7 +45,7 @@ function entrarSalaViewModel() {
         });
         
         socket.on('fs-remover-carta', function(cartaSelecionada) {
-            var x = ko.ultils.arrayFirst(self.cartasSelecionadas(), function(carta) {
+            var x = _.find(self.cartasSelecionadas(), function(carta) {
                 return carta.numero === cartaSelecionada.numero; 
             });
             self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);

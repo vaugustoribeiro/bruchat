@@ -5,13 +5,13 @@ block content
     div#primeiroPasso(data-bind='visible: primeiroPasso')
         
         .row
-            .col-xs-12
+            .col-md-12
                 
                 .page-header
                         h1 Juntar-se em sessão espiritual 
                             small(data-bind='text: titulo')
                 
-                .col-xs-6.col-sm-4        
+                .col-md-6.col-sm-4        
     
                     .form-group
                             input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
@@ -23,7 +23,7 @@ block content
                 
     div#segundoPasso(data-bind='visible: segundoPasso')
          .row
-            .col-xs-8
+            .col-md-8
                 
                 .page-header
                         h1 Conectado com 
@@ -42,7 +42,7 @@ block content
                                     p(data-bind='text: descricao')
                                 h2.center-block(data-bind='text: numero')
                                         
-             .col-xs-4
+             .col-md-4
                     .page-header
                         h1 Chat 
                         
@@ -50,7 +50,7 @@ block content
                         .panel-heading 
                             h3.panel-title Mensagens 
                                 span.badge(data-bind='text: mensagens().length + " mensagens"')
-                        .panel-body(data-bind='foreach: mensagens', style='height: 400px; overflow: auto')
+                        .panel-body(data-bind='foreach: mensagens', style='height: 540px; overflow: auto')
                             .row
                                 div(data-bind='text: mensagem, attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
                         .panel-footer
@@ -60,11 +60,19 @@ block content
                                 .form-group
                                     button.form-control(data-bind='click: enviarMensagem') Enviar
                                                     
-             .col-xs-12
+             .col-md-12
                 .page-header
                     h1 Observação Final
                 .panel.panel-default
                     .panel-body
                         textarea.form-control#observacaoFinal(readonly='false', data-bind='value: observacaoFinal')
-                            
+                       
+block script
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75743946-1', 'auto');
+        ga('send', 'pageview');
     script(src='/javascripts/consultaViewModel.js')
