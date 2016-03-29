@@ -41,6 +41,10 @@ io.sockets.on('connection', function (socket) {
     
     var clientId = '/#' + socket.client.id;
     
+    socket.on('fc-enviar-mensagem', function(mensagem) {
+       socket.broadcast.to(socket.idDestino).emit('fs-enviar-mensagem', mensagem); 
+    });
+    
     socket.on('fc-exibir-carta', function(cartaSelecionada) {
        io.to(clientId).emit('fs-exibir-carta', cartaSelecionada); 
     });
@@ -59,6 +63,8 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('fc-iniciar-consulta', function(data) {
         var idSocketBruxo = '/#'+data.idBruxo;
+        io.sockets.connected[idSocketBruxo].idDestino = clientId;
+        socket.idDestino = idSocketBruxo;
         socket.join(idSocketBruxo);
         io.to(idSocketBruxo).emit('fs-iniciar-consulta', { nome: data.paciente, quantidadeDeCartasSelecionada: data.quantidadeDeCartasSelecionada });
         io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);

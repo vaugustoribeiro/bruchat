@@ -29,3 +29,20 @@
 a {
   color: #00B7FF;
 }
+
+.mensagem {
+    padding: 10px;
+    word-break: break-all;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.local {
+    background-color: #b3ffb3;
+    box-shadow: 0 0 5px #b3ffb3;
+}
+
+.server {
+    background-color: #ffcccc;
+    box-shadow: 0 0 5px #ffcccc;
+}

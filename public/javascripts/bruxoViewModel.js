@@ -32,13 +32,16 @@ function criarSalaViewModel() {
             self.falandoCom(paciente.nome);
             self.quantidadeDeCartas(paciente.quantidadeDeCartasSelecionada);
         });
+        socket.on('fs-enviar-mensagem', function(mensagem) {
+           self.mensagens.push({ mensagem: mensagem, server: true }); 
+        });
     };
     
     // workaround
     setInterval(function() {
         self.identificador(socket.id);
     }, 1000);
-    
+        
     self.cartasSelecionadas = ko.observableArray();
     
     self.observacaoFinal = ko.observable();
@@ -70,6 +73,18 @@ function criarSalaViewModel() {
         self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
     }
+    
+    self.mensagens = ko.observableArray();
+    
+    self.enviarMensagem = function() {
+        if(self.mensagem() !== '') {
+            self.mensagens.push({ mensagem: self.mensagem(), server: false });
+            socket.emit('fc-enviar-mensagem', self.mensagem());
+            self.mensagem('');
+        }
+    };
+    
+    self.mensagem = ko.observable();
     
     self.cartas = [
         {

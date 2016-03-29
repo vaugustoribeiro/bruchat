@@ -16,7 +16,7 @@ block content
                     .form-group
                             input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
                         .form-group
-                            input.form-control#idBruxo(type='text', placeholder='Digite o identificador do bruxo', value=idBruxo)
+                            input.form-control#idBruxo(type='hidden', value=idBruxo)
                         .form-group
                             select.form-control(data-bind='options: quantidadesDeCartas, optionsCaption: "Escolha uma quatidade de cartas", value: quantidadeDeCartasSelecionada')
                         input.btn.btn-primary(idBruxotype='button', value='Iniciar consulta espiritual', data-bind='click: iniciarConsultaEspiritual')
@@ -49,15 +49,16 @@ block content
                     .panel.panel-default
                         .panel-heading 
                             h3.panel-title Mensagens 
-                                span.badge(data-bind='text: 15 + " mensagens"')
-                        .panel-body
-                            
+                                span.badge(data-bind='text: mensagens().length + " mensagens"')
+                        .panel-body(data-bind='foreach: mensagens', style='height: 400px; overflow: auto')
+                            .row
+                                div(data-bind='text: mensagem, attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
                         .panel-footer
                             .form-inline
                                 .form-group
-                                    input
+                                    input.form-control(type='text', data-bind='value: mensagem')
                                 .form-group
-                                    button Enviar
+                                    button.form-control(data-bind='click: enviarMensagem') Enviar
                                                     
              .col-xs-12
                 .page-header

@@ -50,7 +50,23 @@ function entrarSalaViewModel() {
             });
             self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
         });
+        
+        socket.on('fs-enviar-mensagem', function(mensagem) {
+           self.mensagens.push({ mensagem: mensagem, server: true }); 
+        });
     };
+    
+    self.mensagens = ko.observableArray();
+    
+    self.enviarMensagem = function() {
+        if(self.mensagem() !== '') {
+            self.mensagens.push({ mensagem: self.mensagem(), server: false });
+            socket.emit('fc-enviar-mensagem', self.mensagem());
+            self.mensagem('');
+        }
+    };
+    
+    self.mensagem = ko.observable();
     
     //setTimeout(function(){
         self.idBruxo($("#idBruxo").val());
