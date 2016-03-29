@@ -27,6 +27,7 @@ function criarSalaViewModel() {
         self.segundoPasso(true);
         socket.on('fs-iniciar-consulta', function(paciente) {
             self.segundoPasso(false);
+            $('.aguardandoPaciente').modal('hide');
             self.terceiroPasso(true);
             self.falandoCom(paciente.nome);
             self.quantidadeDeCartas(paciente.quantidadeDeCartasSelecionada);
@@ -46,6 +47,10 @@ function criarSalaViewModel() {
         socket.emit('fc-atualizar-observacao-final', novoValor); 
     });
         
+    self.quantidadeDeCartasRestantes = ko.computed(function(){
+        return self.quantidadeDeCartas() - self.cartasSelecionadas().length; 
+    }, self);
+        
     self.selecionarCarta = function(cartaSelecionada) {
         if(self.cartasSelecionadas().length < self.quantidadeDeCartas())
         {
@@ -54,8 +59,15 @@ function criarSalaViewModel() {
         }   
     };
     
+    self.urlAcessoPaciente = ko.computed(function() {
+       return "http://" + window.location.host + "/consulta?id=" + self.identificador() ;
+    });
+    
     self.removerCarta = function (cartaSelecionada) {
-        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
+        var x = ko.ultils.arrayFirst(self.cartasSelecionadas(), function(carta) {
+           return carta.numero === cartaSelecionada.numero; 
+        });
+        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
     }
     

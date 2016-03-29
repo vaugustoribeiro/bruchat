@@ -1,4 +1,4 @@
-#carta:hover {
+/*#carta:hover {
             box-shadow: 0 0 10px #000 !important;
             background-color: #ededed !important;
         }
@@ -20,9 +20,9 @@
             border-radius: 5px; 
             box-shadow: 0 0 5px #999; 
             margin: 8px;
-        }
+        }*/
         #observacaoFinal {
-            width: 550px;
+            width: 100%;
             height: 150px;
         }
 

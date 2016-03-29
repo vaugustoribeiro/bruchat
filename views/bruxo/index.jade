@@ -3,70 +3,104 @@ extends ../layout
 block content
 
     .modal.fade.baralhoCigano(tabindex="-1" role="dialog")
-        .modal-dialog
+        .modal-dialog.modal-lg
             .modal-content
                 .modal-header
                     button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                         span(aria-hidden="true") x
                     h4(class="modal-title") Baralho Cigano
-                    span Nº daCarta 
-                    input(type='text')
                 .modal-body(style="height: 600px; overflow: scroll")
-                    div#cartas(data-bind='foreach: cartas')
-                        div#carta(data-bind='click: $root.selecionarCarta')
-                            h4(align='center', data-bind='text: nome')
-                            img.center-block(data-bind='attr: { src: imagem }', width='120', height='200')
-                            div.descricao(data-bind='text: descricao')
-        
+                    .row.cartas(data-bind='foreach: cartas')
+                        .col-xs-6.col-sm-3.carta
+                            .thumbnail
+                                img.img-circle(data-bind='attr: { src: imagem }', width='120', height='200')
+                                .caption
+                                    h3(data-bind='text: nome')
+                                    p(data-bind='text: descricao')
+                                    p
+                                        a(href="#", class="btn btn-primary", role="button", data-bind='click: $root.selecionarCarta') Selecionar
+                
     div#primeiroPasso(data-bind='visible: primeiroPasso')
-        .panel.panel-default.col-md-4.col-md-offset-4
-            .panel-body
+         .row
+            .col-xs-12
                 
-                div.img-responsive.center-block.img-circle.logo(style='background-image: url("/images/logo2.png")')
-                
-                h1(data-bind='text: titulo')
-                
-                form#frm(action='criar', method='post')        
+                .page-header
+                        h1 Criar sessão espiritual 
+                            small(data-bind='text: titulo')
+                    
+                .col-xs-6.col-sm-4      
+                    
                     .form-group
                         input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
-                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='click: criarASala, enabled: habilitarBotaoCriar')
+                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
+    
     
     div#segundoPasso(data-bind='visible: segundoPasso')
-        div(style='top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.1; position: absolute; z-index: 1')
-        div(style='position: absolute; z-index: 2; top: 50%; left: 50%; width: 400px; height: 200px; margin-top: -100px; margin-left: -200px')
-            div.img-responsive.center-block(style='background-image: url("/images/loader.gif"); width: 120px; height: 120px')
-            div(align='center') Seu id Bruxo: 
-                span.form-control(data-bind='text: identificador', style='display: inline; font-weight: bold')
-            h3(align='center') Aguardando o paciente se conectar!
+    
+        .modal.fade.aguardandoPaciente(tabindex="-1" role="dialog")
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h4(class="modal-title") Aguardando o paciente...
+                    .modal-body
+                        .progress
+                            .progress-bar.progress-bar-striped.active(role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
+                                span.sr-only
+                    .modal-footer
+                        span Envie este link para seu paciente: 
+                            a(data-bind='attr: { href: urlAcessoPaciente }, text: urlAcessoPaciente')
+                            
         
     div#terceiroPasso(data-bind='visible: terceiroPasso')
-        div(style='width: 60%; float: left')
+       
+        .row
+            .col-xs-8
+                
+                .page-header
+                        h1 Conectado com 
+                            small(data-bind='text: falandoCom')
+                            
+                .panel.panel-default
+                    .panel-heading 
+                        h3.panel-title Cartas Sorteadas 
+                            span.badge(data-bind='text: quantidadeDeCartasRestantes() + " cartas restantes"')
+                    .panel-body
+                        button.btn.btn-primary(data-toggle='modal', data-target='.baralhoCigano')
+                            span  Selecionar Cartas 
+                        .row(data-bind='foreach: cartasSelecionadas')
+                            .col-xs-6.col-sm-3
+                                .thumbnail
+                                    img(data-bind='attr: { src: imagem }', width='120', height='200')
+                                    .caption
+                                        h3(data-bind='text: nome')
+                                        p(data-bind='text: descricao')
+                                        p
+                                            a(href="#", class="btn btn-default", role="button", data-bind='click: $root.selecionarCarta') Remover
+                            
             
-            h3 Você está falando com 
-                span(data-bind='text: falandoCom')
-            h4(style='color: #cc0000') Será uma jogada de  
-                span(data-bind='text: quantidadeDeCartas') 
-                span  cartas
-            
-            a(href="#", data-toggle='modal', data-target='.baralhoCigano') Selecionar Cartas
-            
-            div(style='height: 400px; overflow: auto; display: block')
-                table
-                    tr(data-bind='foreach: cartasSelecionadas')
-                        td
-                            div#carta
-                                h4(align='center', data-bind='text: nome')
-                                img.center-block(data-bind='attr: { src: imagem }', width='120', height='200')
-                                div.descricao(data-bind='text: descricao')
-                                a(href='#' data-bind='click: $root.removerCarta') remover
+            .col-xs-4
+                    .page-header
+                        h1 Chat 
                         
-            h3 Observação Final
-            textarea#observacaoFinal(data-bind='value: observacaoFinal, valueUpdate: "afterkeydown"')
-        
-        
-        div(style='width: 20%; float: left')
-            h3 Chat
-            textarea()
-            input
-                        
+                    .panel.panel-default
+                        .panel-heading 
+                            h3.panel-title Mensagens 
+                                span.badge(data-bind='text: 15 + " mensagens"')
+                        .panel-body
+                            
+                        .panel-footer
+                            .form-inline
+                                .form-group
+                                    input
+                                .form-group
+                                    button Enviar
+                            
+            .col-xs-12
+                .page-header
+                    h1 Observação Final
+                       
+                .panel.panel-default
+                    .panel-body
+                        textarea.form-control#observacaoFinal(data-bind='value: observacaoFinal, valueUpdate: "afterkeydown"')
+    
     script(src='/javascripts/bruxoViewModel.js')    

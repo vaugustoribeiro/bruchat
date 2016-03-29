@@ -3,7 +3,11 @@ var router = express.Router();
 
 /* GET */
 router.get('/', function(req, res, next) {
-    res.render('consulta/index');
+    if(req.query.id)
+    {
+        
+    }
+    res.render('consulta/index', { idBruxo: req.query.id });
 });
 
 module.exports = router;

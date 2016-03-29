@@ -18,6 +18,10 @@ function entrarSalaViewModel() {
     
     self.cartasSelecionadas = ko.observableArray();
     
+    self.quantidadeDeCartasRestantes = ko.computed(function(){
+        return self.quantidadeDeCartasSelecionada() - self.cartasSelecionadas().length; 
+    }, self);
+    
     self.observacaoFinal = ko.observable();
     
     self.nomeBruxo = ko.observable();
@@ -41,14 +45,18 @@ function entrarSalaViewModel() {
         });
         
         socket.on('fs-remover-carta', function(cartaSelecionada) {
-            var _cartaSelecionada = $.grep(self.cartasSelecionadas(), function(e) { return e.numero === cartaSelecionada.numero; }); 
-            self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada[0]), 1);
+            var x = ko.ultils.arrayFirst(self.cartasSelecionadas(), function(carta) {
+                return carta.numero === cartaSelecionada.numero; 
+            });
+            self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
         });
     };
+    
+    //setTimeout(function(){
+        self.idBruxo($("#idBruxo").val());
+    //}, 1000);
 };
 
 vm = new entrarSalaViewModel();
-
-
 
 ko.applyBindings(vm);
