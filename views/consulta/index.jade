@@ -23,15 +23,14 @@ block content
                 
     div#segundoPasso(data-bind='visible: segundoPasso')
          .row
-            .col-md-8
-                
+            .col-md-12
                 .page-header
-                        h1 Conectado com 
-                            small(data-bind='text: nomeBruxo')
-                        
+                    h1(align='center', data-bind='text: "Conectado com " + nomeBruxo()')
+         
+            .col-md-6
                 .panel.panel-default
                     .panel-heading 
-                        h3.panel-title Cartas Sorteadas 
+                        h3.panel-title Mesa - Cartas Sorteadas 
                             span.badge(data-bind='text: quantidadeDeCartasRestantes() + " cartas restantes"')
                     .panel-body
                         div.cartas(data-bind='foreach: cartasSelecionadas')
@@ -42,15 +41,12 @@ block content
                                     p(data-bind='text: descricao')
                                 h2.center-block(data-bind='text: numero')
                                         
-             .col-md-4
-                    .page-header
-                        h1 Chat 
-                        
+             .col-md-3
                     .panel.panel-default
                         .panel-heading 
-                            h3.panel-title Mensagens 
+                            h3.panel-title Chat - Mensagens 
                                 span.badge(data-bind='text: mensagens().length + " mensagens"')
-                        .panel-body(data-bind='foreach: mensagens', style='height: 540px; overflow: auto')
+                        .panel-body(data-bind='foreach: mensagens', style='height: 300px; overflow: auto')
                             .row
                                 div(data-bind='text: mensagem, attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
                         .panel-footer
@@ -60,10 +56,10 @@ block content
                                 .form-group
                                     button.form-control(data-bind='click: enviarMensagem') Enviar
                                                     
-             .col-md-12
-                .page-header
-                    h1 Observação Final
+             .col-md-3
                 .panel.panel-default
+                    .panel-heading 
+                        h3.panel-title Conclusão
                     .panel-body
                         textarea.form-control#observacaoFinal(readonly='false', data-bind='value: observacaoFinal')
                        

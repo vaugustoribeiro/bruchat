@@ -34,6 +34,11 @@
     height: 250px !important;
     opacity: 0.1;
 }
+
+.cartas {
+    min-height: 325px;
+}
+
 .carta {
     position: relative;
     cursor: pointer; 
@@ -49,7 +54,7 @@
 }
 #observacaoFinal {
     width: 100%;
-    height: 150px;
+    height: 325px;
 }
 
 a {
