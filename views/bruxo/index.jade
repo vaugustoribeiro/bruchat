@@ -10,15 +10,13 @@ block content
                         span(aria-hidden="true") x
                     h4(class="modal-title") Baralho Cigano
                 .modal-body(style="height: 600px; overflow: scroll")
-                    .row.cartas(data-bind='foreach: cartas')
-                        .col-xs-6.col-sm-3.carta
-                            .thumbnail
-                                img.img-circle(data-bind='attr: { src: imagem }', width='120', height='200')
-                                .caption
-                                    h3(data-bind='text: nome')
-                                    p(data-bind='text: descricao')
-                                    p
-                                        a(href="#", class="btn btn-primary", role="button", data-bind='click: $root.selecionarCarta') Selecionar
+                    div.cartas(data-bind='foreach: cartas')
+                        div.carta(data-bind='click: $root.selecionarCarta')
+                            img(data-bind='attr: { src: imagem }', width='120', height='200')
+                            div.descricao
+                                h4(data-bind='text: nome')
+                                p(data-bind='text: descricao')
+                            h2.center-block(data-bind='text: numero')
                 
     div#primeiroPasso(data-bind='visible: primeiroPasso')
          .row
@@ -67,16 +65,15 @@ block content
                     .panel-body
                         button.btn.btn-primary(data-toggle='modal', data-target='.baralhoCigano')
                             span  Selecionar Cartas 
-                        .row(data-bind='foreach: cartasSelecionadas')
-                            .col-xs-6.col-sm-3
-                                .thumbnail
-                                    img(data-bind='attr: { src: imagem }', width='120', height='200')
-                                    .caption
-                                        h3(data-bind='text: nome')
-                                        p(data-bind='text: descricao')
-                                        p
-                                            a(href="#", class="btn btn-default", role="button", data-bind='click: $root.selecionarCarta') Remover
-                            
+                        
+                        div.cartas(data-bind='foreach: cartasSelecionadas')
+                            div.carta(data-bind='click: $root.removerCarta')
+                                img(data-bind='attr: { src: imagem }', width='120', height='200')
+                                div.descricao
+                                    h4(data-bind='text: nome')
+                                    p(data-bind='text: descricao')
+                                h2.center-block(data-bind='text: numero')
+                        
             
             .col-xs-4
                     .page-header

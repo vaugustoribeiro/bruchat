@@ -67,10 +67,7 @@ function criarSalaViewModel() {
     });
     
     self.removerCarta = function (cartaSelecionada) {
-        var x = ko.ultils.arrayFirst(self.cartasSelecionadas(), function(carta) {
-           return carta.numero === cartaSelecionada.numero; 
-        });
-        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
+        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
     }
     

@@ -34,13 +34,13 @@ block content
                         h3.panel-title Cartas Sorteadas 
                             span.badge(data-bind='text: quantidadeDeCartasRestantes() + " cartas restantes"')
                     .panel-body
-                        .row(data-bind='foreach: cartasSelecionadas')
-                            .col-xs-6.col-sm-4
-                                .thumbnail
-                                    img(data-bind='attr: { src: imagem }', width='120', height='200')
-                                    .caption
-                                        h3(data-bind='text: nome')
-                                        p(data-bind='text: descricao')
+                        div.cartas(data-bind='foreach: cartasSelecionadas')
+                            div.carta
+                                img(data-bind='attr: { src: imagem }', width='120', height='200')
+                                div.descricao
+                                    h4(data-bind='text: nome')
+                                    p(data-bind='text: descricao')
+                                h2.center-block(data-bind='text: numero')
                                         
              .col-xs-4
                     .page-header

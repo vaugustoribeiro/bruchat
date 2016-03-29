@@ -1,30 +1,56 @@
-/*#carta:hover {
-            box-shadow: 0 0 10px #000 !important;
-            background-color: #ededed !important;
-        }
-        #carta .descricao {
-            font-size: 10px;
-            text-align: center;
-            padding: 3px;
-        }
-        #carta img {
-            border-radius: 10px; border: 2px solid #000;
-        }
-        #carta {
-            cursor: pointer; 
-            width: 150px; 
-            height: 330px;
-            display: inline-block; 
-            background-color: #fff; 
-            border: 1px solid #999; 
-            border-radius: 5px; 
-            box-shadow: 0 0 5px #999; 
-            margin: 8px;
-        }*/
-        #observacaoFinal {
-            width: 100%;
-            height: 150px;
-        }
+.carta:hover {
+    box-shadow: 0 0 10px #000 !important;
+    background-color: #ededed !important;
+}
+.carta:hover img {
+    opacity: 0.8;
+}
+
+.carta h2, .carta .descricao {
+    display: block;
+}
+
+.carta:hover h2, .carta:hover .descricao {
+    display: none;
+}
+
+.carta h2 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.carta .descricao {
+    font-size: 12px;
+    text-align: center;
+    padding: 3px;
+    margin-top: -243px;
+    
+}
+.carta img {
+    /*border-radius: 10px; border: 2px solid #000;*/
+    width: 150px !important; 
+    height: 250px !important;
+    opacity: 0.1;
+}
+.carta {
+    position: relative;
+    cursor: pointer; 
+    width: 150px; 
+    height: 250px;
+    display: inline-block; 
+    background-color: #fff; 
+    border: 1px solid #000; 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px #999; 
+    margin: 5px;
+    overflow: hidden;
+}
+#observacaoFinal {
+    width: 100%;
+    height: 150px;
+}
 
 a {
   color: #00B7FF;
