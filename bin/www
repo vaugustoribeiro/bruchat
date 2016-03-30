@@ -71,7 +71,9 @@ io.sockets.on('connection', function (socket) {
     });
     
     socket.on('disconnect', function(status) {
-       socket.broadcast.to(socket.idDestino).emit('fs-encerrar-sessao');
+       if(socket.idDestino) {
+           socket.broadcast.to(socket.idDestino).emit('fs-encerrar-sessao');
+       }
     });
 });
 

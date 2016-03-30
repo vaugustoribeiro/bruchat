@@ -39,14 +39,16 @@ block content
             .modal-dialog.modal-lg
                 .modal-content
                     .modal-header
-                        h4(class="modal-title") Aguardando o paciente...
+                        h4(class="modal-title") Aguardando conexão...
+                            a.btn.btn-warning.pull-right(href='/') Cancelar Sessão
                     .modal-body
                         .progress
                             .progress-bar.progress-bar-striped.active(role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
                                 span.sr-only
-                    .modal-footer
-                        span Envie este link para seu paciente: 
-                            a(data-bind='attr: { href: urlAcessoPaciente }, text: urlAcessoPaciente')
+                        .form-inline
+                            .form-group
+                                span Envie este link para seu paciente: 
+                                span(style='color: #337ab7', data-bind='attr: { href: urlAcessoPaciente }, text: urlAcessoPaciente')
                             
         
     div#terceiroPasso(data-bind='visible: terceiroPasso', style='display: none;')

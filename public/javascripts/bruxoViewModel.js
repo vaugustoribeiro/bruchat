@@ -77,14 +77,12 @@ function criarSalaViewModel() {
     self.mensagens = ko.observableArray();
     
     self.enviarMensagem = function() {
-        if(self.mensagem() !== '') {
+        if(self.mensagem().toString().trim() !== '') {
             self.mensagens.push({ mensagem: self.mensagem(), server: false });
             socket.emit('fc-enviar-mensagem', self.mensagem());
             self.mensagem('');
         }
     };
-    
-    
     
     self.mensagem = ko.observable();
     
