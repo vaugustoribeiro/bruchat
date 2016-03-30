@@ -36,7 +36,8 @@ function criarSalaViewModel() {
            self.mensagens.push({ mensagem: mensagem, server: true }); 
         });
         socket.on('fs-encerrar-sessao', function() {
-            
+            self.mensagemAviso(self.falandoCom() + " encerrou a conexão.");
+            $('.conexaoEncerrada').modal('show');
         });
     };
     
@@ -73,6 +74,8 @@ function criarSalaViewModel() {
         self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
     }
+    
+    self.mensagemAviso = ko.observable();
     
     self.mensagens = ko.observableArray();
     

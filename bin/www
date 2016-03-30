@@ -63,11 +63,17 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('fc-iniciar-consulta', function(data) {
         var idSocketBruxo = '/#'+data.idBruxo;
-        io.sockets.connected[idSocketBruxo].idDestino = clientId;
-        socket.idDestino = idSocketBruxo;
-        socket.join(idSocketBruxo);
-        io.to(idSocketBruxo).emit('fs-iniciar-consulta', { nome: data.paciente, quantidadeDeCartasSelecionada: data.quantidadeDeCartasSelecionada });
-        io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
+        
+        if(io.sockets.connected[idSocketBruxo]) {
+            io.sockets.connected[idSocketBruxo].idDestino = clientId;
+            socket.idDestino = idSocketBruxo;
+            socket.join(idSocketBruxo);
+            io.to(idSocketBruxo).emit('fs-iniciar-consulta', { nome: data.paciente, quantidadeDeCartasSelecionada: data.quantidadeDeCartasSelecionada });
+            io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
+        } 
+        else {
+            io.to(clientId).emit('fs-sessao-inexistente');
+        }
     });
     
     socket.on('disconnect', function(status) {

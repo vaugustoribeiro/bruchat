@@ -23,8 +23,12 @@ function entrarSalaViewModel() {
     }, self);
     
     self.observacaoFinal = ko.observable();
-    
     self.nomeBruxo = ko.observable();
+    self.mensagemAviso = ko.observable();
+    
+    self.habilitarBotaoIniciar = ko.computed(function() {
+        return self.nome() && self.quantidadeDeCartasSelecionada() ? true : false;
+    });
     
     self.iniciarConsultaEspiritual = function () {
         
@@ -53,6 +57,16 @@ function entrarSalaViewModel() {
         
         socket.on('fs-enviar-mensagem', function(mensagem) {
            self.mensagens.push({ mensagem: mensagem, server: true }); 
+        });
+        
+        socket.on('fs-encerrar-sessao', function() {
+            self.mensagemAviso(self.nomeBruxo() + " encerrou a conexão.");
+            $('.conexaoEncerrada').modal('show');
+        });
+        
+        socket.on('fs-sessao-inexistente', function() {
+            self.mensagemAviso("A sessão que se está tentando conectar, não existe mais.");
+            $('.conexaoEncerrada').modal('show');
         });
     };
     

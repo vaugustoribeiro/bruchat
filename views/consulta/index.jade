@@ -2,6 +2,16 @@ extends ../layout
 
 block content
 
+    .modal.fade.conexaoEncerrada(tabindex="-1" role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h2 Aviso
+                .modal-body
+                    p(data-bind='text: mensagemAviso ')
+                .modal-footer
+                    a.btn.btn-primary(href='/') Ok
+
     div#primeiroPasso(data-bind='visible: primeiroPasso')
         
         .row
@@ -19,7 +29,7 @@ block content
                             input.form-control#idBruxo(type='hidden', value=idBruxo)
                         .form-group
                             select.form-control(data-bind='options: quantidadesDeCartas, optionsCaption: "Escolha uma quatidade de cartas", value: quantidadeDeCartasSelecionada')
-                        input.btn.btn-primary(idBruxotype='button', value='Iniciar consulta espiritual', data-bind='click: iniciarConsultaEspiritual')
+                        input.btn.btn-primary(idBruxotype='button', value='Iniciar consulta espiritual', data-bind='enable: habilitarBotaoIniciar, click: iniciarConsultaEspiritual')
                 
     div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
          .row

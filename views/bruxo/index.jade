@@ -2,6 +2,16 @@ extends ../layout
 
 block content
 
+    .modal.fade.conexaoEncerrada(tabindex="-1" role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h2 Aviso
+                .modal-body
+                    p(data-bind='text: mensagemAviso ')
+                .modal-footer
+                    a.btn.btn-primary(href='/') Ok
+
     .modal.fade.baralhoCigano(tabindex="-1" role="dialog")
         .modal-dialog.modal-lg
             .modal-content
@@ -30,7 +40,7 @@ block content
                     
                     .form-group
                         input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
-                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
+                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='enable: habilitarBotaoCriar, click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
     
     
     div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
