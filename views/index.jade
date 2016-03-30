@@ -30,13 +30,13 @@ block content
         .page-header
             h3 Faça uma doação.
         p A sobrevivência deste projeto, depende de você.
-        p
+        .col-md-6
             form(action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post")
                  input(type="hidden", name="currency", value="BRL")
                  input(type="hidden", name="receiverEmail", value="vinicius.silv@hotmail.com")
                  input(type="image", src="https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/120x53-doar.gif", name="submit", alt="Pague com PagSeguro - é rápido, grátis e seguro!")
                 
-        p
+        .col-md-6
             form(action="https://www.paypal.com/cgi-bin/webscr", method="post", target="_top")
                 input(type="hidden", name="cmd", value="_s-xclick")
                 input(type="hidden", name="hosted_button_id", value="UEXJ5X9G22N8L")
@@ -46,7 +46,31 @@ block content
     .col-md-3
         .page-header
             h3 Na Rede.
-        p Acompanhe nosso Facebook e Twitter para ficar por dentro das novidades.
+        p Acompanhe nosso Facebook e Twitter para ficar por dentro das novidades que serão lançadas.
+        .col-md-3
+            a(href="https://www.facebook.com/bruchatonline")
+                img.center-block(width='32' src='/images/social_facebook.png')
+        .col-md-3
+            a(href="#")
+                img.center-block(width='32' src='/images/social_youtube.png')
+        .col-md-3
+            a(href="#")
+                img.center-block(width='32' src='/images/social_twitter.png')
+        .col-md-3
+            a(href="#")
+                img.center-block(width='32' src='/images/social_plus.png')
+            
+    .col-md-12
+        script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+        
+        ins(class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-4046357649059191"
+            data-ad-slot="8622517067"
+            data-ad-format="auto")
+            
+        script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
     
 block script
     script.
