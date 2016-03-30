@@ -70,10 +70,8 @@ io.sockets.on('connection', function (socket) {
         io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
     });
     
-    console.log('usuário ' + clientId + ' conectado');
-    
     socket.on('disconnect', function(status) {
-       console.log('usuário ' + clientId + ' desconectado');
+       socket.broadcast.to(socket.idDestino).emit('fs-encerrar-sessao');
     });
 });
 
