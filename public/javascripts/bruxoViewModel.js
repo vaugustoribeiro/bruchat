@@ -35,6 +35,9 @@ function criarSalaViewModel() {
         socket.on('fs-enviar-mensagem', function(mensagem) {
            self.mensagens.push({ mensagem: mensagem, server: true }); 
         });
+        socket.on('fs-encerrar-sessao', function() {
+            
+        });
     };
     
     // workaround
@@ -80,6 +83,8 @@ function criarSalaViewModel() {
             self.mensagem('');
         }
     };
+    
+    
     
     self.mensagem = ko.observable();
     
