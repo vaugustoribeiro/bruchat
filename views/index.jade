@@ -11,14 +11,12 @@ block content
                 a.btn.btn-primary.btn-lg(href="/bruxo", style='') Iniciar Sessão
             
             .googleads
-                script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+                
                 // Bruchat top
                 ins(class="adsbygoogle"
                     style="display:inline-block;width:728px;height:90px"
                     data-ad-client="ca-pub-4046357649059191"
                     data-ad-slot="5529449861")
-                script.
-                    (adsbygoogle = window.adsbygoogle || []).push({});
     <br>
     
     .col-md-3
@@ -68,6 +66,10 @@ block content
     .col-md-12
     
 block script
+    script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+    script.
+        (adsbygoogle = window.adsbygoogle || []).push({});
+
     script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
