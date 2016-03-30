@@ -77,3 +77,7 @@ a {
     background-color: #ffcccc;
     box-shadow: 0 0 5px #ffcccc;
 }
+
+body {
+    background-image: url('/images/gb.jpg');
+}

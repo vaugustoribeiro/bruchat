@@ -5,7 +5,10 @@ block content
     .row
         .col-md-12
             
-            img.img-responsive.center-block(src="/images/logo2.png" class="" alt="Responsive image")
+            img.img-responsive.center-block(src="/images/logo3.png" class="" alt="Responsive image" width="256")
+            .page-header
+                h1(align='center')
+                    a.btn.btn-primary.btn-lg(href="/bruxo", style='') Iniciar Sessão
             
             script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
             ins(class="adsbygoogle",
@@ -15,27 +18,29 @@ block content
             script.
                 (adsbygoogle = window.adsbygoogle || []).push({});
             
-            .page-header
-                    h1(align='center') Bem vindo ao BruChat
             
-            .col-md-6.col-md-offset-3
-                            
-                a.btn.btn-primary.btn-lg.center-block(href="/bruxo", style='') Iniciar Sessão
     <br>
     
     .col-md-3
         .page-header
-            h3 O que é?
+            h3 
+                span.glyphicon.glyphicon-question-sign(aria-hidden="true")
+                span  O que é?
         p O BruChat é uma ferramenta online para auxiliar o cartomante durante uma sessão de cartomancia.
             
     .col-md-3
         .page-header
-            h3 Como funciona?
+            h3 
+                span.glyphicon.glyphicon-question-sign(aria-hidden="true")
+                span  Como funciona?
         p Lorem ipsum
             
     .col-md-3
         .page-header
-            h3 Faça uma doação.
+            h3
+                span.glyphicon.glyphicon-heart(aria-hidden="true")
+                span  Doe.
+                
         p A sobrevivência deste projeto, depende de você.
         .col-md-6
             form(action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post")
@@ -52,20 +57,13 @@ block content
              
     .col-md-3
         .page-header
-            h3 Na Rede.
-        p Acompanhe nosso Facebook e Twitter para ficar por dentro das novidades que serão lançadas.
-        .col-md-3
-            a(href="https://www.facebook.com/bruchatonline")
-                img.center-block(width='32' src='/images/social_facebook.png')
-        .col-md-3
-            a(href="#")
-                img.center-block(width='32' src='/images/social_youtube.png')
-        .col-md-3
-            a(href="#")
-                img.center-block(width='32' src='/images/social_twitter.png')
-        .col-md-3
-            a(href="#")
-                img.center-block(width='32' src='/images/social_plus.png')
+            h3 
+                span.glyphicon.glyphicon-thumbs-up(aria-hidden="true")
+                span  Na Rede.
+        p Curta nossa página e fique por dentro das novidades que serão lançadas.
+        
+        a(href="https://www.facebook.com/bruchatonline")
+            img.center-block(width='32' src='/images/social_facebook.png')
             
     .col-md-12
         script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")

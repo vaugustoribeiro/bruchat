@@ -33,7 +33,7 @@ block content
                     input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
     
     
-    div#segundoPasso(data-bind='visible: segundoPasso')
+    div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
     
         .modal.fade.aguardandoPaciente(tabindex="-1" role="dialog")
             .modal-dialog.modal-lg
@@ -49,7 +49,7 @@ block content
                             a(data-bind='attr: { href: urlAcessoPaciente }, text: urlAcessoPaciente')
                             
         
-    div#terceiroPasso(data-bind='visible: terceiroPasso')
+    div#terceiroPasso(data-bind='visible: terceiroPasso', style='display: none;')
        
         .row
             .col-md-12

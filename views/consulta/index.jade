@@ -21,7 +21,7 @@ block content
                             select.form-control(data-bind='options: quantidadesDeCartas, optionsCaption: "Escolha uma quatidade de cartas", value: quantidadeDeCartasSelecionada')
                         input.btn.btn-primary(idBruxotype='button', value='Iniciar consulta espiritual', data-bind='click: iniciarConsultaEspiritual')
                 
-    div#segundoPasso(data-bind='visible: segundoPasso')
+    div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
          .row
             .col-md-12
                 .page-header
