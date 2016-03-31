@@ -7,7 +7,7 @@ function entrarSalaViewModel() {
     self.nome = ko.observable();
     
     self.titulo = ko.computed(function() {
-        return self.nome() ? self.nome() : "Identifique-se..."
+        return self.nome() ? "Olá " + self.nome() : "Identifique-se..."
     }, self);
     
     self.idBruxo = ko.observable();

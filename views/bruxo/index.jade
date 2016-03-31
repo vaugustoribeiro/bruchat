@@ -6,9 +6,9 @@ block content
         .modal-dialog.modal-sm
             .modal-content
                 .modal-header
-                    h2 Aviso
+                    h3 Aviso
                 .modal-body
-                    p(data-bind='text: mensagemAviso ')
+                    span(data-bind='text: mensagemAviso ')
                 .modal-footer
                     a.btn.btn-primary(href='/') Ok
 
@@ -30,17 +30,15 @@ block content
                 
     div#primeiroPasso(data-bind='visible: primeiroPasso')
          .row
-            .col-md-12
+            .col-md-4.col-md-offset-4
                 
                 .page-header
-                        h1 Criar sessão espiritual 
-                            small(data-bind='text: titulo')
+                        h1 Criar sessão espiritual
                     
-                .col-md-6.col-md-6     
-                    
-                    .form-group
-                        input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
-                    input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='enable: habilitarBotaoCriar, click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
+                .form-group
+                    label(data-bind='text: titulo') 
+                    input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
+                input.btn.btn-primary(type='button', value='Criar sessão espiritual', data-bind='enable: habilitarBotaoCriar, click: criarASala', data-toggle='modal', data-target='.aguardandoPaciente', data-backdrop="static" data-keyboard="false")
     
     
     div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
