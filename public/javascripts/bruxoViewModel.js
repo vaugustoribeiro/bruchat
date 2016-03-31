@@ -21,6 +21,10 @@ function criarSalaViewModel() {
     
     self.quantidadeDeCartas = ko.observable();
     
+    self.scrollTopMensagens = function() {
+        $("#mensagens")[0].scrollTop = $("#mensagens")[0].scrollHeight;
+    }
+    
     self.criarASala = function() {
         socket.emit('fc-criar-sessao-espiritual', self.nome());
         self.primeiroPasso(false);
@@ -34,12 +38,16 @@ function criarSalaViewModel() {
         });
         socket.on('fs-enviar-mensagem', function(mensagem) {
            self.mensagens.push({ mensagem: mensagem, server: true }); 
+           self.scrollTopMensagens();
         });
         socket.on('fs-encerrar-sessao', function() {
             self.mensagemAviso(self.falandoCom() + " encerrou a conexão.");
+            self.sessaoEncerrada(true);
             $('.conexaoEncerrada').modal('show');
         });
     };
+    
+    self.sessaoEncerrada = ko.observable(false);
     
     // workaround
     setInterval(function() {
@@ -79,13 +87,22 @@ function criarSalaViewModel() {
     
     self.mensagens = ko.observableArray();
     
+    self.enviarMensagemEnter = function(d, e) {
+        e.keyCode === 13 && self.enviarMensagem();
+        return true;
+    }
+    
     self.enviarMensagem = function() {
         if(self.mensagem().toString().trim() !== '') {
             self.mensagens.push({ mensagem: self.mensagem(), server: false });
             socket.emit('fc-enviar-mensagem', self.mensagem());
             self.mensagem('');
+            self.focoMensagem(true);
+            self.scrollTopMensagens();            
         }
     };
+    
+    self.focoMensagem = ko.observable(false);
     
     self.mensagem = ko.observable();
     

@@ -57,10 +57,12 @@ function entrarSalaViewModel() {
         
         socket.on('fs-enviar-mensagem', function(mensagem) {
            self.mensagens.push({ mensagem: mensagem, server: true }); 
+           self.scrollTopMensagens();               
         });
         
         socket.on('fs-encerrar-sessao', function() {
             self.mensagemAviso(self.nomeBruxo() + " encerrou a conexão.");
+            self.sessaoEncerrada(true);
             $('.conexaoEncerrada').modal('show');
         });
         
@@ -70,15 +72,30 @@ function entrarSalaViewModel() {
         });
     };
     
+    self.sessaoEncerrada = ko.observable(false);
+    
+    self.enviarMensagemEnter = function(d, e) {
+        e.keyCode === 13 && self.enviarMensagem();
+        return true;
+    }
+    
     self.mensagens = ko.observableArray();
     
     self.enviarMensagem = function() {
-        if(self.mensagem() !== '') {
+        if(self.mensagem().toString().trim() !== '') {
             self.mensagens.push({ mensagem: self.mensagem(), server: false });
             socket.emit('fc-enviar-mensagem', self.mensagem());
             self.mensagem('');
+            self.focoMensagem(true);
+            self.scrollTopMensagens();    
         }
     };
+    
+    self.scrollTopMensagens = function() {
+        $("#mensagens")[0].scrollTop = $("#mensagens")[0].scrollHeight;
+    }
+    
+    self.focoMensagem = ko.observable(false);
     
     self.mensagem = ko.observable();
     
