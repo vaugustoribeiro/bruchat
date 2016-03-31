@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
     {
         
     }
-    res.render('consulta/index', { idBruxo: req.query.id });
+    res.render('consulta/index', { parceiroId: req.query.id });
 });
 
 module.exports = router;

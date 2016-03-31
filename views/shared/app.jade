@@ -1,0 +1,24 @@
+.row
+
+    script(src='/javascripts/loaderViewModel.js')
+    include ../shared/loader
+    
+    script(src='/javascripts/modalViewModel.js')
+    include ../shared/modal
+
+    .col-md-12
+            script(src='/javascripts/headViewModel.js')
+            include ../shared/head
+                
+    .col-md-6
+            script(src='/javascripts/tableViewModel.js')
+            include ../shared/table
+        
+    .col-md-3
+            script(src='/javascripts/chatViewModel.js')
+            include ../shared/chat
+
+    .col-md-3
+            span GoogleAds
+            
+script(src='/javascripts/appViewModel.js')

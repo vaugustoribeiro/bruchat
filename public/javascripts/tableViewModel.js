@@ -1,110 +1,40 @@
-function criarSalaViewModel() {
-    var self = this;    
+function tableViewModel() {
     
-    self.primeiroPasso = ko.observable(true);
-    self.segundoPasso = ko.observable(false);
-    self.terceiroPasso = ko.observable(false);
+    var self = this;
     
-    self.falandoCom = ko.observable();
-    
-    self.identificador = ko.observable('Carregando identificador...');
-    
-    self.nome = ko.observable();
-    
-    self.titulo = ko.computed(function() {
-        return self.nome() ? "Olá " + self.nome() : "Identifique-se..."
-    }, self);
-    
-    self.habilitarBotaoCriar = ko.computed(function() {
-        return self.nome() ? true : false;
-    });
-    
-    self.quantidadeDeCartas = ko.observable();
-    
-    self.scrollTopMensagens = function() {
-        $("#mensagens")[0].scrollTop = $("#mensagens")[0].scrollHeight;
-    }
-    
-    self.criarASala = function() {
-        socket.emit('fc-criar-sessao-espiritual', self.nome());
-        self.primeiroPasso(false);
-        self.segundoPasso(true);
-        socket.on('fs-iniciar-consulta', function(paciente) {
-            self.segundoPasso(false);
-            $('.aguardandoPaciente').modal('hide');
-            self.terceiroPasso(true);
-            self.falandoCom(paciente.nome);
-            self.quantidadeDeCartas(paciente.quantidadeDeCartasSelecionada);
-        });
-        socket.on('fs-enviar-mensagem', function(mensagem) {
-           self.mensagens.push({ mensagem: mensagem, server: true }); 
-           self.scrollTopMensagens();
-        });
-        socket.on('fs-encerrar-sessao', function() {
-            self.mensagemAviso(self.falandoCom() + " encerrou a conexão.");
-            self.sessaoEncerrada(true);
-            $('.conexaoEncerrada').modal('show');
-        });
-    };
-    
-    self.sessaoEncerrada = ko.observable(false);
-    
-    // workaround
-    setInterval(function() {
-        self.identificador(socket.id);
-    }, 1000);
-        
+    self.numeroCarta = ko.observable();
     self.cartasSelecionadas = ko.observableArray();
     
-    self.observacaoFinal = ko.observable();
-    
-    self.observacaoFinal.subscribe(function(novoValor) {
-        socket.emit('fc-atualizar-observacao-final', novoValor); 
-    });
-        
-    self.quantidadeDeCartasRestantes = ko.computed(function(){
-        return self.quantidadeDeCartas() - self.cartasSelecionadas().length; 
-    }, self);
-        
     self.selecionarCarta = function(cartaSelecionada) {
-        if(self.cartasSelecionadas().length < self.quantidadeDeCartas())
-        {
-            self.cartasSelecionadas.push(cartaSelecionada);
-            socket.emit('fc-exibir-carta', cartaSelecionada);
-        }   
-    };
-    
-    self.urlAcessoPaciente = ko.computed(function() {
-       return "http://" + window.location.host + "/consulta?id=" + self.identificador() ;
-    });
+        self.cartasSelecionadas.push(cartaSelecionada);
+        socket.emit('fc-exibir-carta', cartaSelecionada);
+    };    
     
     self.removerCarta = function (cartaSelecionada) {
         self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
-    }
-    
-    self.mensagemAviso = ko.observable();
-    
-    self.mensagens = ko.observableArray();
-    
-    self.enviarMensagemEnter = function(d, e) {
-        e.keyCode === 13 && self.enviarMensagem();
-        return true;
-    }
-    
-    self.enviarMensagem = function() {
-        if(self.mensagem().toString().trim() !== '') {
-            self.mensagens.push({ mensagem: self.mensagem(), server: false });
-            socket.emit('fc-enviar-mensagem', self.mensagem());
-            self.mensagem('');
-            self.focoMensagem(true);
-            self.scrollTopMensagens();            
-        }
     };
     
-    self.focoMensagem = ko.observable(false);
+    socket.on('fs-exibir-carta', function(cartaSelecionada) {
+        self.cartasSelecionadas.push(cartaSelecionada);
+    });
     
-    self.mensagem = ko.observable();
+    socket.on('fs-remover-carta', function(cartaSelecionada) {
+        var x = _.find(self.cartasSelecionadas(), function(carta) {
+            return carta.numero === cartaSelecionada.numero; 
+        });
+        self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
+    });
+    
+    
+    
+    self.adicionarCarta = function () {
+        var cartaSeleciona = _.find(self.cartas, function(carta) {
+           return carta.numero === self.numeroCarta(); 
+        });
+        self.selecionarCarta(cartaSeleciona);
+    }
+    
     
     self.cartas = [
         {
@@ -324,9 +254,4 @@ function criarSalaViewModel() {
             descricao: 'Representa vitorias em geral com sacrifícios e obstáculos no seu caminho.'
         }
     ]
-    
-};
-
-vm = new criarSalaViewModel();
-
-ko.applyBindings(vm);
+}

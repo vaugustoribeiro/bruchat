@@ -1,0 +1,12 @@
+.modal.fade.aguardandoParceiro(tabindex="-1" role="dialog")
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4(class="modal-title", data-bind="text: loader().titulo") 
+                    a.btn.btn-warning.pull-right(data-bind="value: ")
+            .modal-body
+                .progress
+                    .progress-bar.progress-bar-striped.active(role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
+                        span.sr-only
+                            .form-inline(data-bind="text: ")
+                    

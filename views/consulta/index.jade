@@ -2,83 +2,11 @@ extends ../layout
 
 block content
 
-    .modal.fade.conexaoEncerrada(tabindex="-1" role="dialog")
-        .modal-dialog.modal-sm
-            .modal-content
-                .modal-header
-                    h3 Aviso
-                .modal-body
-                    span(data-bind='text: mensagemAviso ')
-                .modal-footer
-                    a.btn.btn-primary(href='#', data-toggle='modal', data-target='.conexaoEncerrada') Entendi
-
     div#primeiroPasso(data-bind='visible: primeiroPasso')
-        
-        .row
-            .col-md-4.col-md-offset-4
-                
-                .page-header
-                        h1 Entrar em sessão espiritual
-                
-                .form-group          
-                    label(data-bind='text: titulo')     
-                    input.form-control(data-bind='value: nome, valueUpdate: "afterkeydown"', name='nome', type='text', placeholder='Digite seu nome')
-                .form-group
-                    input.form-control#idBruxo(type='hidden', value=idBruxo)
-                .form-group
-                    select.form-control(data-bind='options: quantidadesDeCartas, optionsCaption: "Escolha uma quatidade de cartas", value: quantidadeDeCartasSelecionada')
-                input.btn.btn-primary(idBruxotype='button', value='Iniciar consulta espiritual', data-bind='enable: habilitarBotaoIniciar, click: iniciarConsultaEspiritual')
+        include primeiroPasso
                 
     div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
-         .row
-            .col-md-12
-                .page-header
-                    h1(align='center', data-bind='text: "Conectado com " + nomeBruxo()')
-                    h1(align='center')
-                        a.btn.btn-warning(href='/') Desconectar
-            .col-md-6
-                .panel.panel-default
-                    .panel-heading 
-                        h3.panel-title Mesa - Cartas Sorteadas 
-                            span.badge(data-bind='text: quantidadeDeCartasRestantes() + " cartas restantes"')
-                    .panel-body
-                        div.cartas(data-bind='foreach: cartasSelecionadas')
-                            div.carta
-                                img(data-bind='attr: { src: imagem }', width='120', height='200')
-                                div.descricao
-                                    h4(data-bind='text: nome')
-                                    p(data-bind='text: descricao')
-                                h2.center-block(data-bind='text: numero')
-                                        
-             .col-md-3
-                    .panel.panel-default
-                        .panel-heading 
-                            h3.panel-title Chat - Mensagens 
-                                span.badge(data-bind='text: mensagens().length + " mensagens"')
-                        div#mensagens.panel-body(data-bind='foreach: mensagens', style='height: 300px; overflow: auto')
-                            .row
-                                div(data-bind='text: mensagem, attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
-                        .panel-footer
-                                input.form-control(placeholder='Digique a mensagem (enter para enviar)' type='text', style='width: 100%', data-bind='textInput: mensagem, hasFocus: focoMensagem, event: { keypress: enviarMensagemEnter }, enable: !sessaoEncerrada()')
-
-                                                    
-             .col-md-3
-                .panel.panel-default
-                    .panel-heading 
-                        h3.panel-title Conclusão
-                    .panel-body
-                        textarea.form-control#observacaoFinal(readonly='false', data-bind='value: observacaoFinal')
+         include ../shared/app
                        
 block script
-    script.
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-75743946-1', 'auto');
-        ga('send', 'pageview');
-        
-    script.
-        fbq('track', 'ViewContent');
-        
     script(src='/javascripts/consultaViewModel.js')

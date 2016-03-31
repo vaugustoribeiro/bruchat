@@ -19,6 +19,7 @@
     "knockout": "^3.4.0",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.2",
-    "masonry": "^4.0.0"
+    "masonry": "^4.0.0",
+    "knockout.mapping": "^2.0.1"
   }
 }

@@ -1,0 +1,8 @@
+.row(data-bind="visible: etapaCorrente")
+    .col-md-4.col-md-offset-4()
+        .page-header
+            h1(data-bind='text: titulo')
+        .form-group
+            label(data-bind='text: campo') 
+            input.form-control(data-bind='value: valorCampo, valueUpdate: "afterkeydown", attr: { "placeholder": placeHolder }', type='text')
+        input.btn.btn-primary(type='button', data-bind='enable: acaoBloqueada, value: titulo, click: acao')

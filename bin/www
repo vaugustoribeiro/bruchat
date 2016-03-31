@@ -42,7 +42,7 @@ io.sockets.on('connection', function (socket) {
     var clientId = '/#' + socket.client.id;
     
     socket.on('fc-enviar-mensagem', function(mensagem) {
-       socket.broadcast.to(socket.idDestino).emit('fs-enviar-mensagem', mensagem); 
+       socket.broadcast.to(socket.parceiroId).emit('fs-enviar-mensagem', mensagem); 
     });
     
     socket.on('fc-exibir-carta', function(cartaSelecionada) {
@@ -53,8 +53,8 @@ io.sockets.on('connection', function (socket) {
        io.to(clientId).emit('fs-remover-carta', cartaSelecionada);
     });
     
-    socket.on('fc-criar-sessao-espiritual', function(nomeBruxo) {
-       socket.nome = nomeBruxo; 
+    socket.on('fc-criar-sessao-espiritual', function(nome) {
+       socket.nome = nome; 
     });
     
     socket.on('fc-atualizar-observacao-final', function(novoValor) {
@@ -62,14 +62,14 @@ io.sockets.on('connection', function (socket) {
     });
     
     socket.on('fc-iniciar-consulta', function(data) {
-        var idSocketBruxo = '/#'+data.idBruxo;
-        
-        if(io.sockets.connected[idSocketBruxo]) {
-            io.sockets.connected[idSocketBruxo].idDestino = clientId;
-            socket.idDestino = idSocketBruxo;
-            socket.join(idSocketBruxo);
-            io.to(idSocketBruxo).emit('fs-iniciar-consulta', { nome: data.paciente, quantidadeDeCartasSelecionada: data.quantidadeDeCartasSelecionada });
-            io.to(clientId).emit('fs-nome-bruxo', io.sockets.connected[idSocketBruxo].nome);
+        var parceiroId = '/#'+data.parceiroId;
+        var parceiroSocket = io.sockets.connected[parceiroId];
+        if(parceiroSocket) {
+            parceiroSocket.parceiroId = clientId;
+            socket.parceiroId = parceiroId;
+            socket.join(parceiroId);
+            io.to(parceiroId).emit('fs-iniciar-consulta', { parceiroNome: data.parceiroNome });
+            io.to(clientId).emit('fs-nome-parceiro', io.sockets.connected[parceiroId].nome);
         } 
         else {
             io.to(clientId).emit('fs-sessao-inexistente');
@@ -77,8 +77,8 @@ io.sockets.on('connection', function (socket) {
     });
     
     socket.on('disconnect', function(status) {
-       if(socket.idDestino) {
-           socket.broadcast.to(socket.idDestino).emit('fs-encerrar-sessao');
+       if(socket.parceiroId) {
+           socket.broadcast.to(socket.parceiroId).emit('fs-encerrar-sessao');
        }
     });
 });

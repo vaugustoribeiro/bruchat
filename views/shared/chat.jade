@@ -1,0 +1,9 @@
+.panel.panel-default(data-bind='with: appChat')
+    .panel-heading 
+        h3.panel-title Chat - Mensagens  
+            span.badge(data-bind='text: mensagens().length + " mensagens"')
+    div#mensagens.panel-body(data-bind='foreach: mensagens', style='height: 300px; overflow: auto')
+        .row
+            div(data-bind='text: mensagem, attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
+    .panel-footer
+        input.form-control(placeholder='Digique a mensagem (enter para enviar)' type='text', style='width: 100%', data-bind='textInput: mensagem, hasFocus: focoMensagem, event: { keypress: enviarMensagemEnter }, enable: !bloquerEnvioMensagem()')
