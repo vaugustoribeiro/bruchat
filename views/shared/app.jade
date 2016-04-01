@@ -6,36 +6,30 @@
     script(src='/javascripts/modalViewModel.js')
     include modal
     
-    .col-md-12(data-bind='visible: !online()')
-        include responsiveGoogleAds_1
-    
     .col-md-4.col-md-offset-4(data-bind='visible: !online()')
         script(src='/javascripts/paginaGenericaViewModel.js')
         include paginaGenerica 
     
     .col-md-12(data-bind='visible: !online()')
-        include responsiveGoogleAds_2
+        include responsiveGoogleAds_1
     
     .col-md-12(data-bind='visible: online')
             
             script(src='/javascripts/headViewModel.js')
             include head
             
-            h1(align='center')
-                a.btn.btn-warning(href='#', data-bind='click: desconectar') Desconectar
+            include responsiveGoogleAds_2
             
-            include responsiveGoogleAds_1
-
+            h1(align='center')
+                a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: !parceiroDesconectado()') Desconectar
+                a.btn.btn-warning(href='/consulta' data-bind='visible: parceiroDesconectado') Sair
                 
-    .col-md-6(data-bind='visible: online')
+    .col-md-8(data-bind='visible: online')
             script(src='/javascripts/mesaViewModel.js')
             include mesa
         
-    .col-md-3(data-bind='visible: online')
+    .col-md-4(data-bind='visible: online')
             script(src='/javascripts/chatViewModel.js')
             include chat
-            
-    .col-md-3(data-bind='visible: online')
-        include responsiveGoogleAds_2
             
 script(src='/javascripts/appViewModel.js')

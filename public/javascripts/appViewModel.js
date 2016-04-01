@@ -5,9 +5,10 @@ function appViewModel() {
     self.socketId = ko.observable();
     
     self.parceiroNome = ko.observable();
-    self.parceiroId = ko.observable();
+    self.parceiroId = $("#parceiroId").val();
+    self.parceiroDesconectado = ko.observable(false);
     
-    self.adm = ko.observable();
+    self.adm = ko.observable(false);
     
     self.modal = ko.observable(new modalViewModel());
     self.head = ko.observable(new headViewModel());
@@ -26,22 +27,33 @@ function appViewModel() {
         location.reload(); // melhorar isso aqui véi
     }
     
+    self.urlAcessoParceiro = function() {
+       return "http://" + window.location.host + "/consulta?id=" + socket.id;
+    };
+    
     socket.on('fs-encerrar-sessao', function() {
         self.modal().exibirMensagem(self.parceiroNome() + " encerrou a conexão.");
         self.head().titulo('Desconectado de ' + self.parceiroNome());
+        self.parceiroDesconectado(true);
     });
+    
+    socket.on('fs-iniciar-consulta', function(parceiro) {
+        self.loader().hide();
+        self.parceiroNome(parceiro.parceiroNome);
+        self.head().titulo("Conectado com " + parceiro.parceiroNome);
+        self.online(true);
+    });
+    
+    socket.on('fs-nome-parceiro', function(parceiroNome) {
+        self.parceiroNome(parceiroNome);
+        self.head().titulo("Conectado com " + parceiroNome);
+        self.online(true);
+    }, self);
 
-    self.urlAcessoParceiro = ko.computed(function() {
-       return "http://" + window.location.host + "/consulta?id=" + self.socketId() ;
-    });
-    
-    setInterval(function() {
-        self.socketId(socket.id);
-    }, 1000);
-    
-    setInterval(function(){
-        self.parceiroId($("#parceiroId").val());
-    }, 1000);    
+    socket.on('fs-sessao-inexistente', function() {
+        self.modal().exibirMensagem("A sessão que se está tentando conectar, não existe mais.");
+        $('.conexaoEncerrada').modal('show');
+    }); 
 };
 
 vm = new appViewModel();

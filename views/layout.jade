@@ -43,10 +43,10 @@ html
         });
     
     nav.navbar.navbar-inverse.navbar-static-top
-            div.container-fluid
-                    div.navbar-header
-                        a.navbar-brand(href='/')
-                            img(alt="Bruchat" src="/images/logo3.png" width="28")
+        div.container-fluid
+                div.navbar-header
+                    a.navbar-brand(href='/')
+                        img(alt="Bruchat" src="/images/logo3.png" width="28")
                     button.btn.btn-default.navbar-right.navbar-btn(data-toggle='modal', data-target='.termosCondicoesUso') Termos e Condições de Uso
    
     .container-fluid
@@ -54,10 +54,11 @@ html
         block content
         
         block scripts
-        
-        div(style='position: fixed; background-color: #000; color: #fff; display: block; width: 100%; bottom: 0; padding: 5px 0 5px 0; right:0; text-align: center;')
-            span Em desenvolvimento por 
-                a(href='http://www.facebook.com/objusuario.seturlnome' target='_blank') Vincius Augusto
+    
+    nav.navbar.navbar-inverse.navbar-fixed-bottom
+        div.container-fluid
+            div.navbar-header
+                p.navbar-text(style='color: #fff') Em desenvolvimento por  
+                    a(href='http://www.facebook.com/objusuario.seturlnome' target='_blank') Vincius Augusto
                 
-        
     include shared/termosECondicoesDeUso

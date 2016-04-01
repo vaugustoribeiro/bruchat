@@ -2,12 +2,14 @@ function mesaViewModel() {
     
     var self = this;
     
+    self.readonly = ko.observable(); 
+    
     self.numeroCarta = ko.observable();
     self.cartasSelecionadas = ko.observableArray();
     
     self.selecionarCarta = function(cartaSelecionada) {
         self.cartasSelecionadas.push(cartaSelecionada);
-        //socket.emit('fc-exibir-carta', cartaSelecionada);
+        socket.emit('fc-exibir-carta', cartaSelecionada);
     };    
     
     self.removerCarta = function (cartaSelecionada) {
@@ -16,7 +18,7 @@ function mesaViewModel() {
     };
     
     socket.on('fs-exibir-carta', function(cartaSelecionada) {
-        //self.cartasSelecionadas.push(cartaSelecionada);
+        self.cartasSelecionadas.push(cartaSelecionada);
     });
     
     socket.on('fs-remover-carta', function(cartaSelecionada) {
@@ -36,7 +38,7 @@ function mesaViewModel() {
     
     self.adicionarCarta = function () {
         var cartaSeleciona = _.find(self.cartas, function(carta) {
-           return carta.numero.toString() === self.numeroCarta(); 
+        return carta.numero.toString() === self.numeroCarta(); 
         });
         
         if(cartaSeleciona == null) {

@@ -46,19 +46,15 @@ io.sockets.on('connection', function (socket) {
     });
     
     socket.on('fc-exibir-carta', function(cartaSelecionada) {
-       io.to(clientId).emit('fs-exibir-carta', cartaSelecionada); 
+       socket.broadcast.to(socket.parceiroId).emit('fs-exibir-carta', cartaSelecionada); 
     });
     
     socket.on('fc-remover-carta', function(cartaSelecionada) {
-       io.to(clientId).emit('fs-remover-carta', cartaSelecionada);
+       socket.broadcast.to(socket.parceiroId).emit('fs-remover-carta', cartaSelecionada);
     });
     
     socket.on('fc-criar-sessao-espiritual', function(nome) {
        socket.nome = nome; 
-    });
-    
-    socket.on('fc-atualizar-observacao-final', function(novoValor) {
-        io.to(clientId).emit('fs-atualizar-observacao-final', novoValor)
     });
     
     socket.on('fc-iniciar-consulta', function(data) {
