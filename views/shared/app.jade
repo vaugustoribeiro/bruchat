@@ -22,7 +22,7 @@
             
             h1(align='center')
                 a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: !parceiroDesconectado()') Desconectar
-                a.btn.btn-warning(href='/consulta' data-bind='visible: parceiroDesconectado') Sair
+                a.btn.btn-warning(href='/' data-bind='visible: parceiroDesconectado') Sair
                 
     .col-md-8(data-bind='visible: online')
             script(src='/javascripts/mesaViewModel.js')

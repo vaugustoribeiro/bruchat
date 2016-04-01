@@ -35,6 +35,7 @@ function appViewModel() {
         self.modal().exibirMensagem(self.parceiroNome() + " encerrou a conexão.");
         self.head().titulo('Desconectado de ' + self.parceiroNome());
         self.parceiroDesconectado(true);
+        self.chat().online(false);
     });
     
     socket.on('fs-iniciar-consulta', function(parceiro) {
