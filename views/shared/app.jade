@@ -6,11 +6,15 @@
     script(src='/javascripts/modalViewModel.js')
     include modal
     
-    .col-md-12(data-bind='visible: !online()')
+    .col-md-4
+        include responsiveGoogleAds_1
+    
+    .col-md-4(data-bind='visible: !online()')
         script(src='/javascripts/paginaGenericaViewModel.js')
         include paginaGenerica 
     
-        include bruchatGoogleAds
+    .col-md-4
+        include responsiveGoogleAds_2
     
     .col-md-12(data-bind='visible: online')
             
@@ -19,6 +23,9 @@
             
             h1(align='center')
                 a.btn.btn-warning(href='#', data-bind='click: desconectar') Desconectar
+            
+            include shared/responsiveGoogleAds_1
+
                 
     .col-md-6(data-bind='visible: online')
             script(src='/javascripts/mesaViewModel.js')
@@ -27,8 +34,8 @@
     .col-md-3(data-bind='visible: online')
             script(src='/javascripts/chatViewModel.js')
             include chat
-
-    .col-md-3(data-bind='visible: online')
-            include rightSideGoogleAds
+            
+    .col-md-3
+        include shared/responsiveGoogleAds_2
             
 script(src='/javascripts/appViewModel.js')
