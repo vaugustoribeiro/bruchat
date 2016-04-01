@@ -35,7 +35,7 @@
             script(src='/javascripts/chatViewModel.js')
             include chat
             
-    .col-md-3
+    .col-md-3(data-bind='visible: online')
         include responsiveGoogleAds_2
             
 script(src='/javascripts/appViewModel.js')
