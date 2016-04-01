@@ -6,14 +6,14 @@
     script(src='/javascripts/modalViewModel.js')
     include modal
     
-    .col-md-4
+    .col-md-3
         include responsiveGoogleAds_1
     
-    .col-md-4(data-bind='visible: !online()')
+    .col-md-6(data-bind='visible: !online()')
         script(src='/javascripts/paginaGenericaViewModel.js')
         include paginaGenerica 
     
-    .col-md-4
+    .col-md-3
         include responsiveGoogleAds_2
     
     .col-md-12(data-bind='visible: online')
