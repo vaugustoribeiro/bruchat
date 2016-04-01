@@ -6,7 +6,7 @@ with(criarSessao) {
     acaoCallback(function() {
         with(vm.loader()){
             titulo("Aguardando Conexão...");
-            conteudo('<span>Envie este link para seu parceiro: </span><span class="form-control" style="color: #337ab7">' + vm.urlAcessoParceiro() + '</span>')
+            conteudo('<span>Envie este link para seu parceiro: <a href="#">' + vm.urlAcessoParceiro() + '</a></span>')
             show();
         }
         vm.mesa().readonly(false);
