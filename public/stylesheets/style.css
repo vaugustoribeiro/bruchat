@@ -65,20 +65,35 @@ a {
     padding: 10px;
     word-break: break-all;
     margin-top: 5px;
-    border-radius: 5px;
 }
 
 .local {
     background-color: #b3ffb3;
     box-shadow: 0 0 5px #b3ffb3;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+
 }
 
 .server {
     background-color: #ffcccc;
     box-shadow: 0 0 5px #ffcccc;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+
 }
 
 body {
     background-image: url('/images/gb.jpg');
     padding-bottom: 50px;
+}
+
+.labelDigitando {
+    background-color:#4C4C4C;
+    color: #fff;
+    padding: 10px;
+    bottom: 0px;
+    display: block;
+    font-size: 14px;
+    position: relative;
 }

@@ -1,4 +1,2 @@
-.page-header
-    h1(align='center', data-bind='text: head().titulo')
-    h1(align='center')
-        a.btn.btn-warning(href='/') Desconectar
+.page-header(data-bind='with: head()')
+    h1(align='center', data-bind='text: titulo')

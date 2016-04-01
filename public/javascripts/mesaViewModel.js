@@ -1,4 +1,4 @@
-function tableViewModel() {
+function mesaViewModel() {
     
     var self = this;
     
@@ -7,7 +7,7 @@ function tableViewModel() {
     
     self.selecionarCarta = function(cartaSelecionada) {
         self.cartasSelecionadas.push(cartaSelecionada);
-        socket.emit('fc-exibir-carta', cartaSelecionada);
+        //socket.emit('fc-exibir-carta', cartaSelecionada);
     };    
     
     self.removerCarta = function (cartaSelecionada) {
@@ -16,7 +16,7 @@ function tableViewModel() {
     };
     
     socket.on('fs-exibir-carta', function(cartaSelecionada) {
-        self.cartasSelecionadas.push(cartaSelecionada);
+        //self.cartasSelecionadas.push(cartaSelecionada);
     });
     
     socket.on('fs-remover-carta', function(cartaSelecionada) {
@@ -26,15 +26,28 @@ function tableViewModel() {
         self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(x), 1);
     });
     
+    self.numeroCarta = ko.observable();
+    self.numeroCartaFoco = ko.observable(false);
     
+    self.adicionarCartaEnter = function(d, e) {
+        e.keyCode === 13 && self.adicionarCarta();
+        return true;
+    };
     
     self.adicionarCarta = function () {
         var cartaSeleciona = _.find(self.cartas, function(carta) {
-           return carta.numero === self.numeroCarta(); 
+           return carta.numero.toString() === self.numeroCarta(); 
         });
-        self.selecionarCarta(cartaSeleciona);
+        
+        if(cartaSeleciona == null) {
+            vm.modal().exibirMensagem("Não existe carta com este número.")
+        }
+        else {
+            self.selecionarCarta(cartaSeleciona);
+            self.numeroCarta('');
+            self.numeroCartaFoco(true);
+        }
     }
-    
     
     self.cartas = [
         {

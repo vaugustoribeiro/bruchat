@@ -25,9 +25,12 @@ html
     script(src='/bower_components/knockout.mapping/knockout.mapping.js')
     script(src='/bower_components/lodash/dist/lodash.min.js')
     script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/koCustomBindings.js')
     
     script.
         socket = new io();
+        
+        socket.io.timeout(60000);
         
         socket.on('disconnect', function(x) {
             console.log(x);

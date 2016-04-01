@@ -1,24 +1,34 @@
 .row
 
     script(src='/javascripts/loaderViewModel.js')
-    include ../shared/loader
+    include loader
     
     script(src='/javascripts/modalViewModel.js')
-    include ../shared/modal
-
-    .col-md-12
+    include modal
+    
+    .col-md-12(data-bind='visible: !online()')
+        script(src='/javascripts/paginaGenericaViewModel.js')
+        include paginaGenerica 
+    
+        include bruchatGoogleAds
+    
+    .col-md-12(data-bind='visible: online')
+            
             script(src='/javascripts/headViewModel.js')
-            include ../shared/head
+            include head
+            
+            h1(align='center')
+                a.btn.btn-warning(href='#', data-bind='click: desconectar') Desconectar
                 
-    .col-md-6
-            script(src='/javascripts/tableViewModel.js')
-            include ../shared/table
+    .col-md-6(data-bind='visible: online')
+            script(src='/javascripts/mesaViewModel.js')
+            include mesa
         
-    .col-md-3
+    .col-md-3(data-bind='visible: online')
             script(src='/javascripts/chatViewModel.js')
-            include ../shared/chat
+            include chat
 
-    .col-md-3
-            span GoogleAds
+    .col-md-3(data-bind='visible: online')
+            include rightSideGoogleAds
             
 script(src='/javascripts/appViewModel.js')

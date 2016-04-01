@@ -2,11 +2,13 @@ extends ../layout
 
 block content
 
-    div#primeiroPasso(data-bind='visible: primeiroPasso')
-        include primeiroPasso
-                
-    div#segundoPasso(data-bind='visible: segundoPasso', style='display: none;')
-         include ../shared/app
-                       
-block script
-    script(src='/javascripts/consultaViewModel.js')
+    include ../shared/app
+    
+    if parceiroId
+        input#parceiroId(type='hidden' value=parceiroId)
+        script(src='/javascripts/consultaParceiro.js')
+    else
+        script(src='/javascripts/consulta.js')
+        
+                    
+        

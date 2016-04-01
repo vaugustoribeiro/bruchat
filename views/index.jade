@@ -8,19 +8,11 @@ block content
             img.img-responsive.center-block(src="/images/logo3.png" class="" alt="Responsive image" width="256")
             
             h1(align='center')
-                a.btn.btn-primary.btn-lg(href="/bruxo", style='') Iniciar Sessão
+                a.btn.btn-primary.btn-lg(href="/consulta", style='') Iniciar Sessão
             
-            .center-block(style='width: 100%;')
-                
-                script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
-                // Bruchat top 
-                ins(class="adsbygoogle"
-                    style="display:inline-block;width:728px;height:90px"
-                    data-ad-client="ca-pub-4046357649059191"
-                    data-ad-slot="5529449861")
-                script.
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-    
+            br
+            include shared/bruchatGoogleAds
+                    
     <br>
     .col-md-3
         .page-header

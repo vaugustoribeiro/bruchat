@@ -1,9 +1,9 @@
-.modal.fade.appModal(tabindex="-1" role="dialog")
+.modal.fade#modal(tabindex="-1" role="dialog", data-bind='with: modal()')
         .modal-dialog.modal-sm
             .modal-content
                 .modal-header
                     h3 Aviso
                 .modal-body
-                    span(data-bind='text: modal().mensagemModal')
+                    span(data-bind='text: mensagem')
                 .modal-footer
-                    a.btn.btn-primary(href='#', data-toggle='modal', data-target='.appModal') Entendi
+                    a.btn.btn-primary(href='#', data-toggle='modal', data-target='#modal') Entendi
