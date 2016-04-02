@@ -53,8 +53,9 @@ io.sockets.on('connection', function (socket) {
        socket.broadcast.to(socket.parceiroId).emit('fs-remover-carta', cartaSelecionada);
     });
     
-    socket.on('fc-criar-sessao-espiritual', function(nome) {
-       socket.nome = nome; 
+    socket.on('fc-criar-sessao-espiritual', function(data) {
+       socket.nome = data.nome;
+       socket.join(data.permaId); 
     });
     
     socket.on('fc-iniciar-consulta', function(data) {

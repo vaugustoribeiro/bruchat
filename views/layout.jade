@@ -28,20 +28,26 @@ html
     script(src='/javascripts/koCustomBindings.js')
     
     script.
-        socket = new io();
-        
-        socket.io.timeout(60000);
-        
-        socket.on('disconnect', function(x) {
-            console.log(x);
-        });
-        socket.on('connect_timeout', function(x) {
-            console.log(x);
-        });
-        socket.on('reconnecting', function(x) {
-            console.log(x);
-        });
+        var socketConfig = {
+            reconnection: true,
+            reconnectionDelay: 500,
+            reconnectionDelayMax: 1000,
+            timeout: 60000  
+        };
+        socket = io.connect("/", socketConfig);
+        var permaId = socket.id;
     
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75743946-1', 'auto');
+        ga('send', 'pageview');
+        
+    script.
+        fbq('track', 'ViewContent');
+        
     nav.navbar.navbar-inverse.navbar-static-top
         div.container-fluid
                 div.navbar-header

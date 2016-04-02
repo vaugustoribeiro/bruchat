@@ -55,6 +55,58 @@ function appViewModel() {
         self.modal().exibirMensagem("A sessão que se está tentando conectar, não existe mais.");
         $('.conexaoEncerrada').modal('show');
     }); 
+    
+    // manager events
+    socket.io.on('connect', function() {
+        console.log('io connect');
+    });
+    socket.io.on('connect_error', function(object) {
+        console.log('io connect_error');
+    });
+    socket.io.on('connect_timeout', function() {
+        console.log('io connect_timeout');
+    });
+    socket.io.on('reconnect', function(number) {
+        console.log('io reconnect');
+    });
+    socket.io.on('reconnect_attempt', function() {
+        console.log('io reconnect_attempt');
+    });
+    socket.io.on('reconnecting', function(number) {
+        console.log('io reconnecting');
+    });
+    socket.io.on('reconnect_error', function(object) {
+        console.log('io reconnect_error');
+    });
+    socket.io.on('reconnect_failed', function() {
+        console.log('io reconnect_failed');
+    });
+    
+    // socket events
+    socket.on('connect', function() {
+        console.log('io connect');        
+    });
+    socket.on('error', function(object) {
+        console.log('io error');        
+    });
+    socket.on('disconnect', function() {
+        console.log('io disconnect');        
+    });
+    socket.on('reconnect', function(number) {
+        console.log('io reconnect');        
+    });
+    socket.on('reconnect_attempt', function() {
+        console.log('io reconnect_attempt');        
+    });
+    socket.on('reconnecting', function(number) {
+        console.log('io reconnecting');        
+    });
+    socket.on('reconnect_error', function(object) {
+        console.log('io reconnect_error');        
+    });
+    socket.on('reconnect_failed', function() {
+        console.log('io reconnect_failed');        
+    });
 };
 
 vm = new appViewModel();
