@@ -11,7 +11,7 @@ with(criarSessao) {
         }
         vm.mesa().readonly(false);
         vm.nome(vm.paginaGenerica().valorCampo());
-        socket.emit('fc-criar-sessao-espiritual', { nome: vm.nome(), roomId: permaId });
+        socket.emit('fc-criar-sessao-espiritual', { nome: vm.nome(), roomId: socket.id });
     });
 }
 vm.paginaGenerica(criarSessao);

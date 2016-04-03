@@ -12,7 +12,10 @@ function mesaViewModel() {
         socket.emit('fc-exibir-carta', cartaSelecionada);
     };    
     
+    self.online = ko.observable();
+    
     self.removerCarta = function (cartaSelecionada) {
+        if(self.readonly()) return;
         self.cartasSelecionadas.splice(self.cartasSelecionadas.indexOf(cartaSelecionada), 1);
         socket.emit('fc-remover-carta', cartaSelecionada);
     };

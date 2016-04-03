@@ -10,4 +10,4 @@
                     p(data-bind='text: descricao')
                 h2.center-block(data-bind='text: numero')
     .panel-footer(data-bind='visible: !readonly()')
-        input.form-control(type='text', placeholder='Digite o numero da carta e aperte enter para inserir', data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: adicionarCartaEnter }, valueUpdate: "afterkeydown"')
+        input.form-control(type='text', placeholder='Digite o numero da carta e aperte enter para inserir', data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: adicionarCartaEnter }, valueUpdate: "afterkeydown", enable: online')

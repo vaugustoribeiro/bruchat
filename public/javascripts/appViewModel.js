@@ -8,8 +8,6 @@ function appViewModel() {
     self.parceiroId = $("#parceiroId").val();
     self.parceiroDesconectado = ko.observable(false);
     
-    self.adm = ko.observable(false);
-    
     self.modal = ko.observable(new modalViewModel());
     self.head = ko.observable(new headViewModel());
     self.chat = ko.observable(new chatViewModel());
@@ -17,25 +15,36 @@ function appViewModel() {
     self.loader = ko.observable(new loaderViewModel());
     self.paginaGenerica = ko.observable(new paginaGenericaViewModel());
     
+    self.conectado = ko.observable(false);
+    
     self.online = ko.observable();
     
-    self.online.subscribe(function(valor) { 
+    self.online.subscribe(function(valor) {
+        self.conectado(true); 
         self.chat().online(valor);
+        self.mesa().online(valor);
+        self.head().online(valor);
     }, self);
     
     self.desconectar = function() {
-        location.reload(); // melhorar isso aqui véi
+        self.online(false);
+        socket.io.disconnect();
+    }
+    
+    self.sair = function() {
+        location.href = '/';
     }
     
     self.urlAcessoParceiro = function() {
        return "http://" + window.location.host + "/consulta?id=" + socket.id;
     };
     
+    // client socket events
     socket.on('fs-encerrar-sessao', function() {
         self.modal().exibirMensagem(self.parceiroNome() + " encerrou a conexão.");
         self.head().titulo('Desconectado de ' + self.parceiroNome());
         self.parceiroDesconectado(true);
-        self.chat().online(false);
+        self.online(false);
     });
     
     socket.on('fs-iniciar-consulta', function(parceiro) {
@@ -52,8 +61,7 @@ function appViewModel() {
     }, self);
 
     socket.on('fs-sessao-inexistente', function() {
-        self.modal().exibirMensagem("A sessão que se está tentando conectar, não existe mais.");
-        $('.conexaoEncerrada').modal('show');
+        self.modal().exibirMensagem("A sessão que se está tentando conectar, não existe.");
     }); 
     
     // manager events

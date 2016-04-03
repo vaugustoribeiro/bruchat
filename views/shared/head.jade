@@ -1,2 +1,4 @@
-.page-header(data-bind='with: head()')
-    h1(align='center', data-bind='text: titulo')
+.page-header(data-bind='with: head()', style='text-align: center')
+    h1(data-bind='text: titulo')
+    h4 Tempo online: 
+        span(data-bind='text: tempoOnlineFormatado')
