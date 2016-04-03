@@ -36,7 +36,7 @@ function appViewModel() {
     }
     
     self.urlAcessoParceiro = function() {
-       return "http://" + window.location.host + "/consulta?id=" + socket.id;
+       return "http://" + window.location.host + "/consulta/" + socket.id;
     };
     
     // client socket events
