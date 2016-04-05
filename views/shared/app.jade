@@ -8,23 +8,22 @@
     
     .col-md-4.col-md-offset-4(data-bind='visible: !conectado()')
         script(src='/javascripts/paginaGenericaViewModel.js')
-        include paginaGenerica 
+        include paginaGenerica
+        br
+        br 
     
-    .col-md-12(data-bind='visible: !conectado()')
-        br
-        br
-        include responsiveGoogleAds_1
     
     .col-md-12(data-bind='visible: conectado')
             
-            script(src='/javascripts/headViewModel.js')
-            include head
-            
-            include responsiveGoogleAds_2
-            
-            h1(align='center')
-                a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: online') Desconectar
-                a.btn.btn-warning(href='#' data-bind='click: sair, visible: !online()') Sair
+        script(src='/javascripts/headViewModel.js')
+        include head
+    
+    .col-md-12
+        include responsiveGoogleAds_1
+    
+    h1(align='center', data-bind='visible: conectado')
+        a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: online') Desconectar
+        a.btn.btn-warning(href='#' data-bind='click: sair, visible: !online()') Sair
                 
     .col-md-8(data-bind='visible: conectado')
             script(src='/javascripts/mesaViewModel.js')

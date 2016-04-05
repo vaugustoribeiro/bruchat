@@ -75,12 +75,15 @@ io.sockets.on('connection', function (socket) {
     socket.on('fc-escrevendo', function(escrevendo) {
        socket.broadcast.to(socket.parceiroId).emit('fs-escrevendo', escrevendo);
     });
-    
-    +
+        
     socket.on('disconnect', function(status) {
        if(socket.parceiroId) {
            socket.broadcast.to(socket.parceiroId).emit('fs-encerrar-sessao');
        }
+    });
+    
+    socket.on('fc-esconder-descricao-carta', function(esconderDescricaoCartas) {
+       socket.broadcast.to(socket.parceiroId).emit('fs-esconder-descricao-carta', esconderDescricaoCartas); 
     });
 });
 

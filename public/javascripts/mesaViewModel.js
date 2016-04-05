@@ -54,6 +54,20 @@ function mesaViewModel() {
         }
     }
     
+    self._esconderDescricaoCartas = ko.observable(false);
+    self.esconderDescricaoCartas = ko.computed(function(){
+        return self._esconderDescricaoCartas() && self.readonly();
+    }, self) 
+    
+    self._esconderDescricaoCartas.subscribe(function(esconderDescricaoCartas) {
+        socket.emit('fc-esconder-descricao-carta', esconderDescricaoCartas);
+    }, self);
+    
+    socket.on('fs-esconder-descricao-carta', function(esconderDescricaoCarta) {
+        self._esconderDescricaoCartas(esconderDescricaoCarta);
+    });
+    
+    
     self.cartas = [
         {
             numero: 1,
