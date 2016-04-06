@@ -1,7 +1,8 @@
 doctype html
 html
   head
-    title Bruchat Esoterismo Cartomancia Cartomante Ferramenta Online 
+    title Bruchat Esoterismo Cartomancia Cartomante Ferramenta Online
+     
     meta(name='viewport', content='width=device-width, initial-scale=1')
     //link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
@@ -31,9 +32,23 @@ html
     script(src='/socket.io/socket.io.js')
     script(src='/javascripts/koCustomBindings.js')
     
-    include modos_de_jogo/circulo_magico/index
+    .container-fluid
+        .row
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/estrelaCincoPontas
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/circuloMagico
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/mandalaAstrologica
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/ferradura
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/tresCartas
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/vinteUmaCartas
+            .col-lg-2.col-md-3.col-sm-4.col-xs-6
+                include modos_de_jogo/magiaCigana
  
-    
     // script.
     //     var socketConfig = {
     //         reconnection: true,

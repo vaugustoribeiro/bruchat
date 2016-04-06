@@ -1,0 +1,23 @@
+link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
+link(rel='stylesheet', href='/stylesheets/modos_de_jogo/estrelaCincoPontas.css')
+
+#estrelaCincoPontas.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
+
+    .panel-heading
+        h3.panel-title Estrela de Cinco Pontas (Pentagrama)
+        
+    .panel-body.estrelaCincoPontas(data-bind='style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }')
+    
+        .cartaDaFamilia(data-bind='css: cartaDaFamilia, click: function() { redefinirCarta(0); } ')
+        .cartaDasFinancas(data-bind='css: cartaDasFinancas, click: function() { redefinirCarta(1); } ')
+        .cartaDaSaude(data-bind='css: cartaDaSaude, click: function() { redefinirCarta(2); } ')
+        .cartaDoAmor(data-bind='css: cartaDoAmor, click: function() { redefinirCarta(3); } ')
+        .cartaDaMensagemFinal(data-bind='css: cartaDaMensagemFinal, click: function() { redefinirCarta(4); } ')
+    
+    .panel-footer
+        span(data-bind='text: etapaAtual().descricao')
+        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: etapaAtual().numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+            
+
+script(src='/javascripts/baralhoLenormand.js') 
+script(src='/javascripts/modos_de_jogo/estrelaCincoPontasViewModel.js') 

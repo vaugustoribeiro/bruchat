@@ -1,0 +1,19 @@
+link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
+link(rel='stylesheet', href='/stylesheets/modos_de_jogo/tresCartas.css')
+
+#tresCartas.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
+
+    .panel-heading
+        h3.panel-title 3 Cartas
+        
+    .panel-body.tresCartas(data-bind='style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }')
+        .primeiraCarta(data-bind='css: primeiraCarta, click: function() { redefinirCarta(0); } ')
+        .segundaCarta(data-bind='css: segundaCarta, click: function() { redefinirCarta(1); } ')
+        .terceiraCarta(data-bind='css: terceiraCarta, click: function() { redefinirCarta(2); } ')
+    
+    .panel-footer
+        span(data-bind='text: etapaAtual().descricao')
+        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: etapaAtual().numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+            
+script(src='/javascripts/baralhoLenormand.js') 
+script(src='/javascripts/modos_de_jogo/tresCartasViewModel.js') 

@@ -1,0 +1,52 @@
+.ferradura {
+    overflow: hidden;
+    position: relative;
+}
+
+.ferradura div:hover {  
+    cursor: pointer;
+}
+
+.ferradura div {
+    position: absolute;
+    width: 14%;
+    height: 22%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.ferradura .cartaDoPassado {
+    margin-left: -33%;
+    margin-top: -50%;
+}
+
+.ferradura .cartaDasForcasDoPresente {
+    margin-left: -46%;
+    margin-top: -21%;
+}
+
+.ferradura .cartaDoFuturo {
+    margin-left: -33%;
+    margin-top: 9%;
+}
+
+.ferradura .cartaDoRumo {
+    margin-left: -7%;
+    margin-top: 28%;
+}
+
+.ferradura .cartaDaReacaoDasPessoasProximas {
+    margin-top: 9%;
+    margin-left: 19%;
+}
+
+.ferradura .cartaDosObstaculosASeremSuperadosOuEvitados {
+    margin-top: -21%;
+    margin-left: 32%;
+}
+.ferradura .cartaDaResposta {
+    margin-top: -50%;
+    margin-left: 19%;
+}

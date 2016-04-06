@@ -1,0 +1,106 @@
+.vinteUmaCartas {
+    overflow: hidden;
+    position: relative;
+}
+
+.vinteUmaCartas div:hover {  
+    cursor: pointer;
+}
+
+.vinteUmaCartas div {
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.vinteUmaCartas .primeiraCarta {
+    margin-left: -45%;
+    margin-top: -31%;
+}
+
+.vinteUmaCartas .segundaCarta {
+    margin-left: -45%;
+    margin-top: -10%;
+}
+
+.vinteUmaCartas .terceiraCarta {
+    margin-left: -45%;
+    margin-top: 11%;
+}
+
+.vinteUmaCartas .quartaCarta {
+    margin-left: -32%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .quintaCarta {
+    margin-left: -32%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .sextaCarta {
+    margin-left: -32%;
+    margin-top: 11%;
+}
+.vinteUmaCartas .setimaCarta {
+    margin-left: -19%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .oitavaCarta {
+    margin-left: -19%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .nonaCarta {
+    margin-left: -19%;
+    margin-top: 11%;
+}
+.vinteUmaCartas .decimaCarta {
+    margin-left: -6%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .decimaPrimeiraCarta {
+    margin-left: -6%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .decimaSegundaCarta {
+    margin-left: -6%;
+    margin-top: 11%;
+}
+.vinteUmaCartas .decimaTerceiraCarta {
+    margin-left: 7%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .decimaQuartaCarta {
+    margin-left: 7%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .decimaQuintaCarta {
+    margin-left: 7%;
+    margin-top: 11%;
+}
+.vinteUmaCartas .decimaSextaCarta {
+    margin-left: 20%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .decimaSetimaCarta {
+    margin-left: 20%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .decimaOitavaCarta {
+    margin-left: 20%;
+    margin-top: 11%;
+}
+.vinteUmaCartas .decimaNonaCarta {
+    margin-left: 33%;
+    margin-top: -31%;
+}
+.vinteUmaCartas .vigesimaCarta {
+    margin-left: 33%;
+    margin-top: -10%;
+}
+.vinteUmaCartas .vigesimaPrimeiraCarta {
+    margin-left: 33%;
+    margin-top: 11%;
+}

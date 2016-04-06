@@ -1,0 +1,43 @@
+.estrelaCincoPontas {
+    overflow: hidden;
+    position: relative;
+}
+
+.estrelaCincoPontas div:hover {  
+    cursor: pointer;
+}
+
+.estrelaCincoPontas div {
+    position: absolute;
+    width: 16%;
+    height: 26%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.estrelaCincoPontas .cartaDaFamilia {
+    margin-left: -28%;
+    margin-top: 19%;
+}
+
+.estrelaCincoPontas .cartaDasFinancas {
+    margin-left: 10%;
+    margin-top: 19%;
+}
+
+.estrelaCincoPontas .cartaDaSaude {
+    margin-left: -44%;
+    margin-top: -13%;
+}
+
+.estrelaCincoPontas .cartaDoAmor {
+    margin-left: 26%;
+    margin-top: -12%;
+}
+
+.estrelaCincoPontas .cartaDaMensagemFinal {
+    margin-top: -45%;
+    margin-left: -8%;
+}

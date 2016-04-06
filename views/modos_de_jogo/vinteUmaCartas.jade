@@ -1,0 +1,37 @@
+link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
+link(rel='stylesheet', href='/stylesheets/modos_de_jogo/vinteUmaCartas.css')
+
+#vinteUmaCartas.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
+
+    .panel-heading
+        h3.panel-title 21 Cartas
+        
+    .panel-body.vinteUmaCartas(data-bind='style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }')
+        .primeiraCarta(data-bind='css: primeiraCarta, click: function() { redefinirCarta(0); } ')
+        .segundaCarta(data-bind='css: segundaCarta, click: function() { redefinirCarta(1); } ')
+        .terceiraCarta(data-bind='css: terceiraCarta, click: function() { redefinirCarta(2); } ')
+        .quartaCarta(data-bind='css: quartaCarta, click: function() { redefinirCarta(3); } ')
+        .quintaCarta(data-bind='css: quintaCarta, click: function() { redefinirCarta(4); } ')
+        .sextaCarta(data-bind='css: sextaCarta, click: function() { redefinirCarta(5); } ')
+        .setimaCarta(data-bind='css: setimaCarta, click: function() { redefinirCarta(6); } ')
+        .oitavaCarta(data-bind='css: oitavaCarta, click: function() { redefinirCarta(7); } ')
+        .nonaCarta(data-bind='css: nonaCarta, click: function() { redefinirCarta(8); } ')
+        .decimaCarta(data-bind='css: decimaCarta, click: function() { redefinirCarta(9); } ')
+        .decimaPrimeiraCarta(data-bind='css: decimaPrimeiraCarta, click: function() { redefinirCarta(10); } ')
+        .decimaSegundaCarta(data-bind='css: decimaSegundaCarta, click: function() { redefinirCarta(11); } ')
+        .decimaTerceiraCarta(data-bind='css: decimaTerceiraCarta, click: function() { redefinirCarta(12); } ')
+        .decimaQuartaCarta(data-bind='css: decimaQuartaCarta, click: function() { redefinirCarta(13); } ')
+        .decimaQuintaCarta(data-bind='css: decimaQuintaCarta, click: function() { redefinirCarta(14); } ')
+        .decimaSextaCarta(data-bind='css: decimaSextaCarta, click: function() { redefinirCarta(15); } ')
+        .decimaSetimaCarta(data-bind='css: decimaSetimaCarta, click: function() { redefinirCarta(16); } ')
+        .decimaOitavaCarta(data-bind='css: decimaOitavaCarta, click: function() { redefinirCarta(17); } ')
+        .decimaNonaCarta(data-bind='css: decimaNonaCarta, click: function() { redefinirCarta(18); } ')
+        .vigesimaCarta(data-bind='css: vigesimaCarta, click: function() { redefinirCarta(19); } ')
+        .vigesimaPrimeiraCarta(data-bind='css: vigesimaPrimeiraCarta, click: function() { redefinirCarta(20); } ')
+    
+    .panel-footer
+        span(data-bind='text: etapaAtual().descricao')
+        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: etapaAtual().numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+            
+script(src='/javascripts/baralhoLenormand.js') 
+script(src='/javascripts/modos_de_jogo/vinteUmaCartasViewModel.js') 

@@ -1,0 +1,72 @@
+.mandalaAstrologica {
+    overflow: hidden;
+    position: relative;
+}
+
+.mandalaAstrologica div:hover {  
+    cursor: pointer;
+}
+
+.mandalaAstrologica div {
+    position: absolute;
+    width: 10%;
+    height: 16%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.mandalaAstrologica .cartaEuSou {
+    margin-left: -41%;
+    margin-top: -8%;
+}
+
+.mandalaAstrologica .cartaEuTenho {
+    margin-left: -29%;
+    margin-top: 6%;
+}
+
+.mandalaAstrologica .cartEuPenso {
+    margin-left: -17%;
+    margin-top: 20%;
+}
+
+.mandalaAstrologica .cartaEstouProtegido {
+    margin-left: -5%;
+    margin-top: 34%;
+}
+
+.mandalaAstrologica .cartaEuGostoEuBrinco {
+    margin-top: 20%;
+    margin-left: 7%;
+}
+
+.mandalaAstrologica .cartaEuTrabalho {
+    margin-top: 6%;
+    margin-left: 19%;
+}
+.mandalaAstrologica .cartaEuMeRelaciono {
+    margin-top: -8%;
+    margin-left: 31%;
+}
+.mandalaAstrologica .cartaEuRenasco {
+    margin-top: -22%;
+    margin-left: 19%;
+}
+.mandalaAstrologica .cartaEuCreio {
+    margin-top: -36%;
+    margin-left: 7%;
+}
+.mandalaAstrologica .cartaEuMeEsforco {
+    margin-top: -50%;
+    margin-left: -5%;
+}
+.mandalaAstrologica .cartaMeusAmigos {
+    margin-top: -36%;
+    margin-left: -17%;
+}
+.mandalaAstrologica .cartaEuAnseio {
+    margin-top: -22%;
+    margin-left: -29%;
+}

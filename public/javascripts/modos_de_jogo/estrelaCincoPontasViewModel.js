@@ -1,13 +1,12 @@
-function circuloMagicoViewModel() {
+function estrelaCincoPontasViewModel() {
     var self = this;
 
-    self.cartaTema = ko.observable();
-    self.cartaSintese = ko.observable();
-    self.cartaDasInfluenciasExternas = ko.observable();
-    self.cartaDaOposicao = ko.observable();
-    self.cartaDoFavorecimento = ko.observable();
-    self.cartaDoResultado = ko.observable();
-
+    self.cartaDaFamilia = ko.observable();
+    self.cartaDasFinancas = ko.observable();
+    self.cartaDaSaude = ko.observable();
+    self.cartaDoAmor = ko.observable();
+    self.cartaDaMensagemFinal = ko.observable();
+    
     self.redefinirCarta = function(numeroEtapa) {
         self.numeroCartaFoco(true);
         self.etapaAtual(self.etapas[numeroEtapa]);
@@ -17,63 +16,57 @@ function circuloMagicoViewModel() {
         var cartaLenormand = _.find(baralhoLenormand.cartas, function(e) {
             return e.numero.toString() === numeroCarta;
         });
-        carta(cartaLenormand.css);
+
+        if (cartaLenormand) {
+            carta(cartaLenormand.css);
+        }
+
         self.numeroCartaFoco(true);
     };
 
     self.etapas = [
         {
             etapa: 1,
-            descricao: 'Defina a carta tema.',
+            descricao: 'Família.',
             numeroCarta: ko.observable(),
             definirCarta: function() {
-                self.definirCarta(self.cartaTema, self.etapaAtual().numeroCarta());
+                self.definirCarta(self.cartaDaFamilia, self.etapaAtual().numeroCarta());
                 self.etapaAtual(self.etapas[1]);
             }
         },
         {
             etapa: 2,
-            descricao: 'Defina a carta síntese.',
+            descricao: 'Finanças.',
             numeroCarta: ko.observable(),
             definirCarta: function() {
-                self.definirCarta(self.cartaSintese, self.etapaAtual().numeroCarta());
+                self.definirCarta(self.cartaDasFinancas, self.etapaAtual().numeroCarta());
                 self.etapaAtual(self.etapas[2]);
             }
         },
         {
             etapa: 3,
-            descricao: 'Defina a carta das influencias externas.',
+            descricao: 'Saúde.',
             numeroCarta: ko.observable(),
             definirCarta: function() {
-                self.definirCarta(self.cartaDasInfluenciasExternas, self.etapaAtual().numeroCarta());
+                self.definirCarta(self.cartaDaSaude, self.etapaAtual().numeroCarta());
                 self.etapaAtual(self.etapas[3]);
             }
         },
         {
             etapa: 4,
-            descricao: 'Defina a carta da oposição.',
+            descricao: 'Amor.',
             numeroCarta: ko.observable(),
             definirCarta: function() {
-                self.definirCarta(self.cartaDaOposicao, self.etapaAtual().numeroCarta());
+                self.definirCarta(self.cartaDoAmor, self.etapaAtual().numeroCarta());
                 self.etapaAtual(self.etapas[4]);
             }
         },
         {
             etapa: 5,
-            descricao: 'Defina a carta do favorecimento.',
+            descricao: 'Mensagem final.',
             numeroCarta: ko.observable(),
             definirCarta: function() {
-                self.definirCarta(self.cartaDoFavorecimento, self.etapaAtual().numeroCarta());
-                self.etapaAtual(self.etapas[5]);
-            }
-        },
-        {
-            etapa: 6,
-            descricao: 'Defina a carta do resultado.',
-            numeroCarta: ko.observable(),
-            definirCarta: function() {
-                self.definirCarta(self.cartaDoResultado, self.etapaAtual().numeroCarta());
-                //self.etapaAtual(self.etapas[1]);
+                self.definirCarta(self.cartaDaMensagemFinal, self.etapaAtual().numeroCarta());
             }
         }
     ];
@@ -81,15 +74,25 @@ function circuloMagicoViewModel() {
     self.etapaAtual = ko.observable(self.etapas[0]);
 
     self.numeroCarta = ko.observable();
-
     self.numeroCartaFoco = ko.observable(false);
 
     self.definirCartaEnter = function(d, e) {
         e.keyCode === 13 && self.etapaAtual().definirCarta();
         return true;
     };
+
+    self.alturaLargura = ko.observable(calcularDimensao());
+    self.alturaLarguraCss = ko.computed(function() {
+        
+    }, self);
+    
+    $(window).resize(function() {
+        self.alturaLargura(calcularDimensao());
+    });
+    
+    function calcularDimensao() {
+        return ($("#estrelaCincoPontas").parent().width() > $(window).height() ? $(window).height() : $("#estrelaCincoPontas").parent().width());
+    }
 };
 
-vm = new circuloMagicoViewModel();
-
-ko.applyBindings(vm);
+ko.applyBindings(new estrelaCincoPontasViewModel(), $('#estrelaCincoPontas')[0]);
