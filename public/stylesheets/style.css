@@ -1,4 +1,4 @@
-.carta:hover {
+/*.carta:hover {
     box-shadow: 0 0 10px #000 !important;
     background-color: #ededed !important;
 }
@@ -29,7 +29,6 @@
     
 }
 .carta img {
-    /*border-radius: 10px; border: 2px solid #000;*/
     width: 150px !important; 
     height: 250px !important;
     opacity: 0.1;
@@ -96,4 +95,8 @@ body {
     display: block;
     font-size: 14px;
     position: relative;
+}*/
+
+body {
+    height: 100%;
 }

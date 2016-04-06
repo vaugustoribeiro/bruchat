@@ -1,0 +1,57 @@
+.circuloMagico {
+    /* width: 50%; */
+    /* height: 50%; */
+    position: relative;
+    border: 3px solid #000;
+    overflow: hidden;
+}
+
+.circuloMagico div {
+    position: absolute;
+    width: 16%;
+    height: 26%;
+    background-color: #999;
+    border: 1px solid #000;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    box-shadow: -2px 2px 2px #000;
+    border-radius: 10%;
+}
+
+.circuloMagico .cartaTema {
+    margin-left: -8%;
+    margin-top: -13%;
+    z-index: 1;
+}
+
+.circuloMagico .cartaSintese {
+    margin-left: 4%;
+    margin-top: 4%;
+    z-index: 2;
+}
+
+.circuloMagico .cartaDasInfluenciasExternas {
+    margin-left: -8%;
+    margin-top: -45%;
+    z-index: 1;
+}
+
+.circuloMagico .cartaDaOposicao {
+    margin-left: -8%;
+    margin-top: 19%;
+}
+
+.circuloMagico .cartaDoFavorecimento {
+    margin-top: -13%;
+    margin-left: -32%;
+}
+
+.circuloMagico .cartaDoResultado {
+    margin-top: -13%;
+    margin-left: 16%;
+}
+
+.block {
+    background-color: #000 !important;
+}

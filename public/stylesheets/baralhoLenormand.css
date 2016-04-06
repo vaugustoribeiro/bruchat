@@ -1,0 +1,149 @@
+.lenormand {
+    background-size: 100% 100%;
+    border-radius: 10%;
+    box-shadow: -5px 5px 10px #000;
+}
+
+.lenormand.cavaleiro {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CAVALEIRO2-180x300.jpg');
+}
+
+.lenormand.obstaculos {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-OS-OBSTACULOS2-180x300.jpg');
+}
+
+.lenormand.navio {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-NAVIO2-181x300.jpg');
+}
+
+.lenormand.casa {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CASA2-179x300.jpg');
+}
+
+.lenormand.arvore {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-ARVORE2-181x300.jpg');
+}
+
+.lenormand.nuvem {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-AS-NUVENS1-181x300.jpg');
+}
+
+.lenormand.cobra {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-COBRA1-184x300.jpg');
+}
+
+.lenormand.caixao {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CAIXAO1-181x300.jpg');
+}
+
+.lenormand.buque {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-BUQUE1-180x300.jpg');
+}
+
+.lenormand.foice {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-FOICE1-181x300.jpg');
+}
+
+.lenormand.chicote {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CHICOTE1-181x300.jpg');
+}
+
+.lenormand.passaros {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-OS-PASSAROS1-182x300.jpg');
+}
+
+.lenormand.crianca {
+    background-image: url('http://www.astrocentro.com.br/files_astrocentrobr/field/image/astrologia-astrocentro_184.jpg');
+}
+
+.lenormand.raposa {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-RAPOSA1-178x300.jpg');
+}
+
+.lenormand.urso {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-URSO1-181x300.jpg');
+}
+
+.lenormand.estrela {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-SORTE-183x300.jpg');
+}
+
+.lenormand.cegonha {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CEGONHA1-182x300.jpg');
+}
+
+.lenormand.cachorro {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CACHORRO1-181x300.jpg');
+}
+
+.lenormand.torre {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-TORRE1-183x300.jpg');
+}
+
+.lenormand.jardim {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-JARDIM1-181x300.jpg');
+}
+
+.lenormand.montanha {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-MONTANHA1-181x300.jpg');
+}
+
+.lenormand.caminho {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CAMINHO1-181x300.jpg');
+}
+
+.lenormand.rato {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-RATO1-180x300.jpg');
+}
+
+.lenormand.coracao {
+    background-image: url('https://patriciatarologasp.files.wordpress.com/2015/05/baralho-cigano-o-corac3a7c3a3o1.jpg');
+}
+
+.lenormand.anel {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-ANEL1-182x300.jpg');
+}
+
+.lenormand.livros {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-OS-LIVROS1-182x300.jpg');
+}
+
+.lenormand.carta {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CARTA1-183x300.jpg');
+}
+
+.lenormand.cigano {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-CIGANO1-182x300.jpg');
+}
+
+.lenormand.cigana {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CIGANA1-182x300.jpg');
+}
+
+.lenormand.lirios {
+    background-image: url('http://3.bp.blogspot.com/-7-PFQbpJ5HY/UXZ2ltPNR2I/AAAAAAAAAwY/_7Jlj4PLjzU/s1600/30+l%C3%ADrios.jpg');
+}
+
+.lenormand.sol {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-O-SOL1-184x300.jpg');
+}
+
+.lenormand.lua {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-LUA1-179x300.jpg');
+}
+
+.lenormand.chave {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CHAVE1-181x300.jpg');
+}
+
+.lenormand.peixe {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-OS-PEIXES1-181x300.jpg');
+}
+
+.lenormand.ancora {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-ANCORA1-180x300.jpg');
+}
+
+.lenormand.cruz {
+    background-image: url('http://baralhocigano.art.br/wp-content/uploads/2013/06/BARALHO-CIGANO-A-CRUZ1-180x300.jpg');
+}

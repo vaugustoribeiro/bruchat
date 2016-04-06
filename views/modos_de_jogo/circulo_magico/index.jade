@@ -1,0 +1,26 @@
+link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
+link(rel='stylesheet', href='/stylesheets/modos_de_jogo/circulo_magico/style.css')
+
+.row
+    .col-md-4.col-md-offset-4
+        div.circuloMagico(data-bind='style: { width: "350px", height: "350px" }')
+
+            div.cartaTema(data-bind='css: cartaTema, click: function() { redefinirCarta(0); } ')
+            
+            div.cartaSintese(data-bind='css: cartaSintese, click: function() { redefinirCarta(1); } ')
+            
+            div.cartaDasInfluenciasExternas(data-bind='css: cartaDasInfluenciasExternas, click: function() { redefinirCarta(2); } ')
+            
+            div.cartaDaOposicao(data-bind='css: cartaDaOposicao, click: function() { redefinirCarta(3); } ')
+            
+            div.cartaDoFavorecimento(data-bind='css: cartaDoFavorecimento, click: function() { redefinirCarta(4); } ')
+            
+            div.cartaDoResultado(data-bind='css: cartaDoResultado, click: function() { redefinirCarta(5); } ')
+
+        .form
+            .form-group
+                span(data-bind='text: etapaAtual().descricao')
+                input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: etapaAtual().numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+    
+script(src='/javascripts/baralhoLenormand.js') 
+script(src='/javascripts/modos_de_jogo/circulo_magico/circuloMagicoViewModel.js') 
