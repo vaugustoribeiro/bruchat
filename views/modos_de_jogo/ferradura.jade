@@ -1,16 +1,9 @@
 link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
 link(rel='stylesheet', href='/stylesheets/modos_de_jogo/ferradura.css')
 
-#ferradura.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
-
-    .panel-heading
-        h3.panel-title Ferradura
-        
-    .panel-body(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
-        div(data-bind='css: classes(), click: redefinir')
+#ferradura
+    include modoGenerico
             
-    .panel-footer
-        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
-                      
+script(src='/javascripts/modos_de_jogo/modoJogoBaseViewModel.js')                    
 script(src='/javascripts/baralhoLenormand.js') 
 script(src='/javascripts/modos_de_jogo/ferraduraViewModel.js') 

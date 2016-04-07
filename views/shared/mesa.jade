@@ -1,13 +1,13 @@
 div(data-bind='with: mesa()')
     
     .col-md-6
-        div.panel.panel-default
-            div.panel-heading
-                h3.panel-title Modos de Jogo
+        // div.panel.panel-default
+        //     div.panel-heading
+        //         h3.panel-title Modos de Jogo
             
-            div.panel-body
-                div.list-group(data-bind='foreach: modosDeJogo')
-                    button.list-group-item(data-bind='text: nome, click: selecionar')
+        //     div.panel-body
+        div.list-group(data-bind='foreach: modosDeJogo')
+            button.list-group-item(data-bind='text: nome, click: $parent.selecionarModoDeJogo')
     
     .col-md-6#modoDeJogoSelecionado
     

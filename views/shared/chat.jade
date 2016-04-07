@@ -11,4 +11,4 @@
                         div.pull-right(data-bind='text: dataHora')
     div(data-bind='visible: parceiroEscrevendo, text: vm.parceiroNome() + " está escrevendo..."' class="labelDigitando")
     .panel-footer(style='position: relative')
-        textarea.form-control(placeholder='Digique a mensagem (enter para enviar)' style='width: 100%', data-bind='value: mensagem, hasFocus: focoMensagem, event: { keypress: enviarMensagemEnter }, valueUpdate: "afterkeydown", enable: online')
+        textarea.form-control(placeholder='Digite a mensagem (enter para enviar)' style='width: 100%', data-bind='value: mensagem, hasFocus: focoMensagem, event: { keypress: enviarMensagemEnter }, valueUpdate: "afterkeydown", enable: online')
