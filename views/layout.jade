@@ -4,7 +4,7 @@ html
     title Bruchat Esoterismo Cartomancia Cartomante Ferramenta Online
      
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    //link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
     
     meta(name="description" content="Baralho, Tarot, Cigano, Marselha, Ferramenta, Online, Baralho Lenormand, Baralho Cigano, Tarot de Marselha, Baralho Lenormand Online, Baralho Cigano Online, Tarot de Marselha Online, Cartomante, Cartomancia")
@@ -32,55 +32,38 @@ html
     script(src='/socket.io/socket.io.js')
     script(src='/javascripts/koCustomBindings.js')
     
-    .container-fluid
-        .row
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/estrelaCincoPontas
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/circuloMagico
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/mandalaAstrologica
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/ferradura
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/tresCartas
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/vinteUmaCartas
-            .col-lg-2.col-md-3.col-sm-4.col-xs-6
-                include modos_de_jogo/magiaCigana
- 
-    // script.
-    //     var socketConfig = {
-    //         reconnection: true,
-    //         reconnectionDelay: 500,
-    //         reconnectionDelayMax: 1000,
-    //         timeout: 60000  
-    //     };
-    //     socket = io.connect("/", socketConfig);
+    script.
+        var socketConfig = {
+            reconnection: true,
+            reconnectionDelay: 500,
+            reconnectionDelayMax: 1000,
+            timeout: 60000  
+        };
+        socket = io.connect("/", socketConfig);
     
-    // script.
-    //     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    //     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    //     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    //     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    //     ga('create', 'UA-75743946-1', 'auto');
-    //     ga('send', 'pageview');
+    script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75743946-1', 'auto');
+        ga('send', 'pageview');
         
-    // script.
-    //     fbq('track', 'ViewContent');
+    script.
+        fbq('track', 'ViewContent');
         
-    // nav.navbar.navbar-inverse.navbar-static-top
-    //     div.container-fluid
-    //             div.navbar-header
-    //                 a.navbar-brand(href='/')
-    //                     img(alt="Bruchat" src="/images/logo3.png" width="28")
-    //                 button.btn.btn-default.navbar-right.navbar-btn(data-toggle='modal', data-target='.termosCondicoesUso') Termos e Condições de Uso
+    nav.navbar.navbar-inverse.navbar-fixed-top
+        div.container-fluid
+                div.navbar-header
+                    a.navbar-brand(href='/')
+                        img(alt="Bruchat" src="/images/logo3.png" width="28")
+                    button.btn.btn-default.navbar-right.navbar-btn(data-toggle='modal', data-target='.termosCondicoesUso') Termos e Condições de Uso
    
-    // .container-fluid
+    .container-fluid
            
-    //     block content
+        block content
         
-    //     block scripts
+        block scripts
     
     // nav.navbSar.navbar-inverse.navbar-fixed-bottom
     //     div.container-fluid
@@ -88,4 +71,4 @@ html
     //             p.navbar-text(style='color: #fff') Em desenvolvimento por  
     //                 a(href='http://www.facebook.com/objusuario.seturlnome' target='_blank') Vincius Augusto
                 
-    // include shared/termosECondicoesDeUso
+    include shared/termosECondicoesDeUso

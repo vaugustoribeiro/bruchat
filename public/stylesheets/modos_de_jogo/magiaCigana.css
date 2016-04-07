@@ -10,157 +10,157 @@
 .magiaCigana div {
     position: absolute;
     width: 10%;
-    height: 18%;
+    height: 14%;
     background-color: #999;
     border: 1px inset #000;
     top: 50%;
     left: 50%;
 }
 
-.magiaCigana .primeiraCarta {
-    margin-left: -50%;
+.magiaCigana .carta-1 {
+    margin-left: -36%;
     margin-top: -47%;
 }
 
-.magiaCigana .segundaCarta {
-    margin-left: -50%;
-    margin-top: -9%;
+.magiaCigana .carta-2 {
+    margin-left: -24%;
+    margin-top: -47%;
 }
 
-.magiaCigana .terceiraCarta {
-    margin-left: -19%;
-    margin-top: -42%;
+.magiaCigana .carta-3 {
+    margin-left: -12%;
+    margin-top: -47%;
 }
 
-.magiaCigana .quartaCarta {
-    margin-left: -6%;
-    margin-top: -42%;
+.magiaCigana .carta-4 {
+    margin-left: 0%;
+    margin-top: -47%;
 }
-.magiaCigana .quintaCarta {
-    margin-left: 7%;
-    margin-top: -42%;
+.magiaCigana .carta-5 {
+    margin-left: 12%;
+    margin-top: -47%;
 }
-.magiaCigana .sextaCarta {
-    margin-left: 20%;
-    margin-top: -42%;
+.magiaCigana .carta-6 {
+    margin-left: 24%;
+    margin-top: -47%;
 }
-.magiaCigana .setimaCarta {
-    margin-left: -50%;
-    margin-top: -28%;
-}
-.magiaCigana .oitavaCarta {
-    margin-left: -50%;
-    margin-top: 10%;
-}
-.magiaCigana .nonaCarta {
-    margin-left: -32%;
-    margin-top: -21%;
-}
-.magiaCigana .decimaCarta {
-    margin-left: -19%;
-    margin-top: -21%;
-}
-.magiaCigana .decimaPrimeiraCarta {
-    margin-left: -6%;
-    margin-top: -21%;
-}
-.magiaCigana .decimaSegundaCarta {
-    margin-left: -6%;
-    margin-top: 11%;
-}
-.magiaCigana .decimaTerceiraCarta {
-    margin-left: 7%;
+.magiaCigana .carta-7 {
+    margin-left: -36%;
     margin-top: -31%;
 }
-.magiaCigana .decimaQuartaCarta {
-    margin-left: 7%;
-    margin-top: -10%;
+.magiaCigana .carta-8 {
+    margin-left: -24%;
+    margin-top: -31%;
 }
-.magiaCigana .decimaQuintaCarta {
-    margin-left: -45%;
-    margin-top: 0%;
+.magiaCigana .carta-9 {
+    margin-left: -12%;
+    margin-top: -31%;
 }
-.magiaCigana .decimaSextaCarta {
-    margin-left: -32%;
-    margin-top: 0%;
+.magiaCigana .carta-10 {
+    margin-left: 0%;
+    margin-top: -31%;
 }
-.magiaCigana .decimaSetimaCarta {
-    margin-left: -19%;
-    margin-top: 0%;
+.magiaCigana .carta-11 {
+    margin-left: 12%;
+    margin-top: -31%;
 }
-.magiaCigana .decimaOitavaCarta {
-    margin-left: -6%;
-    margin-top: 0%;
+.magiaCigana .carta-12 {
+    margin-left: 24%;
+    margin-top: -31%;
 }
-.magiaCigana .decimaNonaCarta {
-    margin-left: 7%;
-    margin-top: 0%;
+.magiaCigana .carta-13 {
+    margin-left: -36%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaCarta {
-    margin-left: 20%;
-    margin-top: 0%;
+.magiaCigana .carta-14 {
+    margin-left: -24%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaPrimeiraCarta {
-    margin-left: 33%;
-    margin-top: 0%;
+.magiaCigana .carta-15 {
+    margin-left: -12%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaSegundaCarta {
-    margin-left: -50%;
-    margin-top: 29%;
+.magiaCigana .carta-16 {
+    margin-left: 0%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaTerceiraCarta {
-    margin-left: -32%;
-    margin-top: 11%;
+.magiaCigana .carta-17 {
+    margin-left: 12%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaQuartaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-18 {
+    margin-left: 24%;
+    margin-top: -15%;
 }
-.magiaCigana .vigesimaQuintaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-19 {
+    margin-left: -36%;
+    margin-top: 1%;
 }
-.magiaCigana .vigesimaSextaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-20 {
+    margin-left: -24%;
+    margin-top: 1%;
 }
-.magiaCigana .vigesimaSetimaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-21 {
+    margin-left: -12%;
+    margin-top: 1%;
 }
-.magiaCigana .vigesimaOitavaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-22 {
+    margin-left: 0%;
+    margin-top: 1%;
 }
-.magiaCigana .vigesimaNonaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-23 {
+    margin-left: 12%;
+    margin-top: 1%;
 }
-.magiaCigana .trigesimaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-24 {
+    margin-left: 24%;
+    margin-top: 1%;
 }
-.magiaCigana .trigesimaPrimeiraCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-25 {
+    margin-left: -36%;
+    margin-top: 17%;
 }
-.magiaCigana .trigesimaSegundaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-26 {
+    margin-left: -24%;
+    margin-top: 17%;
 }
-.magiaCigana .trigesimaTerceiraCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-27 {
+    margin-left: -12%;
+    margin-top: 17%;
 }
-.magiaCigana .trigesimaQuartaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-28 {
+    margin-left: 0%;
+    margin-top: 17%;
 }
-.magiaCigana .trigesimaQuintaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-29 {
+    margin-left: 12%;
+    margin-top: 17%;
 }
-.magiaCigana .trigesimaSextaCarta {
-    margin-left: 33%;
-    margin-top: 11%;
+.magiaCigana .carta-30 {
+    margin-left: 24%;
+    margin-top: 17%;
+}
+.magiaCigana .carta-31 {
+    margin-left: -36%;
+    margin-top: 33%;
+}
+.magiaCigana .carta-32 {
+    margin-left: -24%;
+    margin-top: 33%;
+}
+.magiaCigana .carta-33 {
+    margin-left: -12%;
+    margin-top: 33%;
+}
+.magiaCigana .carta-34 {
+    margin-left: 0%;
+    margin-top: 33%;
+}
+.magiaCigana .carta-35 {
+    margin-left: 12%;
+    margin-top: 33%;
+}
+.magiaCigana .carta-36 {
+    margin-left: 24%;
+    margin-top: 33%;
 }

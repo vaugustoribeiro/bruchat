@@ -6,23 +6,11 @@ link(rel='stylesheet', href='/stylesheets/modos_de_jogo/mandalaAstrologica.css')
     .panel-heading
         h3.panel-title Mandala Astrológica
         
-    .panel-body.mandalaAstrologica(data-bind='style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }')
-        div.cartaEuSou(data-bind='css: cartaEuSou, click: function() { redefinirCarta(0); } ')
-        div.cartaEuTenho(data-bind='css: cartaEuTenho, click: function() { redefinirCarta(1); } ')
-        div.cartEuPenso(data-bind='css: cartEuPenso, click: function() { redefinirCarta(2); } ')
-        div.cartaEstouProtegido(data-bind='css: cartaEstouProtegido, click: function() { redefinirCarta(3); } ')
-        div.cartaEuGostoEuBrinco(data-bind='css: cartaEuGostoEuBrinco, click: function() { redefinirCarta(4); } ')
-        div.cartaEuTrabalho(data-bind='css: cartaEuTrabalho, click: function() { redefinirCarta(5); } ')
-        div.cartaEuMeRelaciono(data-bind='css: cartaEuMeRelaciono, click: function() { redefinirCarta(6); } ')
-        div.cartaEuRenasco(data-bind='css: cartaEuRenasco, click: function() { redefinirCarta(7); } ')
-        div.cartaEuCreio(data-bind='css: cartaEuCreio, click: function() { redefinirCarta(8); } ')
-        div.cartaEuMeEsforco(data-bind='css: cartaEuMeEsforco, click: function() { redefinirCarta(9); } ')
-        div.cartaMeusAmigos(data-bind='css: cartaMeusAmigos, click: function() { redefinirCarta(10); } ')
-        div.cartaEuAnseio(data-bind='css: cartaEuAnseio, click: function() { redefinirCarta(11); } ')
-    
+    .panel-body(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
+            div(data-bind='css: classes(), click: redefinir')
+            
     .panel-footer
-        span(data-bind='text: etapaAtual().descricao')
-        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: etapaAtual().numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
-    
+        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+            
 script(src='/javascripts/baralhoLenormand.js') 
 script(src='/javascripts/modos_de_jogo/mandalaAstrologicaViewModel.js') 

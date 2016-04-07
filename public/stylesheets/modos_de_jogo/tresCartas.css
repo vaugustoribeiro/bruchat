@@ -17,17 +17,17 @@
     left: 50%;
 }
 
-.tresCartas .primeiraCarta {
+.tresCartas .carta-1 {
     margin-left: -46%;
     margin-top: -20%;
 }
 
-.tresCartas .segundaCarta {
+.tresCartas .carta-2 {
     margin-left: -13%;
     margin-top: -20%;
 }
 
-.tresCartas .terceiraCarta {
+.tresCartas .carta-3 {
     margin-left: 20%;
     margin-top: -20%;
 }

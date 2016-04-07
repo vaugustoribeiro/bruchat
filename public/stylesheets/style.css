@@ -1,4 +1,4 @@
-/*.carta:hover {
+.carta:hover {
     box-shadow: 0 0 10px #000 !important;
     background-color: #ededed !important;
 }
@@ -84,7 +84,7 @@ a {
 
 body {
     background-image: url('/images/gb.jpg');
-    padding-bottom: 50px;
+    margin-top: 30px !important;
 }
 
 .labelDigitando {
@@ -95,8 +95,4 @@ body {
     display: block;
     font-size: 14px;
     position: relative;
-}*/
-
-body {
-    height: 100%;
 }

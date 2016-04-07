@@ -1,3 +1,18 @@
+function cartaLenormand() {
+    var self = this;
+    self.numero = ko.observable();
+    self.layout = ko.observable();
+    self.css = ko.observable();
+    self.classes = ko.computed(function() {
+        return self.layout() + ' ' + self.css();
+    }, self);
+    self.pendente = ko.observable(true);
+    self.redefinir = function() {
+        self.css(undefined);
+        self.pendente(true);
+    };
+};
+
 baralhoLenormand = {
     cartas: [
         {

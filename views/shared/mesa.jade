@@ -1,16 +1,14 @@
-.panel.panel-default(data-bind='with: mesa()')
-    .panel-heading 
-        h3.panel-title Mesa
-            span.pull-right(data-bind='visible: !readonly()') 
-                input(type="checkbox" data-bind='checked: _esconderDescricaoCartas')
-                | Esconder a descrição das cartas para o consulente.
-    .panel-body
-        div.cartas(data-bind='foreach: cartasSelecionadas')
-            div.carta(data-bind='click: $root.mesa().removerCarta')
-                img(data-bind='attr: { src: imagem }', width='120', height='200')
-                div.descricao
-                    h4(data-bind='text: nome')
-                    p(data-bind='text: descricao, visible: !$root.mesa().esconderDescricaoCartas()')
-                h2.center-block(data-bind='text: numero')
-    .panel-footer(data-bind='visible: !readonly()')
-        input.form-control(type='text', placeholder='Digite o numero da carta e aperte enter para inserir', data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: adicionarCartaEnter }, valueUpdate: "afterkeydown", enable: online')
+div(data-bind='with: mesa()')
+    
+    .col-md-6
+        div.panel.panel-default
+            div.panel-heading
+                h3.panel-title Modos de Jogo
+            
+            div.panel-body
+                div.list-group(data-bind='foreach: modosDeJogo')
+                    button.list-group-item(data-bind='text: nome, click: selecionar')
+    
+    .col-md-6#modoDeJogoSelecionado
+    
+    

@@ -1,77 +1,49 @@
 function tresCartasViewModel() {
     var self = this;
-
-    self.primeiraCarta = ko.observable();
-    self.segundaCarta = ko.observable();
-    self.terceiraCarta = ko.observable();
+    self.css = 'tresCartas';
     
-    self.redefinirCarta = function(numeroEtapa) {
-        self.numeroCartaFoco(true);
-        self.etapaAtual(self.etapas[numeroEtapa]);
-    };
+    self.cartas = ko.observableArray();
 
-    self.definirCarta = function(carta, numeroCarta) {
+    for (var i = 1; i <= 3; i++) {
+        var carta = new cartaLenormand();
+        carta.layout('carta-' + i);
+        self.cartas.push(carta);
+    }
+
+    self.definirCarta = function() {
         var cartaLenormand = _.find(baralhoLenormand.cartas, function(e) {
-            return e.numero.toString() === numeroCarta;
+            return e.numero.toString() === self.numeroCarta();
         });
-
         if (cartaLenormand) {
-            carta(cartaLenormand.css);
+            var proximaCarta = _.find(self.cartas(), function(e) {
+                return e.pendente();
+            });
+            if (proximaCarta) {
+                proximaCarta.numero(cartaLenormand.numero);
+                proximaCarta.css(cartaLenormand.css);
+                proximaCarta.pendente(false);
+            }
         }
-
+        self.numeroCarta('');
         self.numeroCartaFoco(true);
     };
-
-    self.etapas = [
-        {
-            etapa: 1,
-            descricao: '1ª carta.',
-            numeroCarta: ko.observable(),
-            definirCarta: function() {
-                self.definirCarta(self.primeiraCarta, self.etapaAtual().numeroCarta());
-                self.etapaAtual(self.etapas[1]);
-            }
-        },
-        {
-            etapa: 2,
-            descricao: '2ª carta.',
-            numeroCarta: ko.observable(),
-            definirCarta: function() {
-                self.definirCarta(self.segundaCarta, self.etapaAtual().numeroCarta());
-                self.etapaAtual(self.etapas[2]);
-            }
-        },
-        {
-            etapa: 3,
-            descricao: '3ª carta.',
-            numeroCarta: ko.observable(),
-            definirCarta: function() {
-                self.definirCarta(self.terceiraCarta, self.etapaAtual().numeroCarta());
-            }
-        }
-    ];
-
-    self.etapaAtual = ko.observable(self.etapas[0]);
-
-    self.numeroCarta = ko.observable();
-    self.numeroCartaFoco = ko.observable(false);
 
     self.definirCartaEnter = function(d, e) {
-        e.keyCode === 13 && self.etapaAtual().definirCarta();
+        e.keyCode === 13 && self.definirCarta();
         return true;
     };
 
+    self.numeroCarta = ko.observable();
+    self.numeroCartaFoco = ko.observable(true);
+
     self.alturaLargura = ko.observable(calcularDimensao());
-    self.alturaLarguraCss = ko.computed(function() {
-        
-    }, self);
-    
+
     $(window).resize(function() {
         self.alturaLargura(calcularDimensao());
     });
     
     function calcularDimensao() {
-        return ($("#tresCartas").parent().width() > $(window).height() ? $(window).height() : $("#tresCartas").parent().width());
+        return ($('#tresCartas').parent().width() > $(window).height() ? $(window).height() : $('#tresCartas').parent().width());
     }
 };
 

@@ -70,20 +70,66 @@ function mesaViewModel() {
     self.modosDeJogo = [
         {
             nome: 'O Círculo Mágico (Mandala Cigana)',
-            cartaTema: '',
-            quantidadeDeCartas: 5
+            view: 'circuloMagico',
+            selecionar: function() {
+                     $("#modoDeJogoSelecionado").load('/modosDejogo/circuloMagico');
+            }
         },
         {
-            nome: 'Estrela de Cinco Pontas',
-            quantidadeDeCartas: 5
+            nome: 'Estrela de Cinco Pontas (Pentagrama)',
+            view: 'estrelaCincoPontas',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/estrelaCincoPontas');
+            }
         },
         {
             nome: '3 Cartas',
-            quantidadeDeCartas: 5
+            view: 'tresCartas',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/tresCartas');
+            }
         },
         {
             nome: 'Mandala Astrológica',
-            quantidadeDeCartas: 5
+            view: 'mandalaAstrologica',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/mandalaAstrologica');
+            }
         },
+        {
+            nome: '21 Cartas',
+            view: 'vinteUmaCartas',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/vinteUmaCartas');
+            }
+        },
+        {
+            nome: 'Ferradura',
+            view: 'ferradura',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/ferradura');
+            }
+        },
+        {
+            nome: 'Magia Cigana',
+            view: 'magiaCigana',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/magiaCigana');
+            }
+        },
+        {
+            nome: 'Cruz Celta',
+            view: 'cruzCelta',
+            selecionar: function() {
+                 $("#modoDeJogoSelecionado").load('/modosDejogo/cruzCelta');
+            }
+        },
+        {
+            nome: 'Semana',
+            view: 'semana',
+            selecionar: function() {
+                $("#modoDeJogoSelecionado").load('/modosDejogo/semana');
+            }
+        }
     ];
 }

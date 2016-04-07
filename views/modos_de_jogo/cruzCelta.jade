@@ -1,10 +1,10 @@
 link(rel='stylesheet', href='/stylesheets/baralhoLenormand.css')
-link(rel='stylesheet', href='/stylesheets/modos_de_jogo/estrelaCincoPontas.css')
+link(rel='stylesheet', href='/stylesheets/modos_de_jogo/cruzCelta.css')
 
-#estrelaCincoPontas.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
+#cruzCelta.panel.panel-default(data-bind='style: { width: alturaLargura() + "px"}')
 
     .panel-heading
-        h3.panel-title Estrela de Cinco Pontas (Pentagrama)
+        h3.panel-title Cruz Celta
         
     .panel-body(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
         div(data-bind='css: classes(), click: redefinir')
@@ -13,4 +13,4 @@ link(rel='stylesheet', href='/stylesheets/modos_de_jogo/estrelaCincoPontas.css')
         input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
             
 script(src='/javascripts/baralhoLenormand.js') 
-script(src='/javascripts/modos_de_jogo/estrelaCincoPontasViewModel.js') 
+script(src='/javascripts/modos_de_jogo/cruzCeltaViewModel.js') 

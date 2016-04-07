@@ -1,10 +1,10 @@
-function ferraduraViewModel() {
+function cruzCeltaViewModel() {
     var self = this;
-    self.css = 'ferradura';
+    self.css = 'cruzCelta';
 
     self.cartas = ko.observableArray();
 
-    for (var i = 1; i <= 7; i++) {
+    for (var i = 1; i <= 10; i++) {
         var carta = new cartaLenormand();
         carta.layout('carta-' + i);
         self.cartas.push(carta);
@@ -41,10 +41,10 @@ function ferraduraViewModel() {
     $(window).resize(function() {
         self.alturaLargura(calcularDimensao());
     });
-    
+
     function calcularDimensao() {
-        return ($('#ferradura').parent().width() > $(window).height() ? $(window).height() : $('#ferradura').parent().width());
+        return ($('#cruzCelta').parent().width() > $(window).height() ? $(window).height() : $('#cruzCelta').parent().width());
     }
 };
 
-ko.applyBindings(new ferraduraViewModel(), $('#ferradura')[0]);
+ko.applyBindings(new cruzCeltaViewModel(), $('#cruzCelta')[0]);

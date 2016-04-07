@@ -17,35 +17,35 @@
     left: 50%;
 }
 
-.circuloMagico .cartaTema {
+.circuloMagico .carta-1 {
     margin-left: -8%;
     margin-top: -13%;
     z-index: 1;
 }
 
-.circuloMagico .cartaSintese {
+.circuloMagico .carta-2 {
     margin-left: 4%;
     margin-top: 4%;
     z-index: 2;
 }
 
-.circuloMagico .cartaDasInfluenciasExternas {
+.circuloMagico .carta-3 {
     margin-left: -8%;
     margin-top: -45%;
     z-index: 1;
 }
 
-.circuloMagico .cartaDaOposicao {
+.circuloMagico .carta-4 {
     margin-left: -8%;
     margin-top: 19%;
 }
 
-.circuloMagico .cartaDoFavorecimento {
+.circuloMagico .carta-5 {
     margin-top: -13%;
     margin-left: -32%;
 }
 
-.circuloMagico .cartaDoResultado {
+.circuloMagico .carta-6 {
     margin-top: -13%;
     margin-left: 16%;
 }
