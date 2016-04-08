@@ -8,6 +8,6 @@
         else
             div(data-bind='css: classes(), click: $parent.redefinirCarta')
            
-if !READONLY
-    .panel-footer
-        input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
+    if !READONLY
+        .panel-footer
+            input.form-control(type='text' placeholder='Digite o número da carta (enter para confirmar)' data-bind='value: numeroCarta, hasFocus: numeroCartaFoco, event: { keypress: definirCartaEnter }, valueUpdate: "afterkeydown"')
