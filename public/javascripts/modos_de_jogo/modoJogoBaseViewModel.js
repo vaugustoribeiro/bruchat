@@ -24,6 +24,7 @@ function modoJogoBaseViewModel(titulo, quantidadeCartas, container, enabled) {
         });
         if(carta) {
             carta.redefinir();
+            self.numeroCartaFoco(true);
         }
     });
     
@@ -84,6 +85,7 @@ function modoJogoBaseViewModel(titulo, quantidadeCartas, container, enabled) {
     });
     
     function calcularDimensao() {
-        return ($('#' + container).parent().width() > $(window).height() ? $(window).height() : $('#' + container).parent().width());
+        return $('#' + container).parent().width();
+        //($('#' + container).parent().width() > $(window).height() ? $(window).height() : $('#' + container).parent().width());
     }
 };

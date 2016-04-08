@@ -12,7 +12,7 @@ function mesaViewModel() {
     
     self.selecionarModoDeJogo = function(modoDeJogo) {
         socket.emit('fc-selecionar-modo-de-jogo', modoDeJogo.id);
-        modoDeJogo.carregar();
+        modoDeJogo.carregar(self.readonly());
     };
     
     _([
@@ -39,7 +39,7 @@ function mesaViewModel() {
          });
          
          if(modoDeJogo) {
-             modoDeJogo.carregar();
+             modoDeJogo.carregar(self.readonly());
          }
     });
 }
@@ -49,7 +49,7 @@ function modoDeJogo() {
     self.id = 0;
     self.nome = '';
     self.view = ''
-    self.carregar = function() {
-        $("#modoDeJogoSelecionado").load("/modosDejogo/" + self.view);
+    self.carregar = function(readonly) {
+        $("#modoDeJogoSelecionado").load("/modosDejogo/" + self.view + '/' + readonly);
     };
 }
