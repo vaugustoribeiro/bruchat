@@ -1,0 +1,51 @@
+.circuloMagico {
+    overflow: hidden;
+    position: relative;
+}
+
+.circuloMagico div:hover {  
+    cursor: pointer;
+}
+
+.circuloMagico div {
+    position: absolute;
+    width: 16%;
+    height: 26%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.circuloMagico .carta-1 {
+    margin-left: -8%;
+    margin-top: -13%;
+    z-index: 1;
+}
+
+.circuloMagico .carta-2 {
+    margin-left: 4%;
+    margin-top: 4%;
+    z-index: 2;
+}
+
+.circuloMagico .carta-3 {
+    margin-left: -8%;
+    margin-top: -45%;
+    z-index: 1;
+}
+
+.circuloMagico .carta-4 {
+    margin-left: -8%;
+    margin-top: 19%;
+}
+
+.circuloMagico .carta-5 {
+    margin-top: -13%;
+    margin-left: -32%;
+}
+
+.circuloMagico .carta-6 {
+    margin-top: -13%;
+    margin-left: 16%;
+}

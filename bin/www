@@ -85,6 +85,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('fc-esconder-descricao-carta', function(esconderDescricaoCartas) {
        socket.broadcast.to(socket.parceiroId).emit('fs-esconder-descricao-carta', esconderDescricaoCartas); 
     });
+    
+    socket.on('fc-selecionar-modo-de-jogo', function(modoDeJogo) {
+        socket.broadcast.to(socket.parceiroId).emit('fs-selecionar-modo-de-jogo', modoDeJogo);
+    });
 });
 
 /**

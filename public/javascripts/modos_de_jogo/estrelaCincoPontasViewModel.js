@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('Estrela de Cinco Pontas (Pentagrama)', 5, 'estrelaCincoPontas'), $('#estrelaCincoPontas')[0]);

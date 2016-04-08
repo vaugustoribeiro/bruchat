@@ -1,0 +1,51 @@
+.semana {
+    overflow: hidden;
+    position: relative;
+}
+
+.semana div:hover {  
+    cursor: pointer;
+}
+
+.semana div {
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.semana .carta-2 {
+    margin-left: -45%;
+    margin-top: -10%;
+}
+.semana .carta-3 {
+    margin-left: -32%;
+    margin-top: -10%;
+}
+.semana .carta-4 {
+    margin-left: -19%;
+    margin-top: -10%;
+}
+.semana .carta-1 {
+    margin-left: -6%;
+    margin-top: -31%;
+}
+.semana .carta-5 {
+    margin-left: -6%;
+    margin-top: -10%;
+}
+.semana .carta-6 {
+    margin-left: 7%;
+    margin-top: -10%;
+}
+.semana .carta-7 {
+    margin-left: 20%;
+    margin-top: -10%;
+}
+.semana .carta-8 {
+    margin-left: 33%;
+    margin-top: -10%;
+}

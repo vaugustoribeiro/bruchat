@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('Cruz Celta', 10, 'cruzCelta'), $('#cruzCelta')[0]);

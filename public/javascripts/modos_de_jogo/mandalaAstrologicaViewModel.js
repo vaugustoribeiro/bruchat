@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('Mandala Astrológica', 12, 'mandalaAstrologica'), $('#mandalaAstrologica')[0]);

@@ -1,0 +1,72 @@
+.mandalaAstrologica {
+    overflow: hidden;
+    position: relative;
+}
+
+.mandalaAstrologica div:hover {  
+    cursor: pointer;
+}
+
+.mandalaAstrologica div {
+    position: absolute;
+    width: 10%;
+    height: 16%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.mandalaAstrologica .carta-1 {
+    margin-left: -41%;
+    margin-top: -8%;
+}
+
+.mandalaAstrologica .carta-2 {
+    margin-left: -29%;
+    margin-top: 6%;
+}
+
+.mandalaAstrologica .carta-3 {
+    margin-left: -17%;
+    margin-top: 20%;
+}
+
+.mandalaAstrologica .carta-4 {
+    margin-left: -5%;
+    margin-top: 34%;
+}
+
+.mandalaAstrologica .carta-5 {
+    margin-top: 20%;
+    margin-left: 7%;
+}
+
+.mandalaAstrologica .carta-6 {
+    margin-top: 6%;
+    margin-left: 19%;
+}
+.mandalaAstrologica .carta-7 {
+    margin-top: -8%;
+    margin-left: 31%;
+}
+.mandalaAstrologica .carta-8 {
+    margin-top: -22%;
+    margin-left: 19%;
+}
+.mandalaAstrologica .carta-9 {
+    margin-top: -36%;
+    margin-left: 7%;
+}
+.mandalaAstrologica .carta-10 {
+    margin-top: -50%;
+    margin-left: -5%;
+}
+.mandalaAstrologica .carta-11 {
+    margin-top: -36%;
+    margin-left: -17%;
+}
+.mandalaAstrologica .carta-12 {
+    margin-top: -22%;
+    margin-left: -29%;
+}

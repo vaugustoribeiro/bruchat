@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('3 Cartas', 3, 'tresCartas'), $('#tresCartas')[0]);

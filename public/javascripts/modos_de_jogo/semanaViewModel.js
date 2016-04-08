@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('Semana', 8, 'semana'), $('#semana')[0]);

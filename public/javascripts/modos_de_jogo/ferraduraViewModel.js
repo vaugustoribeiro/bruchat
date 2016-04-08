@@ -1,0 +1,1 @@
+ko.applyBindings(new modoJogoBaseViewModel('Ferradura', 7, 'ferradura'), $('#ferradura')[0]);

@@ -1,0 +1,43 @@
+.estrelaCincoPontas {
+    overflow: hidden;
+    position: relative;
+}
+
+.estrelaCincoPontas div:hover {  
+    cursor: pointer;
+}
+
+.estrelaCincoPontas div {
+    position: absolute;
+    width: 16%;
+    height: 26%;
+    background-color: #999;
+    border: 1px inset #000;
+    top: 50%;
+    left: 50%;
+}
+
+.estrelaCincoPontas .carta-1 {
+    margin-left: -28%;
+    margin-top: 19%;
+}
+
+.estrelaCincoPontas .carta-2 {
+    margin-left: 10%;
+    margin-top: 19%;
+}
+
+.estrelaCincoPontas .carta-3 {
+    margin-left: -44%;
+    margin-top: -13%;
+}
+
+.estrelaCincoPontas .carta-4 {
+    margin-left: 26%;
+    margin-top: -12%;
+}
+
+.estrelaCincoPontas .carta-5 {
+    margin-top: -45%;
+    margin-left: -8%;
+}
