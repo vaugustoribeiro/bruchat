@@ -26,6 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // bower
 app.use('/bower_components', express.static(path.join(__dirname, '/bower_components')));
 
+// custom bootstrap templates
+app.use('/public/templates', express.static(path.join(__dirname, '/templates')));
+
+
 app.use('/', routes);
 app.use('/consulta', consulta);
 app.use('/modosDeJogo', modosDeJogo);

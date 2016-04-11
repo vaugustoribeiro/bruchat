@@ -1,15 +1,19 @@
 doctype html
-html
+html(lang="en")
   head
     title Bruchat Esoterismo Cartomancia Cartomante Ferramenta Online
-     
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    //link(rel='stylesheet', href='/stylesheets/style.css')
     
     meta(name="description" content="Baralho, Tarot, Cigano, Marselha, Ferramenta, Online, Baralho Lenormand, Baralho Cigano, Tarot de Marselha, Baralho Lenormand Online, Baralho Cigano Online, Tarot de Marselha Online, Cartomante, Cartomancia")
     meta(name="keywords" content="Baralho, Tarot, Cigano, Marselha, Ferramenta, Online, Baralho Lenormand, Baralho Cigano, Tarot de Marselha, Baralho Lenormand Online, Baralho Cigano Online, Tarot de Marselha Online, Cartomante, Cartomancia") 
     meta(name="author" content="Vinicius Augusto")
+    
+    //guri guri template
+    
+    link(href='/templates/guri_guri/stylesheets/application.css', rel='stylesheet')
+    script(src='/templates/guri_guri/javascript/vendor/modernizr-2.7.1.min.js')
     
     script.
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,9 +27,11 @@ html
     noscript
         img(height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1707650696162390&ev=PageView&noscript=1")
 
-  body
-    script(src='/bower_components/jquery/dist/jquery.min.js')
-    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  body(class="index" id="to-top")
+    script(src='/templates/guri_guri/javascript/vendor/jquery-2.1.0.min.js')
+    script(src='/templates/guri_guri/javascript/bootstrap.min.js')
+    script(src='/templates/guri_guri/javascript/assets/application.js')
+
     script(src='/bower_components/knockout/dist/knockout.js')
     script(src='/bower_components/knockout.mapping/knockout.mapping.js')
     script(src='/bower_components/lodash/dist/lodash.min.js')
@@ -51,24 +57,7 @@ html
         
     script.
         fbq('track', 'ViewContent');
-        
-    nav.navbar.navbar-inverse.navbar-fixed-top
-        div.container-fluid
-                div.navbar-header
-                    a.navbar-brand(href='/')
-                        img(alt="Bruchat" src="/images/logo3.png" width="28")
-                    button.btn.btn-default.navbar-right.navbar-btn(data-toggle='modal', data-target='.termosCondicoesUso') Termos e Condições de Uso
-   
-    .container-fluid
-           
-        block content
-        
-        block scripts
+       
+    block content
     
-    // nav.navbSar.navbar-inverse.navbar-fixed-bottom
-    //     div.container-fluid
-    //         div.navbar-header
-    //             p.navbar-text(style='color: #fff') Em desenvolvimento por  
-    //                 a(href='http://www.facebook.com/objusuario.seturlnome' target='_blank') Vincius Augusto
-                
-    include shared/termosECondicoesDeUso
+    block scripts

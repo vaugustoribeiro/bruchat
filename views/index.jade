@@ -1,68 +1,148 @@
 extends layout
 
 block content
-
-    .row
-        
-        .col-md-4.col-md-offset-4
     
-            img.img-responsive.center-block(src="/images/logo3.png" class="" alt="Responsive image" width="256")
-            
-            h1(align='center')
-                a.btn.btn-primary.btn-lg(href="/consulta", style='') Iniciar Sessão
+    nav.side-nav(role='navigation')
+      ul.nav-side-nav
+        li
+          a.tooltip-side-nav(href='#to-top', title='', data-original-title='Topo', data-placement='left')
+        li
+          a.tooltip-side-nav(href='#section-1', title='', data-original-title='Cartomancia', data-placement='left')
+        li
+          a.tooltip-side-nav(href='#section-2', title='', data-original-title='Funcionalidaes', data-placement='left')
+        li
+          a.tooltip-side-nav(href='#section-3', title='', data-original-title='Doações', data-placement='left')
         
-    .row
-        .col-md-6.col-md-offset-3
-            br
+    header.jumbotron(role='banner')
+      .container
+        .row
+          .col-md-12
+            figure.text-center
+              a(href='/')
+                img.img-logo(src='images/bruchat_logo.png', alt='')
+            h1 A Ferramenta de Cartomancia
+            p Com o BruChat, em apenas alguns passos você poderá criar uma sessão e realizar o atendimento de seu consulente online e em tempo real gratuitamente, acesse a ferramente através do botão abaixo.
+            p
+              a.btn.btn-danger.btn-lg(href='/consulta')
+                | Começar
             include shared/responsiveGoogleAds_1
-            
-    .col-md-3
-        .page-header
-            h3 
-                span.glyphicon.glyphicon-question-sign(aria-hidden="true")
-                span  O que é?
-        p O BruChat é uma ferramenta online para conectar virtualmente o cartomante e seu parceiro espiritual.
-                    
-                
-    .col-md-3
-        .page-header
-            h3
-                span.glyphicon.glyphicon-ok(aria-hidden="true")
-                span  Funcionalidades.
-            
-        h4  
-            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-            span Atuais
-        p
-            ul.list-group
-                li.list-group-item Baralho Lenormand
-            
-        h4 
-            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-            span Futuras
-        p
-            ul.list-group
-                li.list-group-item Tarot de Marselha
-                    
-    .col-md-3
-        .page-header
-            h3
-                span.glyphicon.glyphicon-heart(aria-hidden="true")
-                span  Doe.
-                
-        p O desenvolvimento deste projeto depende de você.
-        .col-md-6
-            include shared/pagSeguroDonation
-                
-        .col-md-6
-            include shared/paypalDonation
-             
-    .col-md-3
-        .page-header
-            h3 
-                span.glyphicon.glyphicon-thumbs-up(aria-hidden="true")
-                span  Social.
-        p 
-            a(href="https://www.facebook.com/bruchatonline" target='_blank') Curta nossa página 
-            span  e fique por dentro das novidades que serão lançadas.
     
+    section#section-1.services-section
+      .container
+        .row
+        
+            .col-md-4.col-services
+                // Icons
+                figure
+                img.img-services(src='images/marselha.png', alt='')
+                // Title
+                h4 Tarot de Marselha
+                // Description
+                p Em breve você poderá atender seus consulentes com o baralho do Tarot de Marselha
+            .col-md-4.col-services
+                // Icons
+                figure
+                img.img-services(src='images/lenormand_icon.png', alt='')
+                // Title
+                h4 Baralho Lenormand
+                // Description
+                p
+                | Você dispõe de 9 modos de jogo do Baralho Lenormand, crie uma sessão e confira.
+            
+            .col-md-4.col-services
+                // Icons
+                figure
+                    img.img-services.img-margin(src='images/runas.png', alt='')
+                // Title
+                h4 Runas Celtas
+                // Description
+                p Em breve você poderá atender seus consulentes com as Runas Celtas
+    
+    section#section-2.features-section
+      .container
+        .row
+          .col-md-5.col-features.text-center
+            // Images showcase
+            figure
+              img.img-iPhone(src='/templates/guri_guri/images/iphone/1.png', alt='')
+          .col-md-7.col-features.features-content
+            // Title
+            h3#title-1 Diversos modos de jogo
+            // Description
+            p
+              | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            p
+              a.btn.btn-danger(href='#' disabled) Saiba mais
+          // /.col-md-7
+        .row
+          .col-md-7.col-features.features-content
+            // Title
+            h3#title-2 Em tempo real
+            // Description
+            p
+              | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            p
+              a.btn.btn-danger(href='#' disabled) Saiba mais
+          // /.col-md-7
+          .col-md-5.col-features.text-center
+            // Images showcase
+            figure
+              img.img-iPhone.margin-top.margin-screen-800(src='/templates/guri_guri/images/iphone/4.png', alt='')
+          
+        .row
+          .col-md-5.col-features.text-center
+            // Images showcase
+            figure
+              img.img-iPhone.margin-top.margin-top-1(src='/templates/guri_guri/images/iphone/3.png', alt='')
+          // /.col-md-5
+          .col-md-7.col-features.features-content
+            // Title
+            h3#title-3 Com chat 
+            // Description
+            p
+              | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            // Button
+            p
+                a.btn.btn-danger(href='#' disabled) Saiba mais
+                
+    
+    // Subscribe
+    section#section-3.subscribe-section
+      .container
+        .row
+          .col-md-12
+            // Title
+            h2 Doe ♥
+            // Subscribe form
+            .row
+                .col-md-2
+                .col-md-2
+                
+                .col-md-2
+                    include shared/pagSeguroDonation
+                .col-md-2
+                    include shared/paypalDonation
+                    
+                .col-md-2
+                .col-md-2
+                
+              .col-md-6.col-md-offset-3.col-subscribe
+                section.subscribe-description
+                  p Pode clicar, não é vírus :)
+    
+    footer.footer-section(role='contentinfo')
+      .container
+        .row
+          .col-md-4.col-footer
+          .col-md-4.col-footer.col-padding
+            // Footer 1
+            section.text-center
+              p
+                | Leia os 
+                a(href='#fakelinks') Termos e Condições de uso
+                | .
+            // Social media links
+            ul.social-media-links
+              li
+                a.fa.fa-facebook.fb(href='https://www.facebook.com/bruchatonline' target="_blank")
+          .col-md-4.col-footer
