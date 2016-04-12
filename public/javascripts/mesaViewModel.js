@@ -22,7 +22,7 @@ function mesaViewModel() {
         ['mandalaAstrologica','Mandala Astrológica'],
         ['vinteUmaCartas','21 Cartas'],
         ['ferradura','Ferradura'],
-        ['magiaCigana','Magia Cigana (Mesa Real)'],
+        ['magiaCigana','Magia Cigana'],
         ['cruzCelta','Cruz Celta'],
         ['semana','Semana']
     ]).forEach(function(value, key) {

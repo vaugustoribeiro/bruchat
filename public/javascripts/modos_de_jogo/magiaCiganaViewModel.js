@@ -1,1 +1,1 @@
-ko.applyBindings(new modoJogoBaseViewModel('Magia Cigana (Mesa Real)', 36, 'magiaCigana'), $('#magiaCigana')[0]);
+ko.applyBindings(new modoJogoBaseViewModel('Magia Cigana', 36, 'magiaCigana'), $('#magiaCigana')[0]);
