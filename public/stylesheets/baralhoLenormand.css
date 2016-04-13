@@ -4,6 +4,7 @@
 
 .lenormand {
     background-size: 100% 100%;
+    border-radius: 3px;
 }
 
 .lenormand.cavaleiro {

@@ -1,35 +1,34 @@
-.row
 
-    script(src='/javascripts/loaderViewModel.js')
-    include loader
-    
-    script(src='/javascripts/modalViewModel.js')
-    include modal
-    
-    .col-md-4.col-md-offset-4(data-bind='visible: !conectado()')
-        script(src='/javascripts/paginaGenericaViewModel.js')
-        include paginaGenerica
-        br
-        br 
-    
-    .col-md-12(data-bind='visible: conectado')
-            
-        script(src='/javascripts/headViewModel.js')
-        include head
-    
-    .col-md-12
-        include responsiveGoogleAds_1
-    
-    h1(align='center', data-bind='visible: conectado')
-        a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: online') Desconectar
-        a.btn.btn-warning(href='#' data-bind='click: sair, visible: !online()') Sair
-                
-    .col-md-8(data-bind='visible: conectado')
-            script(src='/javascripts/mesaViewModel.js')
-            include mesa
+script(src='/javascripts/loaderViewModel.js')
+include loader
+
+script(src='/javascripts/modalViewModel.js')
+include modal
+
+.col-md-4.col-md-offset-4(data-bind='visible: !conectado()')
+    script(src='/javascripts/paginaGenericaViewModel.js')
+    include paginaGenerica
+    br
+    br 
+
+.col-md-12(data-bind='visible: conectado')
         
-    .col-md-4(data-bind='visible: conectado')
-            script(src='/javascripts/chatViewModel.js')
-            include chat
+    script(src='/javascripts/headViewModel.js')
+    include head
+
+.col-md-12
+    include responsiveGoogleAds_1
+
+h1(align='center', data-bind='visible: conectado')
+    a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: online') Desconectar
+    a.btn.btn-warning(href='#' data-bind='click: sair, visible: !online()') Sair
             
+.col-md-4(data-bind='visible: conectado')
+        script(src='/javascripts/chatViewModel.js')
+        include chat
+            
+.col-md-8(data-bind='visible: conectado')
+        script(src='/javascripts/mesaViewModel.js')
+        include mesa
+        
 script(src='/javascripts/appViewModel.js')

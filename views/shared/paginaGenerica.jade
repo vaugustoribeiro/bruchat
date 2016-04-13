@@ -1,7 +1,28 @@
-.row(data-bind="with: paginaGenerica()")
-        .page-header
-            h1(data-bind='text: titulo')
-        .form-group
-            label(data-bind='text: campo') 
-            input.form-control(data-bind='value: valorCampo, valueUpdate: "afterkeydown", attr: { "placeholder": placeHolder }', type='text')
-        input.btn.btn-primary(type='button', data-bind='enable: acaoBloqueada, value: titulo, click: acao')
+script.
+    $('body').removeClass('index').addClass('sign-in-up');
+
+section.sign-in-up-section(data-bind="with: paginaGenerica()")
+    .container
+        .row
+            .col-md-12
+                figure.text-center
+                    a(href='/')
+                        img.img-logo(src='/images/bruchat_logo.png', alt='')
+            
+        section.sign-in-up-content
+            .row
+                .col-md-12
+                    h4.text-center(data-bind='text: titulo')
+                    .sign-in-up-form
+                        .form-group
+                            input.form-control(data-bind='value: valorCampo, valueUpdate: "afterkeydown", attr: { "placeholder": placeHolder }', type='text')
+                        button.btn.btn-success.btn-block(data-bind='enable: acaoBloqueada, text: textoBotao, click: acao')
+                        
+                        
+    // .page-header
+    //     h1(data-bind='text: titulo')
+    // .form-group
+    //     label(data-bind='text: campo') 
+    //     input.form-control(data-bind='value: valorCampo, valueUpdate: "afterkeydown", attr: { "placeholder": placeHolder }', type='text')
+    // input.btn.btn-primary(type='button', data-bind='enable: acaoBloqueada, value: titulo, click: acao')
+    

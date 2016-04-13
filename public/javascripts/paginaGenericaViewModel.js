@@ -4,6 +4,7 @@ function paginaGenericaViewModel() {
     self.campo = ko.observable();
     self.valorCampo = ko.observable();
     self.placeHolder = ko.observable();
+    self.textoBotao = ko.observable();
     
     self.visivel = ko.observable(true);
     self.etapaCorrente = ko.observable(true);

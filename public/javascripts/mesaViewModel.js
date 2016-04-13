@@ -8,11 +8,12 @@ function mesaViewModel() {
 
     self.modosDeJogo = [];
     
-    self.modoDeJogoSelecionado = ko.observable();
+    self.modoDeJogoSelecionado = ko.observable({});
     
     self.selecionarModoDeJogo = function(modoDeJogo) {
         socket.emit('fc-selecionar-modo-de-jogo', modoDeJogo.id);
         modoDeJogo.carregar(self.readonly());
+        self.modoDeJogoSelecionado(modoDeJogo);
     };
     
     _([
@@ -48,7 +49,7 @@ function modoDeJogo() {
     var self = this;
     self.id = 0;
     self.nome = '';
-    self.view = ''
+    self.view = '';
     self.carregar = function(readonly) {
         $("#modoDeJogoSelecionado").load("/modosDejogo/" + self.view + '/' + readonly);
     };

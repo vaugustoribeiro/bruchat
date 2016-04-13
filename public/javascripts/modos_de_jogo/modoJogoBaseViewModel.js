@@ -37,13 +37,22 @@ function modoJogoBaseViewModel(titulo, quantidadeCartas, container, enabled) {
         
         var handled = false;
         
+        var condicao = function(e) {
+           return e.numero.toString() === self.numeroCarta();
+        };
+        
+        // verifica se a carta já foi escolhida
+        var cartaJaFoiEscolhida = _.find(self.cartas(), condicao);
+        
+        if(cartaJaFoiEscolhida) {
+            handled = true;
+        };
+        
         // busca a primeira carta que possua o valor digitado no input
-        var cartaLenormand = _.find(baralhoLenormand.cartas, function(e) {
-            return e.numero.toString() === self.numeroCarta();
-        });
+        var cartaLenormand = _.find(baralhoLenormand.cartas, condicao);
         
         // caso a carta exista
-        if (cartaLenormand) {
+        if (cartaLenormand && !handled) {
             
             // busca a primeira carta que ainda não foi escolhida
             var proximaCarta = _.find(self.cartas(), function(e) {
