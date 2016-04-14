@@ -1,10 +1,14 @@
 div(data-bind='with: mesa()')
     
     .col-md-4(data-bind='visible: !readonly()')
-        div.list-group(data-bind='foreach: modosDeJogo')
-            a.list-group-item(href='#' type='button' data-bind='text: nome, click: $parent.selecionarModoDeJogo, css: { active: $parent.modoDeJogoSelecionado().id === id }')
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Modos de Jogo
+            .panel-body  
+                div.list-group(data-bind='foreach: modosDeJogo')
+                    a.list-group-item(href='#' type='button' data-bind='text: nome, click: $parent.selecionarModoDeJogo, css: { active: $parent.modoDeJogoSelecionado().id === id }')
     
-    div(data-bind='css: { "col-md-12": readonly(), "col-md-8": !readonly() }')
+    div(data-bind='css: { "col-md-8": readonly(), "col-md-4": !readonly() }')
         #modoDeJogoSelecionado
     
     

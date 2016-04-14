@@ -1,14 +1,13 @@
-.panel.panel-default(data-bind='with: chat()')
+.panel.panel-primary.panel-transparent(data-bind='with: chat()')
     .panel-heading 
         h3.panel-title Chat - Mensagens  
             span.badge(data-bind='text: mensagens().length + " mensagens"')
-    .panel-body#mensagens(style='height: 300px; overflow: auto; position: relative;')
+    .panel-body.panel-body-transparent#mensagens(style='height: 300px; overflow: auto; position: relative;')
         div(data-bind='foreach: mensagens')
-            .row
-                div
-                    div(data-bind='attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
-                        span(data-bind='text: mensagem')
-                        div.pull-right(data-bind='text: dataHora')
+                div(data-bind='attr: { class: server ? "col-md-8 mensagem server" : "col-md-8 col-md-offset-4 mensagem local"}')
+                    div(data-bind='text: remetente' class='remetente')
+                    div(data-bind='text: mensagem' class='conteudo')
+                    div(data-bind='text: hora' class='hora')
     div(data-bind='visible: parceiroEscrevendo, text: vm.parceiroNome() + " está escrevendo..."' class="labelDigitando")
     .panel-footer(style='position: relative')
         textarea.form-control(placeholder='Digite a mensagem (enter para enviar)' style='width: 100%', data-bind='value: mensagem, hasFocus: focoMensagem, event: { keypress: enviarMensagemEnter }, valueUpdate: "afterkeydown", enable: online')

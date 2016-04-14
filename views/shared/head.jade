@@ -1,4 +1,11 @@
-.page-header(data-bind='with: head()', style='text-align: center')
-    h1(data-bind='text: titulo')
-    h4 Tempo online: 
-        span(data-bind='text: tempoOnlineFormatado')
+.panel.panel-primary.panel-transparent(data-bind='with: head()', style='text-align: center')
+    .panel-body.panel-body-transparent  
+        img.head.logo.col-md-2(src='/images/bruchat_logo.png' alt='' style='widht: 128px;')
+        .head.tempoOnline.col-md-3(align='center') Duração da Consulta: 
+            span(data-bind='text: tempoOnlineFormatado')
+        .head.titulo.col-md-4(align='center' data-bind='text: titulo')
+        .head.sairDesconectar.col-md-3(align='center' data-bind='visible: $root.conectado')
+            a.btn.btn-warning(href='#', data-bind='click: $root.desconectar, visible: $root.online') Desconectar
+            a.btn.btn-warning(href='#' data-bind='click: $root.sair, visible: !$root.online()') Sair
+    
+

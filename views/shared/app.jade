@@ -18,16 +18,12 @@ include modal
 
 .col-md-12
     include responsiveGoogleAds_1
-
-h1(align='center', data-bind='visible: conectado')
-    a.btn.btn-warning(href='#', data-bind='click: desconectar, visible: online') Desconectar
-    a.btn.btn-warning(href='#' data-bind='click: sair, visible: !online()') Sair
             
 .col-md-4(data-bind='visible: conectado')
         script(src='/javascripts/chatViewModel.js')
         include chat
             
-.col-md-8(data-bind='visible: conectado')
+div(data-bind='visible: conectado')
         script(src='/javascripts/mesaViewModel.js')
         include mesa
         

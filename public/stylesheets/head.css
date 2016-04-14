@@ -1,0 +1,20 @@
+.head.tempoOnline {
+    font-size: 18px;
+    margin-top: 40px !important;
+}
+.head.titulo {
+    font-size: 32px;
+    margin-top: 25px;
+}
+
+.head.titulo, .head.tempoOnline {
+    color: #fff;
+}
+
+.head.sairDesconectar {
+    margin-top: 25px;
+}
+
+.head.logo {
+    width: 128px;
+}
