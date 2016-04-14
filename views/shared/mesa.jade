@@ -1,10 +1,10 @@
 div(data-bind='with: mesa()')
     
     .col-md-4(data-bind='visible: !readonly()')
-        .panel.panel-primary
+        .panel.panel-primary.panel-transparent
             .panel-heading
                 h3.panel-title Modos de Jogo
-            .panel-body  
+            .panel-body.panel-body-transparent  
                 div.list-group(data-bind='foreach: modosDeJogo')
                     a.list-group-item(href='#' type='button' data-bind='text: nome, click: $parent.selecionarModoDeJogo, css: { active: $parent.modoDeJogoSelecionado().id === id }')
     

@@ -5,7 +5,7 @@
             span(data-bind='text: tempoOnlineFormatado')
         .head.titulo.col-md-4(align='center' data-bind='text: titulo')
         .head.sairDesconectar.col-md-3(align='center' data-bind='visible: $root.conectado')
-            a.btn.btn-warning(href='#', data-bind='click: $root.desconectar, visible: $root.online') Desconectar
-            a.btn.btn-warning(href='#' data-bind='click: $root.sair, visible: !$root.online()') Sair
+            a.btn.btn-success(href='#', data-bind='click: $root.desconectar, visible: $root.online') Desconectar
+            a.btn.btn-success(href='#' data-bind='click: $root.sair, visible: !$root.online()') Sair
     
 

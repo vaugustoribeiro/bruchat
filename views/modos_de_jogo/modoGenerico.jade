@@ -1,8 +1,8 @@
-.panel.panel-primary(data-bind='style: { width: alturaLargura() + "px"}')
+.panel.panel-primary.panel-transparent(data-bind='style: { width: alturaLargura() + "px"}')
     .panel-heading
         h3.panel-title(data-bind='text: titulo')
         
-    .panel-body(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
+    .panel-body.panel-body-transparent(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
         if READONLY
             div(data-bind='css: classes()')            
         else
