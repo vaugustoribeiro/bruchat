@@ -8,7 +8,8 @@ div(data-bind='with: mesa()')
                 div.list-group(data-bind='foreach: modosDeJogo')
                     a.list-group-item(href='#' type='button' data-bind='text: nome, click: $parent.selecionarModoDeJogo, css: { active: $parent.modoDeJogoSelecionado().id === id }')
     
-    div(data-bind='css: { "col-md-8": readonly(), "col-md-4": !readonly() }')
+    // (data-bind='css: { "col-md-8": readonly(), "col-md-4": !readonly() }')
+    .col-md-4 
         #modoDeJogoSelecionado
     
     
