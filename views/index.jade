@@ -7,7 +7,7 @@ block content
         // Brand and toggle get grouped for better mobile display
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#main-menu', aria-expanded='false')
-          a.navbar-brand(href='/') BC
+          a.navbar-brand(href='/') BruChat
         // Collect the nav links, forms, and other content for toggling
         #main-menu.collapse.navbar-collapse
           ul.nav.navbar-nav(data-bind='foreach: menuItems')
@@ -69,14 +69,14 @@ block content
               h3 Começar
               p Clique em Começar
               p
-                a.btn.btn-danger(href="#criar-sessao-cartomancia") Próximo passo
+                a.btn.btn-success(href="#criar-sessao-cartomancia") Próximo passo
               
           .row#criar-sessao-cartomancia
             .col-md-7.col-features.features-content
               h3 Criar Sessão de Cartomancia
               p Digite o seu nome e clique em Criar.
               p
-                a.btn.btn-danger(href="#aguardando-consulente") Próximo passo
+                a.btn.btn-success(href="#aguardando-consulente") Próximo passo
                 
             .col-md-5.col-features.text-center
               figure
@@ -90,30 +90,42 @@ block content
               h3 Aguardando Consulente 
               p Envie o link para o seu Consulente e aguarde-o. 
               p
-                a.btn.btn-danger(href="#entrando-na-sessao") Próximo passo
+                a.btn.btn-success(href="#entrando-na-sessao") Próximo passo
                 
           .row#entrando-na-sessao
             .col-md-7.col-features.features-content
               h3 Entrando na Sessão 
-              p Ao acessar o link recebido pelo Cartomante, o Consulente deverá inserir seu nome e clicar em Entrar.
+              p Ao acessar o link recebido pelo Cartomante, o Consulente deverá se identificar e clicar em Entrar.
               p
-                a.btn.btn-danger(href="#sessao-criada") Próximo passo
+                a.btn.btn-success(href="#sessao-criada-cartomante") Próximo passo
                  
             .col-md-5.col-features.text-center
               figure
                 img.img-iPhone(src='/images/tutorial/4.jpg', alt='')
               
-          .row#sessao-criada
+          .row#sessao-criada-cartomante
             .col-md-5.col-features.text-center
               figure
                 img.img-iPhone(src='/images/tutorial/5.jpg', alt='')
-                img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
             
             .col-md-7.col-features.features-content
-              h3 Sessão Criada
+              h3 Painel do Cartomante
               p Pronto, você e seu consulente estão conectados, escolha o modo de jogo mais pertinente a pergunta dele e utilize o chat para a comunicação.
               p
-                a.btn.btn-danger(href="#voltar") Voltar
+                a.btn.btn-success(href="#sessao-criada-consulente") Próximo passo
+          
+          .row#sessao-criada-consulente
+            .col-md-7.col-features.features-content
+              h3 Painel do Consulente
+              p O Consulente terá a disposição um chat e poderá visualizar o modo de jogo selecionado e as cartas que foram sorteadas.
+              p
+                a.btn.btn-success(href="#voltar") Voltar
+
+                 
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
+             
         
     // Subscribe
     section#doacoes.subscribe-section
