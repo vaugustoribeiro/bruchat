@@ -62,7 +62,6 @@ function chatViewModel() {
             var msg = new Mensagem();
             msg.remetente = vm.nome();
             msg.mensagem = self.mensagem();
-            msg.hora = obterHoraFormatada();
 
             self.mensagens.push(msg);
             socket.emit('fc-enviar-mensagem', msg);
@@ -73,7 +72,6 @@ function chatViewModel() {
     };
 
     socket.on('fs-enviar-mensagem', function(mensagem) {
-        var data = new Date();
         mensagem.server = true;
         self.mensagens.push(mensagem);
         self.scrollTopMensagens();
@@ -82,19 +80,12 @@ function chatViewModel() {
     socket.on('fs-escrevendo', function(escrevendo) {
         self.parceiroEscrevendo(escrevendo);
     });
-    
-    function obterHoraFormatada() {
-        var data = new Date();
-        var horas = data.getHours();
-        var minutes = data.getMinutes();
-        return (horas < 10 ? '0' + horas : horas) + ':' + (minutes < 10 ? '0' + minutes : minutes);
-    };
 };
 
 var Mensagem = function() {
     var self = this;
     self.remetente = '';
     self.mensagem = '';
-    self.hora = '';
+    self.hora = moment().format('HH:mm:ss');
     self.server = false;
 };

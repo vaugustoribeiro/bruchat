@@ -20,6 +20,7 @@
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.2",
     "masonry": "^4.0.0",
-    "knockout.mapping": "^2.0.1"
+    "knockout.mapping": "^2.0.1",
+    "moment": "momentjs#^2.12.0"
   }
 }

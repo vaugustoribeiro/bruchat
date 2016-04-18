@@ -4,9 +4,11 @@
         
     .panel-body.panel-body-transparent(data-bind='foreach: cartas, style: { width: alturaLargura() + "px", height: alturaLargura() + "px" }, css: css')
         if READONLY
-            div(data-bind='css: classes()')            
+            div(data-bind='css: classes()')
+                img.carta(data-bind='attr: { "src": src }, highlight: pendente')
         else
             div(data-bind='css: classes(), click: $parent.redefinirCarta')
+                img.carta(data-bind='attr: { "src": src }, highlight: pendente')
            
     if !READONLY
         .panel-footer
