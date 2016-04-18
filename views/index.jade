@@ -2,18 +2,19 @@ extends layout
 
 block content
     
-    nav.side-nav(role='navigation')
-      ul.nav-side-nav
-        li
-          a.tooltip-side-nav(href='#to-top', title='', data-original-title='Topo', data-placement='left')
-        li
-          a.tooltip-side-nav(href='#section-1', title='', data-original-title='Cartomancia', data-placement='left')
-        li
-          a.tooltip-side-nav(href='#section-2', title='', data-original-title='Funcionalidaes', data-placement='left')
-        li
-          a.tooltip-side-nav(href='#section-3', title='', data-original-title='Doações', data-placement='left')
-        
-    header.jumbotron(role='banner')
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#main-menu', aria-expanded='false')
+          a.navbar-brand(href='/') BC
+        // Collect the nav links, forms, and other content for toggling
+        #main-menu.collapse.navbar-collapse
+          ul.nav.navbar-nav(data-bind='foreach: menuItems')
+            li
+              a(data-bind='text: texto, css: { active: selecionado() }, attr: { href: href }')
+
+    header#home.jumbotron(role='banner')
       .container
         .row
           .col-md-12
@@ -23,11 +24,10 @@ block content
             h1 A Ferramenta de Cartomancia
             p BruChat é a ferramenta ideal para realizar o atendimento de consulentes em tempo real.
             p
-              a.btn.btn-success.btn-lg(href='/cartomante')
-                | Começar
+              a.btn.btn-success.btn-lg(href='/cartomante') Começar
             include shared/responsiveGoogleAds_1
     
-    section#section-1.services-section
+    section#jogos.services-section
       .container
         .row
         
@@ -58,8 +58,65 @@ block content
                 // Description
                 p Em breve...
         
+    section#como-funciona.features-section        
+        .container
+          
+          .row#voltar
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/1.jpg', alt='')
+            .col-md-7.col-features.features-content
+              h3 Começar
+              p Clique em Começar
+              p
+                a.btn.btn-danger(href="#criar-sessao-cartomancia") Próximo passo
+              
+          .row#criar-sessao-cartomancia
+            .col-md-7.col-features.features-content
+              h3 Criar Sessão de Cartomancia
+              p Digite o seu nome e clique em Criar.
+              p
+                a.btn.btn-danger(href="#aguardando-consulente") Próximo passo
+                
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/2.jpg', alt='')
+              
+          .row#aguardando-consulente
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/3.jpg', alt='')
+            .col-md-7.col-features.features-content
+              h3 Aguardando Consulente 
+              p Envie o link para o seu Consulente e aguarde-o. 
+              p
+                a.btn.btn-danger(href="#entrando-na-sessao") Próximo passo
+                
+          .row#entrando-na-sessao
+            .col-md-7.col-features.features-content
+              h3 Entrando na Sessão 
+              p Ao acessar o link recebido pelo Cartomante, o Consulente deverá inserir seu nome e clicar em Entrar.
+              p
+                a.btn.btn-danger(href="#sessao-criada") Próximo passo
+                 
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/4.jpg', alt='')
+              
+          .row#sessao-criada
+            .col-md-5.col-features.text-center
+              figure
+                img.img-iPhone(src='/images/tutorial/5.jpg', alt='')
+                img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
+            
+            .col-md-7.col-features.features-content
+              h3 Sessão Criada
+              p Pronto, você e seu consulente estão conectados, escolha o modo de jogo mais pertinente a pergunta dele e utilize o chat para a comunicação.
+              p
+                a.btn.btn-danger(href="#voltar") Voltar
+        
     // Subscribe
-    section#section-3.subscribe-section
+    section#doacoes.subscribe-section
       .container
         .row
           .col-md-12
@@ -98,3 +155,32 @@ block content
               li
                 a.fa.fa-facebook.fb(href='https://www.facebook.com/bruchatonline' target="_blank")
           .col-md-4.col-footer
+          
+    script.
+      var MenuItem = function(texto, href) {
+        var self = this;
+        self.texto = texto;
+        self.href = href;
+        self.selecionado = ko.observable(false);
+        self.selecionar = function() {
+          self.selecionado(true);
+        };
+      };
+    
+      var ViewModel = function() {
+        var self = this;
+        self.menuItems = [
+           new MenuItem('Home', '#home'),
+           new MenuItem('Jogos', '#jogos'),
+           new MenuItem('Como Funciona?', '#como-funciona'),
+           new MenuItem('Doações', '#doacoes')
+        ];
+      };
+
+      var vm = new ViewModel();
+      vm.menuItems[0].selecionado(true);
+
+      ko.applyBindings(vm);
+      
+      
+      
