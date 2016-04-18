@@ -4,15 +4,13 @@ block content
     
     nav.navbar.navbar-default.navbar-fixed-top
       .container-fluid
-        // Brand and toggle get grouped for better mobile display
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#main-menu', aria-expanded='false')
-          a.navbar-brand(href='/') BruChat
-        // Collect the nav links, forms, and other content for toggling
+          a.navbar-brand(href='#home' data-bind='click: function() { selecionarMenuItem("") }') BC
         #main-menu.collapse.navbar-collapse
           ul.nav.navbar-nav(data-bind='foreach: menuItems')
-            li
-              a(data-bind='text: texto, css: { active: selecionado() }, attr: { href: href }')
+            li(data-bind='css: { active: $parent.menuItemSelecionado() === texto }')
+              a(data-bind='text: texto, attr: { href: href }, click: $parent.selecionarMenuItem')
 
     header#home.jumbotron(role='banner')
       .container
@@ -60,8 +58,7 @@ block content
         
     section#como-funciona.features-section        
         .container
-          
-          .row#voltar
+          .row
             .col-md-5.col-features.text-center
               figure
                 img.img-iPhone(src='/images/tutorial/1.jpg', alt='')
@@ -70,63 +67,68 @@ block content
               p Clique em Começar
               p
                 a.btn.btn-success(href="#criar-sessao-cartomancia") Próximo passo
-              
-          .row#criar-sessao-cartomancia
+      
+    section#criar-sessao-cartomancia.features-section        
+        .container  
+          .row
             .col-md-7.col-features.features-content
               h3 Criar Sessão de Cartomancia
               p Digite o seu nome e clique em Criar.
               p
                 a.btn.btn-success(href="#aguardando-consulente") Próximo passo
-                
             .col-md-5.col-features.text-center
               figure
                 img.img-iPhone(src='/images/tutorial/2.jpg', alt='')
+  
+    section#aguardando-consulente.features-section        
+          .container            
+            .row
+              .col-md-5.col-features.text-center
+                figure
+                  img.img-iPhone(src='/images/tutorial/3.jpg', alt='')
+              .col-md-7.col-features.features-content
+                h3 Aguardando Consulente 
+                p Envie o link para o seu Consulente e aguarde-o. 
+                p
+                  a.btn.btn-success(href="#entrando-na-sessao") Próximo passo
+    
+    section#entrando-na-sessao.features-section        
+          .container              
+            .row
+              .col-md-7.col-features.features-content
+                h3 Entrando na Sessão 
+                p Ao acessar o link recebido pelo Cartomante, o Consulente deverá se identificar e clicar em Entrar.
+                p
+                  a.btn.btn-success(href="#sessao-criada-cartomante") Próximo passo
+              .col-md-5.col-features.text-center
+                figure
+                  img.img-iPhone(src='/images/tutorial/4.jpg', alt='')
+    
+    section#sessao-criada-cartomante.features-section        
+          .container            
+            .row
+              .col-md-5.col-features.text-center
+                figure
+                  img.img-iPhone(src='/images/tutorial/5.jpg', alt='')
+              .col-md-7.col-features.features-content
+                h3 Painel do Cartomante
+                p Pronto, você e seu consulente estão conectados, escolha o modo de jogo mais pertinente a pergunta dele e utilize o chat para a comunicação.
+                p
+                  a.btn.btn-success(href="#sessao-criada-consulente") Próximo passo
+    
+    section#sessao-criada-consulente.features-section        
+          .container        
+            .row
+              .col-md-7.col-features.features-content
+                h3 Painel do Consulente
+                p O Consulente terá a disposição um chat e poderá visualizar o modo de jogo selecionado e as cartas que foram sorteadas.
+                p
+                  a.btn.btn-success(href="#como-funciona") Voltar               
+              .col-md-5.col-features.text-center
+                figure
+                  img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
               
-          .row#aguardando-consulente
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/3.jpg', alt='')
-            .col-md-7.col-features.features-content
-              h3 Aguardando Consulente 
-              p Envie o link para o seu Consulente e aguarde-o. 
-              p
-                a.btn.btn-success(href="#entrando-na-sessao") Próximo passo
-                
-          .row#entrando-na-sessao
-            .col-md-7.col-features.features-content
-              h3 Entrando na Sessão 
-              p Ao acessar o link recebido pelo Cartomante, o Consulente deverá se identificar e clicar em Entrar.
-              p
-                a.btn.btn-success(href="#sessao-criada-cartomante") Próximo passo
-                 
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/4.jpg', alt='')
-              
-          .row#sessao-criada-cartomante
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/5.jpg', alt='')
-            
-            .col-md-7.col-features.features-content
-              h3 Painel do Cartomante
-              p Pronto, você e seu consulente estão conectados, escolha o modo de jogo mais pertinente a pergunta dele e utilize o chat para a comunicação.
-              p
-                a.btn.btn-success(href="#sessao-criada-consulente") Próximo passo
           
-          .row#sessao-criada-consulente
-            .col-md-7.col-features.features-content
-              h3 Painel do Consulente
-              p O Consulente terá a disposição um chat e poderá visualizar o modo de jogo selecionado e as cartas que foram sorteadas.
-              p
-                a.btn.btn-success(href="#voltar") Voltar
-
-                 
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
-             
-        
     // Subscribe
     section#doacoes.subscribe-section
       .container
@@ -173,26 +175,21 @@ block content
         var self = this;
         self.texto = texto;
         self.href = href;
-        self.selecionado = ko.observable(false);
-        self.selecionar = function() {
-          self.selecionado(true);
-        };
       };
     
       var ViewModel = function() {
         var self = this;
+        self.menuItemSelecionado = ko.observable();
         self.menuItems = [
-           new MenuItem('Home', '#home'),
            new MenuItem('Jogos', '#jogos'),
            new MenuItem('Como Funciona?', '#como-funciona'),
            new MenuItem('Doações', '#doacoes')
         ];
+        self.selecionarMenuItem = function(menuItem) {
+          self.menuItemSelecionado(menuItem.texto);
+        };
       };
-
-      var vm = new ViewModel();
-      vm.menuItems[0].selecionado(true);
-
-      ko.applyBindings(vm);
+      ko.applyBindings(new ViewModel());
       
       
       

@@ -162,8 +162,8 @@
 
 .navbar-brand {
   float: left;
-  padding: ($navbar-padding-vertical + 8) $navbar-padding-horizontal;
-  font-size: ($font-size-h3 + 1);
+  padding: ($navbar-padding-vertical) $navbar-padding-horizontal;
+  font-size: ($font-size-h4 + 1);
   font-weight: 600;
   line-height: $line-height-computed;
   height: $navbar-height;
@@ -232,7 +232,7 @@
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;
-    font-size: ($font-size-large - 1);
+    font-size: ($font-size-small - 1);
     line-height: $line-height-computed;
   }
 
@@ -268,8 +268,8 @@
     > li {
       float: left;
       > a {
-        padding-top:    ($navbar-padding-vertical + 8); //  ~15px
-        padding-bottom: ($navbar-padding-vertical + 8); //  ~15px
+        //padding-top:    ($navbar-padding-vertical + 8); //  ~15px
+        //padding-bottom: ($navbar-padding-vertical + 8); //  ~15px
       }
     }
 
