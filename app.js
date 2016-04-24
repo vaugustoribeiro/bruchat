@@ -11,6 +11,9 @@ var modosDeJogo = require('./routes/modosDeJogo');
 var cartomante = require('./routes/cartomante');
 var consulente = require('./routes/consulente');
 
+var dotenv = require('dotenv');
+dotenv.load();
+
 var app = express();
 
 // view engine setup

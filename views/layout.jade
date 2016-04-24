@@ -46,7 +46,7 @@ html(lang="en")
             reconnectionDelayMax: 1000,
             timeout: 60000  
         };
-        socket = io.connect("/", socketConfig);
+        socket = io.connect($("#SOCKETIO_URL").val(), socketConfig);
     
     script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,6 +58,8 @@ html(lang="en")
         
     script.
         fbq('track', 'ViewContent');
+    
+    input(type='hidden' id="SOCKETIO_URL" value=SOCKETIO_URL)
        
     block content
     
