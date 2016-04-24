@@ -7,7 +7,7 @@ with(criarSessao) {
     acaoCallback(function() {
         with(vm.loader()){
             titulo("Aguardando o Consulente.");
-            conteudo('<span>Envie este link para seu consulente: <a href="' + vm.urlAcessoParceiro() + '" target="_blank">' + vm.urlAcessoParceiro() + '</a></span>')
+            conteudo('<span>Envie este link para seu consulente: <a href="' + vm.urlAcessoParceiro() + '" target="_blank" style="word-break: break-all;">' + vm.urlAcessoParceiro() + '</a></span>')
             show();
         }
         vm.mesa().readonly(false);
