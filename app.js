@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var consulta = require('./routes/consulta');
 var modosDeJogo = require('./routes/modosDeJogo');
 var cartomante = require('./routes/cartomante');
 var consulente = require('./routes/consulente');
@@ -36,7 +35,6 @@ app.use('/public/templates', express.static(path.join(__dirname, '/templates')))
 
 
 app.use('/', routes);
-app.use('/consulta', consulta);
 app.use('/modosDeJogo', modosDeJogo);
 app.use('/cartomante', cartomante);
 app.use('/consulente', consulente);
