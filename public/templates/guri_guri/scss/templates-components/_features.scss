@@ -4,7 +4,7 @@
 
 
 .features-section {
-	@include section-styles($back: $gray-lighter, $ta: left, $padding: ($templates-global-padding * 5) 0);
+	@include section-styles($back: $gray-lighter, $ta: center, $padding: ($templates-global-padding * 5) 0);
 
   .row {
 

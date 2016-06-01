@@ -2,6 +2,9 @@ extends layout
 
 block content
     
+    include shared/termosECondicoesDeUso
+    
+    
     nav.navbar.navbar-default.navbar-fixed-top
       .container-fluid
         .navbar-header
@@ -23,16 +26,15 @@ block content
             figure.text-center
               a(href='/')
                 img.img-logo(src='images/bruchat_logo.png', alt='')
-            h1 A Ferramenta de Cartomancia
+            h1 Esoterismo Online
             p BruChat é a ferramenta ideal para realizar o atendimento de consulentes em tempo real.
             p
               a.btn.btn-success.btn-lg(href='/cartomante') Começar
             include shared/responsiveGoogleAds_1
     
-    section#jogos.services-section
+    section#oraculos.services-section
       .container
         .row
-        
             .col-md-4.col-services
                 // Icons
                 figure
@@ -60,80 +62,19 @@ block content
                 // Description
                 p Em breve...
         
+    
     section#como-funciona.features-section        
+                
         .container
           .row
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/1.jpg', alt='')
-            .col-md-7.col-features.features-content
-              h3 Começar
-              p Clique em Começar
-              p
-                a.btn.btn-success(href="#criar-sessao-cartomancia") Próximo passo
-      
-    section#criar-sessao-cartomancia.features-section        
-        .container  
-          .row
-            .col-md-7.col-features.features-content
-              h3 Criar Sessão de Cartomancia
-              p Digite o seu nome e clique em Criar.
-              p
-                a.btn.btn-success(href="#aguardando-consulente") Próximo passo
-            .col-md-5.col-features.text-center
-              figure
-                img.img-iPhone(src='/images/tutorial/2.jpg', alt='')
-  
-    section#aguardando-consulente.features-section        
-          .container            
-            .row
-              .col-md-5.col-features.text-center
-                figure
-                  img.img-iPhone(src='/images/tutorial/3.jpg', alt='')
-              .col-md-7.col-features.features-content
-                h3 Aguardando Consulente 
-                p Envie o link para o seu Consulente e aguarde-o. 
-                p
-                  a.btn.btn-success(href="#entrando-na-sessao") Próximo passo
-    
-    section#entrando-na-sessao.features-section        
-          .container              
-            .row
-              .col-md-7.col-features.features-content
-                h3 Entrando na Sessão 
-                p Ao acessar o link recebido pelo Cartomante, o Consulente deverá se identificar e clicar em Entrar.
-                p
-                  a.btn.btn-success(href="#sessao-criada-cartomante") Próximo passo
-              .col-md-5.col-features.text-center
-                figure
-                  img.img-iPhone(src='/images/tutorial/4.jpg', alt='')
-    
-    section#sessao-criada-cartomante.features-section        
-          .container            
-            .row
-              .col-md-5.col-features.text-center
-                figure
-                  img.img-iPhone(src='/images/tutorial/5.jpg', alt='')
-              .col-md-7.col-features.features-content
-                h3 Painel do Cartomante
-                p Pronto, você e seu consulente estão conectados, escolha o modo de jogo mais pertinente a pergunta dele e utilize o chat para a comunicação.
-                p
-                  a.btn.btn-success(href="#sessao-criada-consulente") Próximo passo
-    
-    section#sessao-criada-consulente.features-section        
-          .container        
-            .row
-              .col-md-7.col-features.features-content
-                h3 Painel do Consulente
-                p O Consulente terá a disposição um chat e poderá visualizar o modo de jogo selecionado e as cartas que foram sorteadas.
-                p
-                  a.btn.btn-success(href="#como-funciona") Voltar               
-              .col-md-5.col-features.text-center
-                figure
-                  img.img-iPhone(src='/images/tutorial/6.jpg', alt='')
-              
-          
-    // Subscribe
+            h2 Como Funciona?        
+            p Veja abaixo a apresentação criada pelo digníssimo canal 
+              a(href="https://www.youtube.com/channel/UCe245X8-_aRJ_Jes_umMFew") Sorte Lenormand
+              | .
+            
+            .embed-responsive.embed-responsive-16by9
+                iframe(width='854', height='480', src='https://www.youtube.com/embed/WycFxqHZjGo', frameborder='0', allowfullscreen='')
+            
     section#doacoes.subscribe-section
       .container
         .row
@@ -166,7 +107,7 @@ block content
             section.text-center
               p
                 | Leia os 
-                a(href='#fakelinks') Termos e Condições de uso
+                a(href='#' data-toggle="modal" data-target="#termosCondicoesUso") Termos e Condições de uso
                 | .
             // Social media links
             ul.social-media-links
@@ -185,7 +126,7 @@ block content
         var self = this;
         self.menuItemSelecionado = ko.observable();
         self.menuItems = [
-           new MenuItem('Jogos', '#jogos'),
+           new MenuItem('Oráculos', '#oraculos'),
            new MenuItem('Como Funciona?', '#como-funciona'),
            new MenuItem('Doações', '#doacoes')
         ];
